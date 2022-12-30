@@ -1,4 +1,10 @@
-@import "./container";
-@import "./header__nav";
-@import "./hero__header";
-@import "./button";
+@import "./components/header";
+@import "./components/hero";
+@import "./components/container";
+@import "./components/button";
+@import "./components/cocktails";
+@import "./components/favorite-cocktails";
+@import "./components/favorite-ingridients";
+@import "./components/footer";
+@import "./components/modal/description-cocktails";
+@import "./components/modal/description-ingridients";
