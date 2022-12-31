@@ -1,3 +1,57 @@
-.nav__menu {
-    color: var(--gray-text-color);
+.header {
+
+
+    @media screen and (min-width: 768px) {
+        // padding-top: 20px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        // padding-top: 8px;
+    }
 }
+
+.header__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+margin-top: 20px;
+margin-left: 20px;
+margin-right: 20px;
+    
+    
+}
+
+.logo__link{
+position: relative;
+}
+
+.logo {
+font-weight: 400;
+font-size: 22px;
+line-height: 109%;
+letter-spacing: 0.02em;
+
+color: #FD5103;
+//     &:before{
+//     position: absolute;
+//         content: '';
+//     background-image: url('../images/header_img/cocktail.png');
+//     background-color: transparent;
+//         background-size: contain;
+//         background-repeat: no-repeat;
+//     fill: linear-gradient(180deg, #FD6750 0%, #FFEB1F 78.95%);
+// }
+}
+// .logo__link-svg{
+//     position: absolute;
+//     top: -5px;
+//     right: 1190px;
+//     fill: linear-gradient(180deg, #FD6750 0%, #FFEB1F 78.95%);
+// }
+
+//   -----------------------------Инпут----------------
+.search-container__form {}
+
+.search-btn {}
+
+.material-symbols-outlined {}
