@@ -1,0 +1,21 @@
+.footer__container {
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0;
+    background-color: var(--orange-text-color);
+    position: relative;
+    @media screen and (min-width: 480px) and (max-width: 767px) {
+        width: 320px;
+        height: 110px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 768px;
+        height: 110px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 1280px;
+        height: 110px;
+    }
+}
