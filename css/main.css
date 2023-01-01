@@ -29,12 +29,21 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+}
+
+.div-container__left {
+  display: flex;
 }
 
 .logo__link {
   position: relative;
+}
+
+.logo__link-svg {
+  top: 10px;
+  position: absolute;
+  top: -19px;
+  right: 18px;
 }
 
 .logo {
@@ -43,4 +52,81 @@
   line-height: 109%;
   letter-spacing: 0.02em;
   color: #FD5103;
+}
+@media screen and (min-width: 768px) {
+  .logo {
+    font-size: 28px;
+    line-height: 89%;
+  }
+}
+
+.div-container__right {
+  display: flex;
+}
+
+.site-nav {
+  display: flex;
+  margin-left: 43px;
+}
+@media screen and (max-width: 1200px) {
+  .site-nav {
+    display: none;
+  }
+}
+
+.site-nav__list {
+  display: flex;
+}
+
+.site-nav__item {
+  margin-right: 60px;
+}
+
+.site-nav__link {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 133%;
+  letter-spacing: 0.02em;
+  color: #202025;
+}
+
+.search-container__form {
+  margin-right: 40px;
+  display: flex;
+  width: 288px;
+  height: 40px;
+  border: 1px solid #FD5103;
+  border-radius: 4px;
+}
+@media screen and (max-width: 767px) {
+  .search-container__form {
+    display: none;
+  }
+}
+
+.search-btn {
+  background-color: transparent;
+  border: transparent;
+}
+
+.imput__header {
+  border-left: 1px solid #fd5103;
+  width: 100%;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.mob-menu__btn {
+  background-color: transparent;
+  border-color: transparent;
+}
+@media screen and (min-width: 1199px) {
+  .mob-menu__btn {
+    display: none;
+  }
+}
+
+.mob-menu__svg {
+  align-self: center;
 }/*# sourceMappingURL=main.css.map */
