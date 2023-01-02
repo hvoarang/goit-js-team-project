@@ -35,7 +35,7 @@
   justify-content: center;
   border-radius: 4px;
   outline: 0;
-  border: 1px solid #fd5103;
+  border: 1px solid var(--orange-text-color);
 }
 .button__learn-more {
   background-color: var(--orange-auxiliry-color);
@@ -53,9 +53,9 @@
   border: 1px solid #f5f5f5;
 }
 .button__learn-more:active {
-  background-color: #fd5103;
+  background-color: var(--orange-text-color);
   color: #ffffff;
-  border: 1px solid #fd5103;
+  border: 1px solid var(--orange-text-color);
 }
 .button__add-or-remove {
   background-color: var(--white-bg-color);
@@ -74,7 +74,7 @@
 .button__add-or-remove:active {
   background-color: var(--white-bg-color);
   color: #fd5103;
-  border: 1px solid #fd5103;
+  border: 1px solid var(--orange-text-color);
 }
 .button__add-or-remove:active .product__small-icon--add {
   fill: #fd5103;
