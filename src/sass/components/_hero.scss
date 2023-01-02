@@ -1,23 +1,27 @@
 .hero {
   display: block;
   position: relative;
-  width: 100%;
+ 
   margin-bottom: 40px;
 
   @media screen and (min-width: 480px) {
     width: 460px;
-    margin-left: auto;
-    margin-right: auto;
+    // margin-left: auto;
+    // margin-right: auto;
   }
 
   @media screen and (min-width: 768px) {
     width: 704px;
     // margin-left: auto;
     // margin-right: auto;
-    // display: flex;
+   
   }
   @media screen and (min-width: 1200px) {
-    padding: 20px 15px 0 15px;
+    width: 1200px;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+   
   }
 }
 .hero__tittle {
@@ -58,19 +62,21 @@
   margin-bottom: 28px;
   margin-left: auto;
   margin-right: auto;
+  width: 300px;
+  height: 367px;
 
   @media screen and (min-width: 768px) {
     width: 336px;
     height: 465px;
     position: absolute;
-    top: -70px;
+    top: -85px;
     left: 400px;
   }
   @media screen and (min-width: 1200px) {
     width: 501px;
     height: 580px;
-    top: -70px;
-    left: 750px;
+    top: -65px;
+    left: 700px;
   }
 }
 
@@ -112,7 +118,7 @@
   }
 
   &:focus {
-    color: var(--orange-text-color);
+       color: var(--orange-text-color);
     // border: 1px solid #5F6775;
 
     text-shadow: 0.05em 0 var(--gray-text-color),
