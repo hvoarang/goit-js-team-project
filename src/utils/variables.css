@@ -1,8 +1,10 @@
 :root {
     --black-bg-color: #202025;
     --white-bg-color: #FCFCFC;
+    --button-bg-color: #f5f5f5;
     --gray-text-color: #5F6775;
     --orange-text-color: #FD5103;
+    --orange-border-color: #ff8650;
     --orange-auxiliry-color: #FE7031;
 }
 
