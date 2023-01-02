@@ -44,6 +44,8 @@
           <input class="imput__header" type="text" name="searchQuery" autocomplete="off" placeholder="Search |" />
         </form>
         
+
+
         <button class="mob-menu__btn">
           <svg  class="mob-menu__svg" width="30" height="16" viewBox="0 0 30 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="30" height="2" rx="1" fill="black" />
@@ -51,8 +53,64 @@
             <rect y="14" width="30" height="2" rx="1" fill="black" />
           </svg>
       </button>
+  <div class="backdrop-mob js-menu-container" id="menu-container">
+    <div class="container">
+    <div class="mob-menu__nav">
+      <ul class="mob-menu__list">
+        <li class="mob-menu__item">
+          <a href="#" class="mob-menu__link" data-scroll="hd">Home</a>
+        </li>
+        <li class="mob-menu__item">
+          <div class="select__div">Favorite
+            <select  class="select" name="favorite_select" id="select">
+              <option value="#"></option>
+              <option value="#">HTML</option>
+              <option value="#">CSS</option>
+          </select>
+          </div>
+        </li>
+      </ul>
+    </div>
+    </div>
+  </div>
+
+
+      <div class="checkbox">
+        <span class="checkbox__light">Light</span>
+          <label id="switch" class="switch">
+          <input type="checkbox" onchange="toggleTheme()" id="slider">
+          <span class="slider round"></span>
+        <span class="checkbox__dark">Dark</span>
+      </div>
       </div>  
     </div>
   </div>
 
 </header>
+
+
+<!-- // function to set a given theme/color-scheme
+function setTheme(themeName) {
+localStorage.setItem('theme', themeName);
+document.documentElement.className = themeName;
+}
+
+// function to toggle between light and dark theme
+function toggleTheme() {
+if (localStorage.getItem('theme') === 'theme-dark') {
+setTheme('theme-light');
+} else {
+setTheme('theme-dark');
+}
+}
+
+// Immediately invoked function to set the theme on initial load
+(function () {
+if (localStorage.getItem('theme') === 'theme-dark') {
+setTheme('theme-dark');
+document.getElementById('slider').checked = false;
+} else {
+setTheme('theme-light');
+document.getElementById('slider').checked = true;
+}
+})(); -->
