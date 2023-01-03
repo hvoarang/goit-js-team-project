@@ -32,7 +32,7 @@ export function fetchApi(url, el) {
 
 // const ListEl=document.querySelector(".hero__list");
 
-searchForm.addEventListener('submit', eventSearch);
+// searchForm.addEventListener('submit', eventSearch);
 
 // export function eventSearch(e) {
 //     e.preventDefault();
