@@ -2,9 +2,10 @@
   const mobileMenu = document.querySelector('.js-menu-container');
   const openMenuBtn = document.querySelector('.js-open-menu');
   const closeMenuBtn = document.querySelector('.js-close-menu');
+
   const toggleMenu = () => {
     const isMenuOpen =
-      openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
+    openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
     openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
     mobileMenu.classList.toggle('is-open');
 
@@ -27,20 +28,43 @@
 })();
 
 // -- scroll getElement
-const scrollBtn = document.querySelectorAll('[data-scroll]');
-const mobileMenu = document.querySelector('.js-menu-container');
-const mobileMenuItems = document.querySelectorAll('.mob-menu__item a');
-scrollBtn.forEach(function (item) {
-  item.addEventListener('click', function (event) {
-    event.preventDefault();
+// const scrollBtn = document.querySelectorAll('[data-scroll]');
+// const mobileMenu = document.querySelector('.js-menu-container');
+// const mobileMenuItems = document.querySelectorAll('.mob-menu__item a');
+// scrollBtn.forEach(function (item) {
+//   item.addEventListener('click', function (event) {
+//     event.preventDefault();
 
-    const blockId = document.querySelector('#' + this.dataset.scroll);
-    const blockOfset = blockId.offsetTop;
-    window.scrollTo({ top: blockOfset, behavior: 'smooth' });
+//     const blockId = document.querySelector('#' + this.dataset.scroll);
+//     const blockOfset = blockId.offsetTop;
+//     window.scrollTo({ top: blockOfset, behavior: 'smooth' });
 
-    mobileMenu.classList.remove('is-open');
-  });
-});
+//     mobileMenu.classList.remove('is-open');
+//   });
+// });
+
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
 
 
 // const modalButtons = document.querySelectorAll('.js-menu-container');

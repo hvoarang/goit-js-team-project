@@ -26,17 +26,13 @@
 
 a {
   text-decoration: none;
-  color: #000000;
-}
-
-input:focus {
-  border-color: var(--orange-auxiliry-color);
+  color: var(--black-bg-color);
 }
 
 .header__wrap {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 250px;
   margin-top: 20px;
 }
 
@@ -60,7 +56,7 @@ input:focus {
   font-size: 22px;
   line-height: 109%;
   letter-spacing: 0.02em;
-  color: #FD5103;
+  color: var(--orange-text-color);
 }
 @media screen and (min-width: 768px) {
   .logo {
@@ -71,6 +67,7 @@ input:focus {
 
 .div-container__right {
   display: flex;
+  align-items: center;
 }
 
 .site-nav {
@@ -94,15 +91,14 @@ input:focus {
   font-size: 18px;
   line-height: 133%;
   letter-spacing: 0.02em;
-  color: #202025;
+  color: var(--black-bg-color);
 }
 
 .search-container__form {
-  margin-right: 170px;
   display: flex;
   width: 288px;
   height: 40px;
-  border: 1px solid #FD5103;
+  border: 1px solid var(--orange-text-color);
   border-radius: 4px;
 }
 @media screen and (max-width: 767px) {
@@ -110,27 +106,45 @@ input:focus {
     display: none;
   }
 }
+@media screen and (max-width: 1199px) {
+  .search-container__form {
+    margin-right: 40px;
+  }
+}
 
 .search-container__form-mob {
-  margin-top: 44px;
   display: flex;
   width: 280px;
   height: 40px;
-  border: 1px solid #FD5103;
+  margin: 44 auto 0 auto;
+  border: 1px solid var(--orange-text-color);
   border-radius: 4px;
+}
+@media screen and (min-width: 768px) {
+  .search-container__form-mob {
+    display: none;
+  }
 }
 
 .search-btn {
   background-color: transparent;
-  border: transparent;
+  border-right: 1px solid var(--orange-text-color);
+  border-left-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
 }
 
 .imput__header {
-  border-left: 1px solid #fd5103;
   width: 100%;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
+  border: transparent;
+}
+.imput__header:focus {
+  outline: none;
+  border: none;
+}
+.imput__header:hover {
+  outline: none;
+  border: none;
 }
 
 .js-open-menu {
@@ -155,7 +169,7 @@ input:focus {
   top: 0;
   left: 0;
   z-index: 2;
-  background-color: #fff;
+  background-color: var(--white-bg-color);
   transform: translateX(-100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -177,7 +191,8 @@ input:focus {
     margin-top: 20px;
     margin-left: 20px;
     display: flex;
-    gap: 60px;
+    align-items: flex-end;
+    gap: 69px;
   }
 }
 
@@ -218,7 +233,7 @@ input:focus {
 }
 @media screen and (min-width: 768px) and (max-width: 1199.9px) {
   .mob-menu__nav {
-    margin-top: 76px;
+    margin-top: 60px;
   }
 }
 
@@ -227,18 +242,24 @@ input:focus {
   flex-direction: column;
   gap: 32px;
 }
+@media screen and (min-width: 768px) {
+  .mob-menu__list {
+    margin-left: 320px;
+  }
+}
 
 .mob-menu__item {
   font-weight: 400;
   font-size: 28px;
   line-height: 86%;
-  color: #000000;
+  color: var(--black-bg-color);
   letter-spacing: 0.02em;
 }
 
 .mob-menu__link {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .select__div {
   display: flex;
 }
@@ -248,27 +269,104 @@ input:focus {
   height: 24px;
   border: transparent;
 }
+.select:hover {
+  border: transparent;
+}
+.select:focus {
+  border: transparent;
+}
 
 .select-options {
   font-weight: 400;
-  font-size: 22px;
-  line-height: 191%;
-  color: #202025;
+  font-size: 18px;
+  line-height: 133%;
+  letter-spacing: 0.02em;
+  color: var(--black-bg-color);
+  border-color: var(--orange-text-color);
+  border-radius: 4px;
+  color: var(--white-bg-color);
+  background: var(--orange-text-color);
 }
 
 .js-close-menu {
   position: absolute;
-  fill: #202025;
+  fill: var(--black-bg-color);
   display: flex;
   width: 32px;
   height: 32px;
-  top: 22px;
+  top: 19px;
   right: 20px;
   border: none;
   background-color: transparent;
   cursor: pointer;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.dropbtn {
+  background-color: transparent;
+  letter-spacing: 0.02em;
+  color: var(--black-bg-color);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 133%;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn-mob {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 86%;
+  letter-spacing: 0.02em;
+  color: var(--black-bg-color);
+  padding: 0;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--white-bg-color);
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: var(--black-bg-color);
+  padding: 12px;
+  display: block;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 133%;
+  letter-spacing: 0.02em;
+}
+.dropdown-content a:focus, .dropdown-content a :hover {
+  background-color: var(--orange-text-color);
+  color: var(--white-bg-color);
+}
+
+.dropdown a:hover {
+  background-color: var(--orange-text-color);
+  color: var(--white-bg-color);
+}
+
+.show {
+  display: block;
+}
+
+.dropdown-content.show {
+  background-color: transparent;
+  border: 1px solid var(--orange-text-color);
+  border-radius: 4px;
+  width: 210px;
+}
+
 /******************** Hide default HTML checkbox ***********************/
 /* The switch - the box around the slider */
 .checkbox {
@@ -286,7 +384,7 @@ input:focus {
   font-weight: 400;
   font-size: 14px;
   line-height: 171%;
-  color: #FD5103;
+  color: var(--orange-text-color);
 }
 
 .checkbox__dark {
@@ -294,7 +392,7 @@ input:focus {
   font-weight: 400;
   font-size: 14px;
   line-height: 171%;
-  color: #000000;
+  color: var(--black-bg-color);
 }
 
 .switch {
@@ -317,8 +415,8 @@ input:focus {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #fff;
-  border: 0.604701px solid #FD5103;
+  background-color: var(--white-bg-color);
+  border: 0.604701px solid var(--orange-text-color);
   border-radius: 20px;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -336,17 +434,17 @@ input:focus {
   margin: auto 0;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  box-shadow: 0 0px 15px rgba(32, 32, 32, 0.2392156863);
+  box-shadow: 0 0px 15px var(--black-bg-color);
   background-repeat: no-repeat;
   background-position: center;
 }
 
 input:checked + .slider {
-  background-color: #FD5103;
+  background-color: var(--orange-text-color);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #FD5103;
+  box-shadow: 0 0 1px var(--orange-text-color);
 }
 
 input:checked + .slider:before {
