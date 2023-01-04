@@ -28,28 +28,28 @@ function emptyMarkUp() {
     <picture>
       <source
         srcset="
-          ./images/cocktails/pc/pc-x1/empty-state-1x.png 1x,
-          ./images/cocktails/pc/pc-x2/empty-state-2x.png 2x
+          ./images/empty-state@1x.png 1x,
+          ./images/empty-state@2x.png 2x
         "
-        media="(min-width:1200px)"
+        media="(min-width:1280px)"
       />
       <source
         srcset="
-          ./images/cocktails/fablet/fablet-x1/empty-state-1x.png 1x,
-          ./images/cocktails/fablet/fablet-x2/empty-state-2x.png 2x
+          ./images/empty-state@1x.png 1x,
+          ./images/empty-state@2x.png 2x,
         "
         media="(min-width:768px)"
       />
       <source
         srcset="
-          ./images/cocktails/phone/phone-x1/empty-state-1x.png 1x,
-          ./images/cocktails/phone/phone-x2/empty-state-2x.png 2x
+          ./images/empty-state@m1x.png 1x,
+          ./images/empty-state@m2x.png 2x,
         "
         media="(max-width:767px)"
       />
       <img
         class="product__empty-image"
-        src="./images/cocktails/phone/phone-x1/empty-state-1x.png"
+        src="./images/empty-state@m1x.png"
         alt="cocktail"
         width="280"
         height="308"
