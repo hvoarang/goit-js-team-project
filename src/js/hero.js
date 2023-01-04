@@ -13,7 +13,7 @@ export function takeCoctails(e) {
     fetchApi(url_by_first_letter, target.textContent)
       .then(obj => {
         // додати функцію рендору сторінки, параметром передати obj
-        createMarkup(obj.drinks);
+        // createMarkup(obj.drinks);
         // console.log(obj);
       })
       .catch(err => {
@@ -21,6 +21,8 @@ export function takeCoctails(e) {
       });
   }
 }
+
+
 
 const select2 = new ItcCustomSelect('#select-2', {
   name: 'letter', // значение атрибута name у кнопки
