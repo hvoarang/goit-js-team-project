@@ -1,6 +1,7 @@
 const getEl = el => document.querySelector(el);
-import orangeHeart from '../images/svg/orangeHeart.svg';
+import orangeHeart from '../images/svg/icons.svg';
 import twoColorHeart from '../images/svg/twoColorsHeart.svg';
+// import emptyState from '../images/cocktails/phone/phone-x1/empty-state-1x.png';
 
 // const heartWraper = document.querySelector('.product__heart-wraper');
 
@@ -12,6 +13,7 @@ import twoColorHeart from '../images/svg/twoColorsHeart.svg';
 
 export function createMarkup(obj) {
   // console.log(obj.length);
+
   if (!obj) {
     emptyMarkUp();
     return;
@@ -112,17 +114,14 @@ function createFullMarkup(obj) {
             <h3 class="product__subtitle">${cocktail.strDrink}</h3>
             <div class="product__buttons">
               <button class="button button__learn-more">Learn more</button>
-              <button class="button button__add">
+              <button class="button button__add-or-remove">
                 Add to
                 <div class="product__heart-wraper">
-                <img class="product__big-icon--add" width="19" height="17" src=${twoColorHeart} alt="some file" />
-                  
-                  <svg
-                    class="product__small-icon--remove"
-                    width="15.38"
-                    height="13.42"
-                  >
-                    <use href="./images/svg/icons.svg#small-heart"></use>
+                  <svg class="product__big-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+                    <use href="#bigHeart"></use>
+                  </svg>
+                  <svg class="product__small-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+                    <use href="#smallHeart"></use>
                   </svg>
                 </div>
               </button>
