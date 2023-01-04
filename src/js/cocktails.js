@@ -1,6 +1,4 @@
 const getEl = el => document.querySelector(el);
-import orangeHeart from '../images/svg/orangeHeart.svg';
-import twoColorHeart from '../images/svg/twoColorsHeart.svg';
 
 // const heartWraper = document.querySelector('.product__heart-wraper');
 
