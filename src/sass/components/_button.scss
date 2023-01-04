@@ -66,7 +66,7 @@
   &__remove {
     background-color: var(--white-bg-color);
     color: var(--orange-text-color);
-
+    max-width: 110px;
     &:hover {
       background-color: #f5f5f5;
       color: var(--orange-text-color);
