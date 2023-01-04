@@ -31,12 +31,11 @@
                             <a href="./index.html" class="site-nav__link">Home</a>
                         </li>
                         <li class="site-nav__item">
-                            <div class="dropdown">
-                                <button onclick="myFunction()" class="dropbtn">Favorite</button>
-                                <div id="myDropdown" class="dropdown-content">
-                                    <a href="./favorite-cocktails.html">Favorite cocktails</a>
-                                    <a href="./favorite-ingridients.html">Favorite ingredients</a>
-                                </div>
+                            <div class="dropdown" id="dropdowndesk">
+                                <button  class="dropbtn">Favorite</button>
+                                <div id="myDropdown" class="dropdown-content dropdown-content-desk">
+                                    <a href="./partials/favorite-cocktails.html">Favorite cocktails</a>
+                                    <a href="./partials/favorite-ingridients.html">Favorite ingredients</a>
                             </div>
                             </a>
                         </li>
@@ -96,9 +95,6 @@
                                 <span class="slider round"></span></label>
                             <span class="checkbox__dark">Dark</span>
                         </div>
-                        <!-- <svg class="js-close-menu" data-modal-close width="32" height="32" fill="#202025">
-                            <use href="./images/svg/icons.svg#menu-close"></use>
-                        </svg> -->
                     </div>
 
 
@@ -118,16 +114,16 @@
                                 <a href="./index.html" class="mob-menu__link" data-scroll="hd">Home</a>
                             </li>
                             <li class="mob-menu__item">
-                                <div class="dropdown">
-                                    <button onclick="myFunction()" class="dropbtn dropbtn-mob ">Favorite
+                                <div class="dropdown" id="dropdownmob">
+                                    <button class="dropbtn dropbtn-mob ">Favorite
                                         <svg class="button__svg" width="18" height="11" fill="black">
-                                            <use href="./images/svg/icons.svg#arrow-down"></use>
+                                            <use href="./images/svg/icons.svg#arrow-down "></use>
                                         </svg>
                                     </button>
-                                    <div id="myDropdownn" class="dropdown-content">
-                                        <a href="./favorite-cocktails.html">Favorite cocktails</a>
-                                        <a href="./favorite-ingridients.html">Favorite ingredients</a>
-                                    </div>
+                                    <div id="myDropdownn" class="dropdown-content-mob dropdown-content">
+                                        <a href="./partials/favorite-cocktails.html">Favorite cocktails</a>
+                                        <a href="./partials/favorite-ingridients.html" >Favorite ingredients</a>
+                                    </div> 
                                 </div>
                             </li>
 
@@ -150,7 +146,7 @@
     </div>
 </header>
 
-
+<!-- 
 <script>
     /* When the user clicks on the button, 
     toggle between hiding and showing the dropdown content */
@@ -175,7 +171,7 @@
     }
 
 
-</script>
+</script> -->
 
 <!-- // function to set a given theme/color-scheme
 function setTheme(themeName) {

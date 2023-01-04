@@ -352,16 +352,24 @@ a {
 .show {
     display: block;
 }
-
-.dropdown-content.show {
+.dropdown-content-mob{
+background-color: transparent;
+    border: 2px solid var(--orange-text-color);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    width: 210px;
+    margin-top: 10px;
+}
+.dropdown-content-desk {
     background-color: transparent;
     border: 2px solid var(--orange-text-color);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     width: 210px;
     margin-top: 10px;
-    margin-left: 8px;
+    margin-left: 10px;
 }
+
 
 
 /******************** Hide default HTML checkbox ***********************/
