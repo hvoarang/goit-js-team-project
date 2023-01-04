@@ -1,4 +1,14 @@
 const getEl = el => document.querySelector(el);
+import orangeHeart from '../images/svg/orangeHeart.svg';
+import twoColorHeart from '../images/svg/twoColorsHeart.svg';
+
+// const heartWraper = document.querySelector('.product__heart-wraper');
+
+// console.log(pathEl);
+// var svgid = document.getElementById('small-heart');
+// console.log(svgid);
+// var element = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+// svg.appendChild(element);
 
 export function createMarkup(obj) {
   // console.log(obj.length);
@@ -6,17 +16,8 @@ export function createMarkup(obj) {
     emptyMarkUp();
     return;
   }
-  defoultMurkup();
-  createFullMarkup(obj);
-}
 
-function defoultMurkup() {
-  getEl('.product').innerHTML = '';
-  const defoultMurkup = `
-  <h2 class="product__title">Cocktails</h2>
-  <ul class="product__list"></ul>
-  `;
-  getEl('.product').insertAdjacentHTML('beforeEnd', defoultMurkup);
+  createFullMarkup(obj);
 }
 
 function emptyMarkUp() {
@@ -60,6 +61,11 @@ function emptyMarkUp() {
 }
 
 function createFullMarkup(obj) {
+  defoultMurkup();
+  var pathEl = document.createElementNS(
+    './images/svg/icons.svg#big-heart',
+    'path'
+  );
   getEl('.product__list').innerHTML = '';
   // console.log(obj);
   // const ul = `<ul class="product__list">${markup}</ul>`;
@@ -106,12 +112,11 @@ function createFullMarkup(obj) {
             <h3 class="product__subtitle">${cocktail.strDrink}</h3>
             <div class="product__buttons">
               <button class="button button__learn-more">Learn more</button>
-              <button class="button button__add-or-remove">
-                Remove
+              <button class="button button__add">
+                Add to
                 <div class="product__heart-wraper">
-                  <svg class="product__big-icon--remove" width="19" height="17">
-                    <use href="./images/svg/icons.svg#big-heart"></use>
-                  </svg>
+                <img class="product__big-icon--add" width="19" height="17" src=${twoColorHeart} alt="some file" />
+                  
                   <svg
                     class="product__small-icon--remove"
                     width="15.38"
@@ -130,8 +135,22 @@ function createFullMarkup(obj) {
     )
     .join('');
   getEl('.product__list').insertAdjacentHTML('beforeEnd', markup);
-  // getEl('.product__list').innerHTML = '';
 }
+
+function defoultMurkup() {
+  getEl('.product').innerHTML = '';
+  const defoultMurkup = `
+  <h2 class="product__title">Cocktails</h2>
+  <ul class="product__list"></ul>
+  `;
+  getEl('.product').insertAdjacentHTML('beforeEnd', defoultMurkup);
+}
+
+// const removeBtn = document.querySelector('.button button__add-or-remove');
+// removeBtn.addEventListener('click', changeData);
+// function changeData(event) {
+//   console.log('hi');
+// }
 
 //   console.log(getEl('.button__add-or-remove'));
 //   getEl('.button__add-or-remove').addEventListener('click', openModal);
