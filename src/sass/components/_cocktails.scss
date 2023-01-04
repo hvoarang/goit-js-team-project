@@ -26,6 +26,15 @@
     line-height: 1.9;
     text-align: center;
     color: var(--black-bg-color);
+    @media screen and (min-width: 768px) {
+      font-size: 32px;
+      line-height: 1.31;
+    }
+
+    @media screen and (min-width: 1280px) {
+      font-size: 48px;
+      line-height: 1.5;
+    }
   }
   &__list {
     display: flex;
