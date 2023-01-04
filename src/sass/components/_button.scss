@@ -10,24 +10,34 @@
   &__learn-more {
     background-color: var(--orange-auxiliry-color);
     color: #fff;
+    background: linear-gradient(145deg, var(--orange-auxiliry-color), #ff9216);
+    // box-shadow: 7px 7px 10px #60737e, -7px -7px 10px #748996;
+    // s
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    &:hover {
-      background-color: #f5f5f5;
-      color: var(--orange-text-color);
-      border: 1px solid #f5f5f5;
-    }
+    &:hover,
     &:focus {
       background-color: #f5f5f5;
       color: var(--orange-text-color);
       border: 1px solid #f5f5f5;
+      background: linear-gradient(145deg, #f5f5f5, #ffffff);
     }
+    // &:focus {
+    //   background-color: #f5f5f5;
+    //   color: var(--orange-text-color);
+    //   border: 1px solid #f5f5f5;
+    // }
     &:active {
       background-color: var(--orange-text-color);
       color: #ffffff;
       border: 1px solid var(--orange-text-color);
+      background: linear-gradient(
+        145deg,
+        var(--orange-auxiliry-color),
+        #ff9216
+      );
     }
   }
-  &__add-or-remove {
+  &__add {
     background-color: var(--white-bg-color);
     color: var(--orange-text-color);
 
@@ -43,17 +53,43 @@
     }
     &:active {
       background-color: var(--white-bg-color);
-      color: #fd5103;
+      color: var(--orange-text-color);
       border: 1px solid var(--orange-text-color);
     }
     &:active .product__small-icon--add {
-      fill: #fd5103;
+      fill: var(--orange-text-color);
     }
     &:active .product__small-icon--remove {
-      fill: #fcfcfc;
+      fill: var(--white-bg-color);
+    }
+  }
+  &__remove {
+    background-color: var(--white-bg-color);
+    color: var(--orange-text-color);
+
+    &:hover {
+      background-color: #f5f5f5;
+      color: var(--orange-text-color);
+      border: 1px solid #ff8650;
+    }
+    &:focus {
+      background-color: #f5f5f5;
+      color: var(--orange-text-color);
+      border: 1px solid #ff8650;
+    }
+    &:active {
+      background-color: var(--white-bg-color);
+      color: var(--orange-text-color);
+      border: 1px solid var(--orange-text-color);
+    }
+    &:active .product__small-icon--add {
+      fill: var(--orange-text-color);
+    }
+    &:active .product__small-icon--remove {
+      fill: var(--white-bg-color);
     }
   }
   // &__add {
-  //   border: 2px solid #fd5103;
+  //   border: 2px solid var(--orange-text-color);
   // }
 }
