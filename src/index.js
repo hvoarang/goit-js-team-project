@@ -4,7 +4,6 @@ import './js/hero';
 import './js/open_modal';
 import './js/search_header';
 import './js/pagination';
-import './js/open_modal';
 import './js/cocktails';
 import './js/favorite-menu';
 import './js/switch-theme';

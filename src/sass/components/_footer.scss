@@ -3,11 +3,37 @@
     background-color: var(--orange-text-color);
 }
 .logo {
-    padding-top: 20px;
-    padding-left: 20px;
-    weight: 400;
+    position: relative;
+    top: 20px;
+    left: 20px;
     color: var(--white-bg-color);
 }
-.span {
+.title {
+    position: relative;
+    z-index: 1;
+}
+
+.cocktails {
+    position: absolute;
+    top: -21px;
+    left: 107px;
+    width: 38px;
+    height: 33px;
     color: black;
+    background-image: url(../images/svg/icons.svg#cocktail);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+}
+.gradient {
+    padding-left: 6px;
+    padding-top: 11px;
+    position: absolute;
+    z-index: 2;
+}
+.logo__title {
+    position: absolute;
+    padding-right: 50px;
+    padding-left: 50px;
 }
