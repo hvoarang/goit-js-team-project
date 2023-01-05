@@ -37,6 +37,7 @@
     background-color: var(--white-bg-color);
     color: var(--orange-text-color);
     transition: 0.3s;
+    min-width: 113px;
     &:hover {
       background-color: #f5f5f5;
       color: var(--orange-text-color);

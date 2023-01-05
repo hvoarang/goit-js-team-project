@@ -7,3 +7,4 @@ import './js/search_header';
 import './js/open_modal';
 import './js/search_header';
 import './js/cocktails';
+import './js/localStorage';

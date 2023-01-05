@@ -1,15 +1,8 @@
 const getEl = el => document.querySelector(el);
 import orangeHeart from '../images/svg/icons.svg';
-import twoColorHeart from '../images/svg/twoColorsHeart.svg';
-// import emptyState from '../images/cocktails/phone/phone-x1/empty-state-1x.png';
+import obj from './localStorage';
 
-// const heartWraper = document.querySelector('.product__heart-wraper');
-
-// console.log(pathEl);
-// var svgid = document.getElementById('small-heart');
-// console.log(svgid);
-// var element = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-// svg.appendChild(element);
+const { save, load } = obj;
 
 export function createMarkup(obj) {
   // console.log(obj.length);
@@ -20,7 +13,18 @@ export function createMarkup(obj) {
   }
 
   createFullMarkup(obj);
+  // createObjCocktails(obj);
 }
+
+// function createObjCocktails(obj) {
+//   const cocktailObj = {};
+//   let cocktailKey = 'cocktailName';
+//   obj.map(cocktail => {
+//     console.log(cocktail);
+//     // cocktailObj[cocktail] = cocktail.strDrink;
+//   });
+//   console.log(cocktailObj);
+// }
 
 function emptyMarkUp() {
   getEl('.product').innerHTML = '';
@@ -75,7 +79,7 @@ function createFullMarkup(obj) {
     .map(
       cocktail => `
       
-      <li class="product__item">
+      <li id="${cocktail.idDrink}" class="product__item">
         <div class="product__wraper">
           <div class="product__image-part">
             <picture>
@@ -113,15 +117,15 @@ function createFullMarkup(obj) {
           <div class="product__description-part">
             <h3 class="product__subtitle">${cocktail.strDrink}</h3>
             <div class="product__buttons">
-              <button class="button button__learn-more">Learn more</button>
-              <button class="button button__add-or-remove">
+              <button data-="${cocktail.idDrink}" class="button button__learn-more">Learn more</button>
+              <button data-="${cocktail.idDrink}" class="button button__add-or-remove">
                 Add to
                 <div class="product__heart-wraper">
                   <svg class="product__big-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
-                    <use href="#bigHeart"></use>
+                    <use href="${orangeHeart}#bigHeart"></use>
                   </svg>
                   <svg class="product__small-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
-                    <use href="#smallHeart"></use>
+                    <use href="${orangeHeart}#smallHeart"></use>
                   </svg>
                 </div>
               </button>
@@ -134,8 +138,9 @@ function createFullMarkup(obj) {
     )
     .join('');
   getEl('.product__list').insertAdjacentHTML('beforeEnd', markup);
+  console.log(obj);
 }
-
+// openModal(obj)
 function defoultMurkup() {
   getEl('.product').innerHTML = '';
   const defoultMurkup = `
@@ -145,18 +150,62 @@ function defoultMurkup() {
   getEl('.product').insertAdjacentHTML('beforeEnd', defoultMurkup);
 }
 
-// const removeBtn = document.querySelector('.button button__add-or-remove');
-// removeBtn.addEventListener('click', changeData);
-// function changeData(event) {
-//   console.log('hi');
-// }
+const productEl = document.querySelector('.product');
+// console.dir(productEl);
+productEl.addEventListener('click', findCocktailData);
 
-//   console.log(getEl('.button__add-or-remove'));
-//   getEl('.button__add-or-remove').addEventListener('click', openModal);
-// }
+function findCocktailData(event) {
+  const cocktailId = event.target.attributes[0].nodeValue;
+  // console.dir(cocktailId);
+  takeDataFromCocktailMarkUp(cocktailId);
+  // функция изменяющая внутреннее содержание кнопки
+  addOrRemoveMurkup(event);
+  return cocktailId;
+}
 
-// strDrink
-// strDrinkThumb
+function takeDataFromCocktailMarkUp(cocktailId) {
+  if (+cocktailId) {
+    const cocktailFroClick = document.querySelector(`[id="${cocktailId}"]`);
+    const cocktailName =
+      cocktailFroClick.children[0].childNodes[3].childNodes[1].innerText;
+    const cocktailLink =
+      cocktailFroClick.children[0].childNodes[1].childNodes[1].childNodes[7]
+        .currentSrc;
+    // console.log(cocktailLink, cocktailName);
+    createObj(cocktailName, cocktailLink);
+  }
+}
 
-// function createFullMurkup(countries, countryList) {
-//   // console.log('createFullMarkup', countries);
+function createObj(cocktailName, cocktailLink) {
+  const cocktailObj = {
+    name: cocktailName,
+    link: cocktailLink,
+  };
+
+  save(cocktailId, cocktailObj);
+  // console.log(load('cocktail'));
+}
+
+function addOrRemoveMurkup(event) {
+  if (event.target.innerText === 'Add to') {
+    event.target.innerHTML = `Remove
+    <div class="product__heart-wraper">
+      <svg class="product__big-icon--remove" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+        <use href="${orangeHeart}#bigHeart"></use>
+      </svg>
+      <svg class="product__small-icon--remove" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+        <use href="${orangeHeart}#smallHeart"></use>
+      </svg>
+    </div>`;
+  } else if (event.target.innerText === 'Remove') {
+    event.target.innerHTML = `Add to
+    <div class="product__heart-wraper">
+      <svg class="product__big-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+        <use href="${orangeHeart}#bigHeart"></use>
+      </svg>
+      <svg class="product__small-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+        <use href="${orangeHeart}#smallHeart"></use>
+      </svg>
+    </div>`;
+  }
+}
