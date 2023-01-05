@@ -8,3 +8,4 @@ import './js/pagination';
 import './js/hero-select-m';
 import './js/hero';
 import './js/cocktails';
+import './js/localStorage';
