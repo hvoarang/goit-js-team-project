@@ -1,9 +1,9 @@
+import './js/open_modal';
+import './js/favorite-menu';
+import './js/search_header';
 import './js/fetch';
 import './js/hero-select-m';
 import './js/hero';
-import './js/open_modal';
-import './js/search_header';
-import './js/pagination';
 import './js/cocktails';
-import './js/favorite-menu';
 import './js/switch-theme';
+import './js/pagination';
