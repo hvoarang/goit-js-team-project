@@ -58,7 +58,8 @@ function emptyMarkUp() {
   getEl('.product').insertAdjacentHTML('beforeEnd', markup);
 }
 
-function createFullMarkup(obj) {
+
+ export function createFullMarkup(obj) {
   defoultMurkup();
   var pathEl = document.createElementNS(
     './images/svg/icons.svg#big-heart',
@@ -69,10 +70,10 @@ function createFullMarkup(obj) {
   // const ul = `<ul class="product__list">${markup}</ul>`;
   const markup = obj
     .map(
-      cocktail => `
+      (cocktail, index) => `
       
       <li class="product__item">
-        <div class="product__wraper">
+        <div class="product__wraper" data-num="${index}">
           <div class="product__image-part">
             <picture>
               <source
