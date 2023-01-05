@@ -6,6 +6,11 @@ import { createMarkup } from './cocktails';
 const ListEl = document.querySelector('.hero__list');
 const mainEl = document.querySelector('.product__list');
 ListEl.addEventListener('click', takeArreyREsult);
+window.matchMedia('(max-width: 320px)');
+
+window.matchMedia('(max-width: 767px)');
+window.matchMedia('(max-width: 767px)');
+
 let count = 0;
 let cnt = 6;
 let paginator = document.querySelector('.paginator');
@@ -57,7 +62,7 @@ function takeArreyREsult(e) {
 
           //     let num_ = id.substr(4);
           let data_page = +target.dataset.page;
-            // console.log(data_page);
+            console.log(data_page);
               main_page.classList.remove('paginator_active');
               main_page = document.getElementById(id);
               main_page.classList.add('paginator_active');
