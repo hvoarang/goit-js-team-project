@@ -16,16 +16,16 @@
     padding-top: 55px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     min-width: 1280px;
     padding-top: 52.5px;
   }
   &__title {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 600;
     font-size: 22px;
-    line-height: 1.91;
+    line-height: 1.9;
     text-align: center;
     color: var(--black-bg-color);
     @media screen and (min-width: 768px) {
@@ -33,7 +33,7 @@
       line-height: 1.31;
     }
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1280px) {
       font-size: 48px;
       line-height: 1.5;
     }
@@ -77,7 +77,7 @@
     gap: 16px;
   }
   &__subtitle {
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-weight: 900;
     font-size: 26px;
     line-height: 1.62;
@@ -89,7 +89,7 @@
     display: flex;
     flex-direction: row;
     gap: 19px;
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-weight: 400;
     font-size: 14px;
     line-height: 1.71;
@@ -137,7 +137,7 @@
     transition: 0.3s;
   }
   &__empty-state {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-weight: 600;
     font-size: 22px;
     line-height: 1.91;

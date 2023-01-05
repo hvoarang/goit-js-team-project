@@ -7,47 +7,52 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .div-container__left {
     display: flex;
 }
-
-.logo__link {
-    position: relative;
-}
-
-.logo__link-svg {
-    top: 10px;
-    position: absolute;
-    top: -19px;
-    right: 18px;
-}
-
-.logo {
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 109%;
-    letter-spacing: 0.02em;
-
-    @media screen and (min-width: 768px) {
-        font-size: 28px;
-        line-height: 89%
-    }
-
-    color: var(--orange-text-color);
-}
-
 .div-container__right {
     display: flex;
     align-items: center;
 
 }
+// ******************************************logo****************************
+.logo {
+    position: relative;
+    color: var(--orange-text-color);
+    font-weight: 400;
+        font-size: 28px;
+        line-height:86%;
+        letter-spacing: 0.02em;
+}
+
+.logo__title {
+    position: relative;
+    z-index: 1;
+}
+
+.logo__cocktails {
+    position: absolute;
+    top: -21px;
+    left: 107px;
+    width: 38px;
+    height: 33px;
+}
+
+.logo__gradient {
+    padding-left: 6px;
+    padding-top: 11px;
+    position: absolute;
+    z-index: 2;
+}
+
+
 
 // **********************nav-site*********************
 .site-nav {
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1280px) {
         display: none;
     }
 
@@ -61,8 +66,6 @@ a {
     align-items: flex-end;
 }
 
-.site-nav__item {}
-
 .site-nav__link {
     font-weight: 400;
     font-size: 18px;
@@ -71,14 +74,11 @@ a {
     color: var(--black-bg-color);
 }
 
-//   -----------------------------Инпут----------------
+//   -----------------------------Инпут-----------------------------------------
 .search-container__form {
     display: flex;
-    // margin-right: 170px;
-
     width: 288px;
     height: 40px;
-
     border: 1px solid var(--orange-text-color);
     border-radius: 4px;
 
@@ -86,16 +86,15 @@ a {
         display: none;
     }
 
-    @media screen and (max-width: 1199px) {
+    @media screen and (max-width: 1280px) {
         margin-right: 40px;
     }
 }
 
 .search-container__form-mob {
     display: flex;
-    width: 280px;
     height: 40px;
-    margin: 44 auto 0 auto;
+    margin: 44 20 0 20;
     border: 1px solid var(--orange-text-color);
     border-radius: 4px;
 
@@ -126,15 +125,58 @@ a {
         outline: none;
         border: none;
     }
+
+    &::placeholder {
+        color: rgb(197, 192, 192);
+    }
 }
 
-// *************mob menu*************
+// ***********************menu-btn/menu-close-btn**************//
+.button__menu {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    z-index: 9;
+    background-color: transparent;
+    border: 0;
+    position: static;
+
+    & .icon-cross {
+        display: none;
+    }
+
+    &.is-open {
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        fill: var(--black-bg-color);
+        @media screen and (min-width: 768px) {
+                right: 50px;
+            }
+        .icon-cross {
+            display: block;
+        }
+    }
+
+    &.is-open {
+        .icon-menu {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 1280px) {
+        display: none;
+    }
+}
+
+
+// ***************************************************mob menu*************
 
 .js-open-menu {
     background-color: transparent;
     border-color: transparent;
 
-    @media screen and (min-width: 1199px) {
+    @media screen and (min-width: 1280px) {
         display: none;
     }
 }
@@ -143,7 +185,6 @@ a {
     align-self: center;
 }
 
-// -----------------<Мобільне меню>
 .backdrop-mob {
     width: 100%;
     height: 100%;
@@ -162,7 +203,7 @@ a {
         transform: translateX(0);
     }
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1280px) {
         display: none;
     }
 }
@@ -172,18 +213,17 @@ a {
     margin-left: 20px;
 
     @media screen and (min-width: 768px) {
-        margin-top: 20px;
+        margin-top: 36px;
         margin-left: 20px;
         display: flex;
         align-items: flex-end;
-        gap: 69px;
+        gap: 164px;
     }
 
 }
 
 .checkbox__mob {
     display: flex;
-
 }
 
 .mob-menu {
@@ -215,8 +255,9 @@ a {
 .mob-menu__nav {
     margin-top: 32px;
     margin-bottom: auto;
+    margin-left: 20px;
 
-    @media screen and (min-width: 768px) and (max-width: 1199.9px) {
+    @media screen and (min-width: 768px) and (max-width: 1280px) {
         margin-top: 60px;
     }
 }
@@ -235,44 +276,12 @@ a {
     font-weight: 400;
     font-size: 28px;
     line-height: 86%;
-    color: var(--black-bg-color);
+    color: var(--black-color);
     letter-spacing: 0.02em;
 }
 
 .mob-menu__link {
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-}
-
-.select__div {
-    display: flex;
-
-}
-
-.select {
-    width: 24px;
-    height: 24px;
-    border: transparent;
-
-    &:hover {
-        border: transparent;
-    }
-
-    &:focus {
-        border: transparent;
-    }
-}
-
-.select-options {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 133%;
-    letter-spacing: 0.02em;
-    color: var(--black-bg-color);
-    border-color: var(--orange-text-color);
-    border-radius: 4px;
-    color: var(--white-bg-color);
-    background: var(--orange-text-color);
 
 }
 
@@ -307,7 +316,7 @@ a {
     font-size: 28px;
     line-height: 86%;
     letter-spacing: 0.02em;
-    color: var(--black-bg-color);
+    color: var(--black-color);
     padding: 0;
 }
 
@@ -322,7 +331,6 @@ a {
     background-color: var(--white-bg-color);
     min-width: 160px;
     overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -351,15 +359,23 @@ a {
 .show {
     display: block;
 }
-
-.dropdown-content.show {
-    background-color: transparent;
-    border: 1px solid var(--orange-text-color);
-    border-radius: 4px;
+.dropdown-content-mob{
+background-color: transparent;
+    border: 2px solid var(--orange-text-color);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     width: 210px;
+    margin-top: 10px;
 }
-
-
+.dropdown-content-desk {
+    background-color: transparent;
+    border: 2px solid var(--orange-text-color);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    width: 210px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
 
 
 
@@ -369,7 +385,7 @@ a {
     display: flex;
     align-items: flex-end;
 
-    @media screen and (max-width: 1199.9px) {
+    @media screen and (max-width: 1280px) {
         display: none;
     }
 }
