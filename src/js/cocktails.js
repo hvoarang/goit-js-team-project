@@ -58,8 +58,7 @@ function emptyMarkUp() {
   getEl('.product').insertAdjacentHTML('beforeEnd', markup);
 }
 
-
- export function createFullMarkup(obj) {
+export function createFullMarkup(obj) {
   defoultMurkup();
   var pathEl = document.createElementNS(
     './images/svg/icons.svg#big-heart',
@@ -114,7 +113,7 @@ function emptyMarkUp() {
               <button class="button button__add">
                 Add to
                 <div class="product__heart-wraper">
-                <img class="product__big-icon--add" width="19" height="17" src=${twoColorHeart} alt="some file" />
+                <img class="product__big-icon--add" width="19" height="17" alt="some file" />
                   
                   <svg
                     class="product__small-icon--remove"
