@@ -13,6 +13,11 @@ a {
 .div-container__left {
     display: flex;
 }
+.div-container__right {
+    display: flex;
+    align-items: center;
+
+}
 // ******************************************logo****************************
 .logo {
     position: relative;
@@ -44,14 +49,10 @@ a {
 }
 
 
-.div-container__right {
-    display: flex;
-    align-items: center;
 
-}
 // **********************nav-site*********************
 .site-nav {
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1280px) {
         display: none;
     }
 
@@ -85,7 +86,7 @@ a {
         display: none;
     }
 
-    @media screen and (max-width: 1199px) {
+    @media screen and (max-width: 1280px) {
         margin-right: 40px;
     }
 }
@@ -161,7 +162,7 @@ a {
         }
     }
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1280px) {
         display: none;
     }
 }
@@ -173,7 +174,7 @@ a {
     background-color: transparent;
     border-color: transparent;
 
-    @media screen and (min-width: 1199px) {
+    @media screen and (min-width: 1280px) {
         display: none;
     }
 }
@@ -200,7 +201,7 @@ a {
         transform: translateX(0);
     }
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1280px) {
         display: none;
     }
 }
@@ -210,7 +211,7 @@ a {
     margin-left: 20px;
 
     @media screen and (min-width: 768px) {
-        margin-top: 20px;
+        margin-top: 36px;
         margin-left: 20px;
         display: flex;
         align-items: flex-end;
@@ -254,7 +255,7 @@ a {
     margin-bottom: auto;
     margin-left: 20px;
 
-    @media screen and (min-width: 768px) and (max-width: 1199.9px) {
+    @media screen and (min-width: 768px) and (max-width: 1280px) {
         margin-top: 60px;
     }
 }
@@ -382,7 +383,7 @@ background-color: transparent;
     display: flex;
     align-items: flex-end;
 
-    @media screen and (max-width: 1199.9px) {
+    @media screen and (max-width: 1280px) {
         display: none;
     }
 }

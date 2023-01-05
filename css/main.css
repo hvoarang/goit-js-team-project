@@ -231,6 +231,11 @@ a {
   display: flex;
 }
 
+.div-container__right {
+  display: flex;
+  align-items: center;
+}
+
 .logo {
   position: relative;
   color: var(--orange-text-color);
@@ -260,16 +265,11 @@ a {
   z-index: 2;
 }
 
-.div-container__right {
-  display: flex;
-  align-items: center;
-}
-
 .site-nav {
   display: flex;
   margin-left: 43px;
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1280px) {
   .site-nav {
     display: none;
   }
@@ -301,7 +301,7 @@ a {
     display: none;
   }
 }
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: 1280px) {
   .search-container__form {
     margin-right: 40px;
   }
@@ -368,7 +368,7 @@ a {
 .button__menu.is-open .icon-menu {
   display: none;
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .button__menu {
     display: none;
   }
@@ -378,7 +378,7 @@ a {
   background-color: transparent;
   border-color: transparent;
 }
-@media screen and (min-width: 1199px) {
+@media screen and (min-width: 1280px) {
   .js-open-menu {
     display: none;
   }
@@ -403,7 +403,7 @@ a {
 .backdrop-mob.is-open {
   transform: translateX(0);
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .backdrop-mob {
     display: none;
   }
@@ -415,7 +415,7 @@ a {
 }
 @media screen and (min-width: 768px) {
   .container__head {
-    margin-top: 20px;
+    margin-top: 36px;
     margin-left: 20px;
     display: flex;
     align-items: flex-end;
@@ -459,7 +459,7 @@ a {
   margin-bottom: auto;
   margin-left: 20px;
 }
-@media screen and (min-width: 768px) and (max-width: 1199.9px) {
+@media screen and (min-width: 768px) and (max-width: 1280px) {
   .mob-menu__nav {
     margin-top: 60px;
   }
@@ -585,7 +585,7 @@ a {
   display: flex;
   align-items: flex-end;
 }
-@media screen and (max-width: 1199.9px) {
+@media screen and (max-width: 1280px) {
   .checkbox {
     display: none;
   }
@@ -1108,4 +1108,9 @@ input:checked + .slider:before {
   background-color: var(--orange-text-color);
   color: var(--white-bg-color);
   transition: 0.3s;
+}
+
+.footer__container {
+  height: 110px;
+  background-color: var(--orange-text-color);
 }/*# sourceMappingURL=main.css.map */
