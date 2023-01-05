@@ -27,7 +27,7 @@ let quantityCard = 0;
       let divEl = document.querySelectorAll('.product__wraper');
      console.log(divEl);
       if (screenM.matches) {
-        quantityCard = Array.from(divEl).slice(0,2);
+        quantityCard = Array.from(divEl).slice(0,3);
          for (let el of quantityCard) {
            el.style.display = 'block';
            console.log(el);
