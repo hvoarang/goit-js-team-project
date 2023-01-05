@@ -1,71 +1,268 @@
-var count = 10; //всего записей
-var cnt = 5; //сколько отображаем сначала
-var cnt_page = Math.ceil(count / cnt); //кол-во страниц
+import { fetchApi } from './fetch';
+import { url_by_first_letter } from './fetch';
+import { createMarkup } from './cocktails';
 
-//выводим список страниц
-var paginator = document.querySelector('.paginator');
-var page = '';
-for (var i = 0; i < cnt_page; i++) {
-  page +=
-    '<span data-page=' +
-    i * cnt +
-    '  id="page' +
-    (i + 1) +
-    '">' +
-    (i + 1) +
-    '</span>';
-}
-paginator.innerHTML = page;
 
-//выводим первые записи {cnt}
-var div_num = document.querySelectorAll('.num');
-for (var i = 0; i < div_num.length; i++) {
-  if (i < cnt) {
-    div_num[i].style.display = 'block';
+const ListEl = document.querySelector('.hero__list');
+const mainEl = document.querySelector('.product__list');
+ListEl.addEventListener('click', takeArreyREsult);
+let count = 0;
+let cnt = 0;
+let paginator = document.querySelector('.paginator');
+
+const screenD = window.matchMedia('(min-width: 1280px)');
+const screenM = window.matchMedia('(max-width: 768px)');
+const screenT = window.matchMedia('(max-width: 1280px)');
+
+
+
+
+export function takeArreyREsult(e) {
+  const target = e.target;
+  if (e.target !== e.currentTarget) {
+    fetchApi(url_by_first_letter, target.textContent)
+      .then(({ drinks }) => {
+        createMarkup(drinks);
+         if (screenM.matches) {
+           cnt = 3;
+            count = drinks.length;
+            let cnt_page = Math.ceil(count / cnt);
+            // console.log(count);
+            // console.log(cnt_page);
+            let page = '';
+            for (let i = 0; i < cnt_page; i++) {
+              page +=
+                '<button  class="paginator-item" data-page=' +
+                i * cnt +
+                '  id="page' +
+                (i + 1) +
+                '">' +
+                (i + 1) +
+                '</button>';
+            }
+            paginator.innerHTML = page;
+
+            let div_num = document.querySelectorAll('.product__wraper');
+            //   console.log(div_num);
+            for (let i = 0; i < div_num.length; i++) {
+              if (i < cnt) {
+                div_num[i].style.display = 'block';
+              }
+            }
+            let main_page = document.getElementById('page1');
+            main_page.classList.add('paginator_active');
+
+            const pagEl = document.querySelector('.paginator');
+            pagEl.addEventListener('click', pagination);
+
+            function pagination(event) {
+              //   console.log(mainEl);
+              //   mainEl.innerHTML = '';
+
+              const e = event || window.event;
+              const target = e.target;
+              const id = target.id;
+              if (target.tagName.toLowerCase() !== 'button') return;
+              let data_page = +target.dataset.page;
+              console.log(data_page);
+              main_page.classList.remove('paginator_active');
+              main_page = document.getElementById(id);
+              main_page.classList.add('paginator_active');
+
+              let j = 0;
+              for (let i = 0; i < div_num.length; i++) {
+                let data_num = div_num[i].dataset.num;
+                if (data_num <= data_page || data_num >= data_page)
+                  div_num[i].style.display = 'none';
+              }
+              for (let i = data_page; i < div_num.length; i++) {
+                if (j >= cnt) break;
+                div_num[i].style.display = 'block';
+                j++;
+              }
+            }
+           
+         } else if (screenT.matches) {
+           cnt = 6;
+            count = drinks.length;
+            let cnt_page = Math.ceil(count / cnt);
+            // console.log(count);
+            // console.log(cnt_page);
+            let page = '';
+            for (let i = 0; i < cnt_page; i++) {
+              page +=
+                '<button  class="paginator-item" data-page=' +
+                i * cnt +
+                '  id="page' +
+                (i + 1) +
+                '">' +
+                (i + 1) +
+                '</button>';
+            }
+            paginator.innerHTML = page;
+
+            let div_num = document.querySelectorAll('.product__wraper');
+            //   console.log(div_num);
+            for (let i = 0; i < div_num.length; i++) {
+              if (i < cnt) {
+                div_num[i].style.display = 'block';
+              }
+            }
+            let main_page = document.getElementById('page1');
+            main_page.classList.add('paginator_active');
+
+            const pagEl = document.querySelector('.paginator');
+            pagEl.addEventListener('click', pagination);
+
+            function pagination(event) {
+              //   console.log(mainEl);
+              //   mainEl.innerHTML = '';
+
+              const e = event || window.event;
+              const target = e.target;
+              const id = target.id;
+              if (target.tagName.toLowerCase() !== 'button') return;
+              let data_page = +target.dataset.page;
+              console.log(data_page);
+              main_page.classList.remove('paginator_active');
+              main_page = document.getElementById(id);
+              main_page.classList.add('paginator_active');
+
+              let j = 0;
+              for (let i = 0; i < div_num.length; i++) {
+                let data_num = div_num[i].dataset.num;
+                if (data_num <= data_page || data_num >= data_page)
+                  div_num[i].style.display = 'none';
+              }
+              for (let i = data_page; i < div_num.length; i++) {
+                if (j >= cnt) break;
+                div_num[i].style.display = 'block';
+                j++;
+              }
+            }
+         } else if (screenD.matches) {
+           cnt = 9;
+            count = drinks.length;
+            let cnt_page = Math.ceil(count / cnt);
+            // console.log(count);
+            // console.log(cnt_page);
+            let page = '';
+            for (let i = 0; i < cnt_page; i++) {
+              page +=
+                '<button  class="paginator-item" data-page=' +
+                i * cnt +
+                '  id="page' +
+                (i + 1) +
+                '">' +
+                (i + 1) +
+                '</button>';
+            }
+            paginator.innerHTML = page;
+
+            let div_num = document.querySelectorAll('.product__wraper');
+            //   console.log(div_num);
+            for (let i = 0; i < div_num.length; i++) {
+              if (i < cnt) {
+                div_num[i].style.display = 'block';
+              }
+            }
+            let main_page = document.getElementById('page1');
+            main_page.classList.add('paginator_active');
+
+            const pagEl = document.querySelector('.paginator');
+            pagEl.addEventListener('click', pagination);
+
+            function pagination(event) {
+              //   console.log(mainEl);
+              //   mainEl.innerHTML = '';
+
+              const e = event || window.event;
+              const target = e.target;
+              const id = target.id;
+              if (target.tagName.toLowerCase() !== 'button') return;
+
+              //     let num_ = id.substr(4);
+              let data_page = +target.dataset.page;
+              console.log(data_page);
+              main_page.classList.remove('paginator_active');
+              main_page = document.getElementById(id);
+              main_page.classList.add('paginator_active');
+
+              let j = 0;
+              for (let i = 0; i < div_num.length; i++) {
+                let data_num = div_num[i].dataset.num;
+                if (data_num <= data_page || data_num >= data_page)
+                  div_num[i].style.display = 'none';
+              }
+              for (let i = data_page; i < div_num.length; i++) {
+                if (j >= cnt) break;
+                div_num[i].style.display = 'block';
+                j++;
+              }
+            }
+         }
+        // count = drinks.length;
+        // let cnt_page = Math.ceil(count / cnt);
+        // // console.log(count);
+        // // console.log(cnt_page);
+        // let page = '';
+        // for (let i = 0; i < cnt_page; i++) {
+        //   page +=
+        //     '<button  class="pagination-item" data-page=' +
+        //     i * cnt +
+        //     '  id="page' +
+        //     (i + 1) +
+        //     '">' +
+        //     (i + 1) +
+        //     '</button>';
+        // }
+        // paginator.innerHTML = page;
+
+        // let div_num = document.querySelectorAll('.product__wraper');
+        // //   console.log(div_num);
+        // for (let i = 0; i < div_num.length; i++) {
+        //   if (i < cnt) {
+        //     div_num[i].style.display = 'block';
+        //   }
+        // }
+        // let main_page = document.getElementById('page1');
+        // main_page.classList.add('paginator_active');
+
+        // const pagEl = document.querySelector('.paginator');
+        // pagEl.addEventListener('click', pagination);
+
+        // function pagination(event) {
+        //   //   console.log(mainEl);
+        //   //   mainEl.innerHTML = '';
+
+        //   const e = event || window.event;
+        //   const target = e.target;
+        //   const id = target.id;
+        //   if (target.tagName.toLowerCase() !== 'button') return;
+
+        //   //     let num_ = id.substr(4);
+        //   let data_page = +target.dataset.page;
+        //     console.log(data_page);
+        //       main_page.classList.remove('paginator_active');
+        //       main_page = document.getElementById(id);
+        //       main_page.classList.add('paginator_active');
+
+        //      let j = 0;
+        //     for (let i = 0; i < div_num.length; i++) {
+        //        let data_num = div_num[i].dataset.num;
+        //        if (data_num <= data_page || data_num >= data_page)
+        //          div_num[i].style.display = 'none';
+        //         }
+        //         for (let i = data_page; i < div_num.length; i++) {
+        //         if (j >= cnt) break;
+        //         div_num[i].style.display = 'block';
+        //         j++;
+        //         }
+        //     }
+      })
+
+      .catch(err => {
+        console.log(err);
+      });
   }
 }
-
-var main_page = document.getElementById('page1');
-main_page.classList.add('paginator_active');
-
-//листаем
-function pagination(event) {
-  var e = event || window.event;
-  var target = e.target;
-  var id = target.id;
-
-  if (target.tagName.toLowerCase() != 'span') return;
-
-  var num_ = id.substr(4);
-  var data_page = +target.dataset.page;
-  main_page.classList.remove('paginator_active');
-  main_page = document.getElementById(id);
-  main_page.classList.add('paginator_active');
-
-  var j = 0;
-  for (var i = 0; i < div_num.length; i++) {
-    var data_num = div_num[i].dataset.num;
-    if (data_num <= data_page || data_num >= data_page)
-      div_num[i].style.display = 'none';
-  }
-  for (var i = data_page; i < div_num.length; i++) {
-    if (j >= cnt) break;
-    div_num[i].style.display = 'block';
-    j++;
-  }
-}
-
-// .num {
-//   display: none;
-// }
-// .paginator {
-//   line-height: 150%;
-// }
-// .paginator > span {
-//   display: inline-block;
-//   margin-right: 10px;
-//   cursor: pointer;
-// }
-// .paginator_active {
-//   color: red;
-// }

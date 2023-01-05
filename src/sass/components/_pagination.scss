@@ -1,10 +1,10 @@
-.pagination {
+.paginator {
   width: 286px;
   margin: 0;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
-  display: block;
+  display: flex;
+  justify-content: center;
   margin-top: 45px;
   margin-bottom: 37px;
   @media screen and (min-width: 480px) {
@@ -14,38 +14,15 @@
   @media screen and (min-width: 768px) {
     width: 397px;
   }
-  @media screen and (min-width: 1200px) {
-    width: 1200px;
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
   }
 }
-.extreme {
-  color: var(--number-color);
 
-  padding: 8px 16px;
-  text-decoration: none;
-  transition: 0.3s;
-
-  border-radius: 50%;
-}
-
-.pagination button {
-  padding: 0;
-  width: 32px;
+.paginator-item {
+   width: 32px;
   height: 32px;
-  padding: 0;
-  border: none;
-
-  background-color: transparent;
-  cursor: pointer;
-  margin: 0 2px;
-  @media screen and (min-width: 768px) {
-    margin: 0 4px;
-    width: 40px;
-    height: 40px;
-  }
-}
-
-.pagination-item {
+   margin: 0 2px;
   color: var(--number-color);
   padding: 7px 9px;
   text-decoration: none;
@@ -57,26 +34,27 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
+  background-color: transparent;
 
   @media screen and (min-width: 768px) {
+      margin: 0 4px;
+    width: 40px;
+    height: 40px;
     font-size: 16px;
     padding: 8px 12px;
   }
-  @media screen and (min-width: 1200px) {
-    width: 1200px;
-    margin: 0;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
 }
-
-.pagination a.active {
+}
+.paginator_active {
+  transition: 0.3s;
   background-color: var(--orange-text-color);
   color: white;
-  border: 1px solid var(--orange-text-color);
+  border: 1px solid var(--orange-text-color)
 }
 
-.pagination a:hover:not(.active) {
+.paginator :hover:not(.active) {
   background-color: var(--orange-text-color);
   color: var(--white-bg-color);
   transition: 0.3s;

@@ -16,16 +16,6 @@ export function createMarkup(obj) {
   // createObjCocktails(obj);
 }
 
-// function createObjCocktails(obj) {
-//   const cocktailObj = {};
-//   let cocktailKey = 'cocktailName';
-//   obj.map(cocktail => {
-//     console.log(cocktail);
-//     // cocktailObj[cocktail] = cocktail.strDrink;
-//   });
-//   console.log(cocktailObj);
-// }
-
 function emptyMarkUp() {
   getEl('.product').innerHTML = '';
   const markup = `
@@ -35,28 +25,28 @@ function emptyMarkUp() {
     <picture>
       <source
         srcset="
-          ./images/cocktails/pc/pc-x1/empty-state-1x.png 1x,
-          ./images/cocktails/pc/pc-x2/empty-state-2x.png 2x
+          ./images/empty-state@1x.png 1x,
+          ./images/empty-state@2x.png 2x
         "
-        media="(min-width:1200px)"
+        media="(min-width:1280px)"
       />
       <source
         srcset="
-          ./images/cocktails/fablet/fablet-x1/empty-state-1x.png 1x,
-          ./images/cocktails/fablet/fablet-x2/empty-state-2x.png 2x
+          ./images/empty-state@1x.png 1x,
+          ./images/empty-state@2x.png 2x,
         "
         media="(min-width:768px)"
       />
       <source
         srcset="
-          ./images/cocktails/phone/phone-x1/empty-state-1x.png 1x,
-          ./images/cocktails/phone/phone-x2/empty-state-2x.png 2x
+          ./images/empty-state@m1x.png 1x,
+          ./images/empty-state@m2x.png 2x,
         "
         media="(max-width:767px)"
       />
       <img
         class="product__empty-image"
-        src="./images/cocktails/phone/phone-x1/empty-state-1x.png"
+        src="./images/empty-state@m1x.png"
         alt="cocktail"
         width="280"
         height="308"
@@ -66,7 +56,7 @@ function emptyMarkUp() {
   getEl('.product').insertAdjacentHTML('beforeEnd', markup);
 }
 
-function createFullMarkup(obj) {
+export function createFullMarkup(obj) {
   defoultMurkup();
   var pathEl = document.createElementNS(
     './images/svg/icons.svg#big-heart',
@@ -82,10 +72,12 @@ function createFullMarkup(obj) {
 
   const markup = obj
     .map(
-      cocktail => `
+      (cocktail, index) => `
       
-      <li id="${cocktail.idDrink}" class="product__item">
-        <div class="product__wraper">
+
+      <li id="${cocktail.idDrink}" class="product__item">   
+        <div class="product__wraper" data-num="${index}">
+
           <div class="product__image-part">
             <picture>
               <source
@@ -130,6 +122,7 @@ function createFullMarkup(obj) {
               }" class="button button__add-or-remove">
               ${buttonTextF(favoriteIdArr, cocktail.idDrink)}
                 <div class="product__heart-wraper">
+
                   <svg class="product__big-icon--${classOfSvgF(
                     favoriteIdArr,
                     cocktail.idDrink
