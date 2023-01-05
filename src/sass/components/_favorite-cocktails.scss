@@ -1,0 +1,35 @@
+.favorite-title {
+    margin-top: 60px;
+
+    font-weight: 600;
+        font-size: 22px;
+        line-height: 191%;
+        text-align: center;
+        color: var(--black-bg-color);
+
+        @media screen and (min-width: 768px) {
+                font-weight: 700;
+                    font-size: 32px;
+                    line-height: 38px;
+            }
+                        @media screen and (min-width: 1280px) {
+            
+                            font-size: 48px;
+                            line-height: 150%;
+                        }
+}
+
+.favorite-container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+@media screen and (min-width: 768px) {
+        padding-top: 75px;
+        padding-bottom: 140px;
+    }
+
+    @media screen and (min-width: 1280px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    }
+}
