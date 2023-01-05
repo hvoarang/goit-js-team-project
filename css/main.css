@@ -341,7 +341,7 @@ a {
   border: none;
 }
 .imput__header::placeholder {
-  color: var(--gray-text-color);
+  color: rgb(197, 192, 192);
 }
 
 .button__menu {
