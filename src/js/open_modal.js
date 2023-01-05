@@ -1,3 +1,5 @@
+console.log(2222);
+
 (() => {
   const menuBtnRef = document.querySelector(".js-open-menu");
   const mobileMenuRef = document.querySelector(".js-menu-container");

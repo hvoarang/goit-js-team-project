@@ -224,7 +224,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .div-container__left {
@@ -361,6 +361,11 @@ a {
   right: 20px;
   top: 20px;
   fill: var(--black-bg-color);
+}
+@media screen and (min-width: 768px) {
+  .button__menu.is-open {
+    right: 50px;
+  }
 }
 .button__menu.is-open .icon-cross {
   display: block;
