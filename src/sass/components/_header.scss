@@ -13,38 +13,42 @@ a {
 .div-container__left {
     display: flex;
 }
-
-.logo__link {
-    position: relative;
-}
-
-.logo__link-svg {
-    top: 10px;
-    position: absolute;
-    top: -19px;
-    right: 18px;
-}
-
+// ******************************************logo****************************
 .logo {
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 109%;
-    letter-spacing: 0.02em;
-
-    @media screen and (min-width: 768px) {
-        font-size: 28px;
-        line-height: 89%
-    }
-
+    position: relative;
     color: var(--orange-text-color);
+    font-weight: 400;
+        font-size: 28px;
+        line-height:86%;
+        letter-spacing: 0.02em;
 }
+
+.logo__title {
+    position: relative;
+    z-index: 1;
+}
+
+.logo__cocktails {
+    position: absolute;
+    top: -21px;
+    left: 107px;
+    width: 38px;
+    height: 33px;
+}
+
+.logo__gradient {
+    padding-left: 6px;
+    padding-top: 11px;
+    position: absolute;
+    z-index: 2;
+}
+
 
 .div-container__right {
     display: flex;
     align-items: center;
 
 }
-
 // **********************nav-site*********************
 .site-nav {
     @media screen and (max-width: 1200px) {
