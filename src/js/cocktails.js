@@ -2,21 +2,21 @@ const getEl = el => document.querySelector(el);
 import orangeHeart from '../images/svg/icons.svg';
 import obj from './localStorage';
 const { save, load } = obj;
-let defoultStorageArr = [];
-function defoultStorage() {
-  console.log('зашло в defoultStorage');
-  const cocktailObj = {
-    id: 1,
-    name: 'none',
-    link: 'https',
-  };
-  defoultStorageArr.push(cocktailObj);
-  save('cocktails', defoultStorageArr);
-}
-defoultStorage();
+// let defoultStorageArr = [];
+// function defoultStorage() {
+//   console.log('зашло в defoultStorage');
+//   const cocktailObj = {
+//     id: 1,
+//     name: 'none',
+//     link: 'https',
+//   };
+//   defoultStorageArr.push(cocktailObj);
+//   save('cocktails', defoultStorageArr);
+// }
+// defoultStorage();
 
 export function createMarkup(obj) {
-  console.log('зашло в createMarkup');
+  // console.log('зашло в createMarkup');
   if (!obj) {
     emptyMarkUp();
     return;
@@ -24,6 +24,8 @@ export function createMarkup(obj) {
 
   createFullMarkup(obj);
 }
+const urlMobile = require('../images/emptyState.png');
+const urlMobile2x = require('../images/emptyStateM2x.png');
 
 function emptyMarkUp() {
   getEl('.product').innerHTML = '';
@@ -34,28 +36,28 @@ function emptyMarkUp() {
     <picture>
       <source
         srcset="
-          ./images/empty-state@1x.png 1x,
-          ./images/empty-state@2x.png 2x
+        ${urlMobile} 1x,
+          ${urlMobile2x} 2x
         "
-        media="(min-width:1280px)"
+        media="(min-width:1200px)"
       />
       <source
         srcset="
-          ./images/empty-state@1x.png 1x,
-          ./images/empty-state@2x.png 2x,
+        ${urlMobile} 1x,
+          ${urlMobile2x} 2x
         "
         media="(min-width:768px)"
       />
       <source
         srcset="
-          ./images/empty-state@m1x.png 1x,
-          ./images/empty-state@m2x.png 2x,
+        ${urlMobile} 1x,
+          ${urlMobile2x} 2x
         "
         media="(max-width:767px)"
       />
       <img
         class="product__empty-image"
-        src="./images/empty-state@m1x.png"
+        src="${urlMobile}"
         alt="cocktail"
         width="280"
         height="308"
@@ -66,13 +68,13 @@ function emptyMarkUp() {
 }
 
 export function createFullMarkup(obj) {
-  console.log('зашло в createFullMarkup');
+  // console.log('зашло в createFullMarkup');
   defoultMurkup();
-  console.log('после defoultMurkup');
+  // console.log('после defoultMurkup');
   getEl('.product__list').innerHTML = '';
 
   let favoriteIdArr = favoritOrNotButton();
-  console.log('после favoritOrNotButton');
+  console.log(favoriteIdArr);
   // console.log(favoriteIdArr);
 
   const markup = obj
@@ -127,7 +129,6 @@ export function createFullMarkup(obj) {
               }" class="button button__add-or-remove">
               
               ${buttonTextF(favoriteIdArr, cocktail.idDrink)}
-              ${console.log('do buttonTextF')}
                 <div class="product__heart-wraper">
 
                   <svg class="product__big-icon--${classOfSvgF(
@@ -156,31 +157,36 @@ export function createFullMarkup(obj) {
 }
 
 function buttonTextF(favoriteIdArr, id) {
-  console.log('зашло в buttonTextF');
+  // console.log(favoriteIdArr);
   let buttonText = '';
-  if (favoriteIdArr.find(idFromStorage => idFromStorage === id)) {
-    buttonText = 'Remove';
-    return buttonText;
-    console.log('зашло в buttonTextF - if');
+  if (favoriteIdArr !== undefined) {
+    if (favoriteIdArr.find(idFromStorage => idFromStorage === id)) {
+      buttonText = 'Remove';
+      // console.log('зашло в buttonTextF - if');
+      return buttonText;
+    }
   }
-  console.log('не зашло в buttonTextF - if');
+  // console.log('не зашло в buttonTextF - if');
   buttonText = 'Add to';
   return buttonText;
 }
 
 function classOfSvgF(favoriteIdArr, id) {
-  console.log('зашло в classOfSvgF');
-  let classOfSvg = 'add';
-  if (favoriteIdArr.find(option => option === id)) {
-    classOfSvg = 'remove';
-    return classOfSvg;
+  let classOfSvg = '';
+  if (favoriteIdArr !== undefined) {
+    if (favoriteIdArr.find(idFromStorage => idFromStorage === id)) {
+      // console.log('зашло в classOfSvgF');
+      classOfSvg = 'remove';
+      return classOfSvg;
+    }
   }
+  // console.log('не зашло в classOfSvgF - if');
   classOfSvg = 'add';
   return classOfSvg;
 }
 
 function defoultMurkup() {
-  console.log('зашло в defoultMurkup');
+  // console.log('зашло в defoultMurkup');
   getEl('.product').innerHTML = '';
   const defoultMurkup = `
   <h2 class="product__title">Cocktails</h2>
@@ -190,15 +196,16 @@ function defoultMurkup() {
 }
 
 const productEl = document.querySelector('.container.product');
-console.dir(productEl);
-productEl.addEventListener('click', findCocktailData);
+// console.dir(productEl);
+if (productEl) {
+  productEl.addEventListener('click', findCocktailData);
+}
 
 let cocktailId = 0;
 
 function findCocktailData(event) {
-  console.log('зашло в findCocktailData');
+  // console.log('зашло в findCocktailData');
   cocktailId = event.target.attributes[0].nodeValue;
-  // console.dir(cocktailId);
   takeDataFromCocktailMarkUp(cocktailId);
   // функция изменяющая внутреннее содержание кнопки
   addOrRemoveMurkup(event);
@@ -206,7 +213,7 @@ function findCocktailData(event) {
 }
 
 function takeDataFromCocktailMarkUp(cocktailId) {
-  console.log('зашло в takeDataFromCocktailMarkUp');
+  // console.log('зашло в takeDataFromCocktailMarkUp');
   if (+cocktailId) {
     const cocktailFroClick = document.querySelector(`[id="${cocktailId}"]`);
     const cocktailName =
@@ -220,33 +227,38 @@ function takeDataFromCocktailMarkUp(cocktailId) {
 
 const favoriteArr = [];
 
+if (load('cocktails') && load('cocktails').length > 0) {
+  favoriteArr.push(...load('cocktails'));
+}
+
 function createObj(cocktailName, cocktailLink) {
-  console.log('зашло в createObj');
+  let arrFromStorage = load('cocktails');
+
   const cocktailObj = {
     id: cocktailId,
     name: cocktailName,
     link: cocktailLink,
   };
-
   favoriteArr.push(cocktailObj);
+  console.log(favoriteArr);
   save('cocktails', favoriteArr);
 }
 
 function favoritOrNotButton() {
-  console.log('зашло в favoritOrNotButton');
-  let CocktailsInStorage = load('cocktails');
-  if (CocktailsInStorage > 0) {
-    console.log(CocktailsInStorage);
-    const findFavoritsCocktailArr = CocktailsInStorage.map(
+  // console.log('зашло в favoritOrNotButton');
+  let cocktailsInStorage = load('cocktails');
+  // console.log(cocktailsInStorage);
+  if (cocktailsInStorage && cocktailsInStorage.length > 0) {
+    // console.log(cocktailsInStorage);
+    const findFavoritsCocktailArr = cocktailsInStorage.map(
       cocktail => cocktail.id
     );
     return findFavoritsCocktailArr;
   }
-  return 0;
 }
 
-function addOrRemoveMurkup(CocktailInStorageArr) {
-  console.log('зашло в addOrRemoveMurkup');
+function addOrRemoveMurkup(event) {
+  // console.log('зашло в addOrRemoveMurkup');
   if (event.target.innerText === 'Add to') {
     event.target.innerHTML = `Remove
     <div class="product__heart-wraper">
