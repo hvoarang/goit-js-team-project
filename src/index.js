@@ -1,6 +1,12 @@
+import './js/open_modal';
+import './js/favorite-menu';
+import './js/search_header';
+import './js/switch-theme';
 import './js/fetch';
-// import './js/hero-select-m';
-// import './js/hero';
-// import './js/open_modal.js';
-// import './js/search_header.js';
-import './js/modal.js';
+import './js/random-default-coctails';
+import './js/pagination';
+import './js/hero-select-m';
+import './js/hero';
+import './js/cocktails';
+import './js/localStorage';
+import './js/modal';
