@@ -3,41 +3,52 @@ import { url_by_name } from "./fetch";
 import { fetchApi } from "./fetch";
 import { url_ingredient_by_name } from "./fetch";
 
-function createObject(name) {
-  fetchApi(url_by_name, name)
-    .then(obj => {
-      // console.log(obj.drinks[0]);
-      сreateСocktailModalCard(obj.drinks[0]);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-};
+// function createObject(name) {
+//  return  fetchApi(url_by_name, name)
+//     .then(obj => {
+      
+//       // console.log(obj.drinks[0]);
+//       сreateСocktailModalCard(obj.drinks[0]);
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     });
+// };
+//   //  console.log(ArrFetch);
 
-createObject('marg');
+// createObject('marg');
 // событие и кнопка у Ярослава, export, как из Амаретто выбрать конкретный?
 
 const cocktailModalCard = document.querySelector('.modal-cocktail');
-
+console.log(cocktailModalCard);
 function renderCocktailModalCard(element) {
   cocktailModalCard.insertAdjacentHTML('afterbegin', element);
 }
 
 export function сreateСocktailModalCard(cocktailObject) {
-  const { strDrink, strDrinkThumb, strInstructions, strGlass, strCategory, strMeasure1 } = cocktailObject;
-   console.log(cocktailObject);
+  let {
+    strDrink,
+    strDrinkThumb,
+    strInstructions,
+    strGlass,
+    strCategory,
+    strMeasure1,
+  } = cocktailObject;
+  //  console.log(cocktailObject);
   let ingredientArray = [];
   for (let i = 1; i < 15; i += 1) {
     if (!cocktailObject[`strIngredient${i}`]) continue;
     // console.log(cocktail[`strIngredient${i}`]);
     ingredientArray.push(cocktailObject[`strIngredient${i}`]);
   }
-  console.log(ingredientArray);
-  const ingredientArrayMarkup = ingredientArray.map(item => {
-    return `
+  // console.log(ingredientArray);
+  const ingredientArrayMarkup = ingredientArray
+    .map(item => {
+      return `
         <li class="modal-cocktail__item"><a class="modal-cocktail__link link" href="#" data-modal-ingredient-open>${item}</a>
-        </li>`
-  }).join('');
+        </li>`;
+    })
+    .join('');
 
   const cocktailModalCardMarkup = `
     <h3 class="modal-cocktail__title">${strDrink}</h3>
@@ -58,30 +69,40 @@ export function сreateСocktailModalCard(cocktailObject) {
       </div>
     </div>
     <button type="button" class="button__add-or-remove--modal">Add to favorite</button>`;
-    
+
   renderCocktailModalCard(cocktailModalCardMarkup);
+}
+
+
+
+  ////////////////////////////////////////////
   // console.log(cocktailModalCardMarkup);
 
   // const ingredientModalCard = document.querySelector('.modal-cocktail');
 
-  const ingredientLinks = document.querySelectorAll('.modal-cocktail__link');
+  // const ingredientLinks = document.querySelectorAll('.modal-cocktail__link');
   // const ingr = ingredientLink.textContent;
   // console.log(ingredientLink);
-  if (ingredientLinks) {
-  ingredientLinks.addEventListener('click', (event) => {
-    const ingr = event.target.textContent;
-    fetchApi(url_ingredient_by_name, ingr)
-      .then(obj => {
-        console.log(obj.ingredients[0]);
-        // сreateIngredientModalCard(obj.ingredients[0]);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  });
-}
 
-  
+
+
+
+  ////////////////////////////////////
+//   if (ingredientLinks) {
+//   ingredientLinks.addEventListener('click', (event) => {
+//     const ingr = event.target.textContent;
+//     fetchApi(url_ingredient_by_name, ingr)
+//       .then(obj => {
+//         console.log(obj.ingredients[0]);
+//         // сreateIngredientModalCard(obj.ingredients[0]);
+//       })
+//       .catch(err => {
+//         console.log(err);
+//       });
+//   });
+// }
+
+  //////////////////////////////////////////
   
 // console.log(ingredientLink.textContent);
   //нажатие кнопки отправит карточку в FCocktail   
@@ -114,7 +135,7 @@ export function сreateСocktailModalCard(cocktailObject) {
 //     //         ingredientModalCard.insertAdjacentHTML('afterbegin', ingredientMarkup);
 //     //     }
 //   };
-};
+// };
   
 // function createTest({strDescription}) {
 //   const test = `<span>${strDescription}</span>`;

@@ -1,6 +1,7 @@
 const getEl = el => document.querySelector(el);
 import orangeHeart from '../images/svg/icons.svg';
 import obj from './localStorage';
+import { modalOpenClose } from './modalOpenClose';
 const { save, load } = obj;
 // let defoultStorageArr = [];
 // function defoultStorage() {
@@ -74,8 +75,8 @@ export function createFullMarkup(obj) {
   getEl('.product__list').innerHTML = '';
 
   let favoriteIdArr = favoritOrNotButton();
-  console.log(favoriteIdArr);
   // console.log(favoriteIdArr);
+ 
 
   const markup = obj
     .map(
@@ -123,7 +124,7 @@ export function createFullMarkup(obj) {
             <div class="product__buttons">
               <button data-="${
                 cocktail.idDrink
-              }" class="button button__learn-more">Learn more</button>
+              }" class="button button__learn-more" data-modal-cocktail-open >Learn more</button>
               <button data-="${
                 cocktail.idDrink
               }" class="button button__add-or-remove">
@@ -154,8 +155,14 @@ export function createFullMarkup(obj) {
     )
     .join('');
   getEl('.product__list').insertAdjacentHTML('beforeEnd', markup);
+  const ButLearnMoreArr = document.querySelectorAll(
+    '.button.button__learn-more'
+  );
+  const ArrButCard = Array.from(ButLearnMoreArr);
+  ArrButCard.map(but => {
+    but.addEventListener('click', modalOpenClose);
+  });
 }
-
 function buttonTextF(favoriteIdArr, id) {
   // console.log(favoriteIdArr);
   let buttonText = '';
@@ -240,7 +247,7 @@ function createObj(cocktailName, cocktailLink) {
     link: cocktailLink,
   };
   favoriteArr.push(cocktailObj);
-  console.log(favoriteArr);
+  // console.log(favoriteArr);
   save('cocktails', favoriteArr);
 }
 
