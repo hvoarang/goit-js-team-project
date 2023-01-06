@@ -1,6 +1,7 @@
 const getEl = el => document.querySelector(el);
 import orangeHeart from '../images/svg/icons.svg';
 import obj from './localStorage';
+import { addToLocalStorage } from './localStorage';
 const { save, load } = obj;
 
 export function createMarkup(obj) {
@@ -57,13 +58,16 @@ function emptyMarkUp() {
 
 export function createFullMarkup(obj) {
   // console.log('зашло в createFullMarkup');
+  if (obj) {
+    const cocktailFromFetch = obj.map(cocktails => cocktails);
+    addToLocalStorage(cocktailFromFetch);
+  }
+
   defoultMurkup();
   // console.log('после defoultMurkup');
   getEl('.product__list').innerHTML = '';
 
   let favoriteIdArr = favoritOrNotButton();
-  console.log(favoriteIdArr);
-  // console.log(favoriteIdArr);
 
   const markup = obj
     .map(
@@ -228,7 +232,7 @@ function createObj(cocktailName, cocktailLink) {
     link: cocktailLink,
   };
   favoriteArr.push(cocktailObj);
-  console.log(favoriteArr);
+  // console.log(favoriteArr);
   save('cocktails', favoriteArr);
 }
 

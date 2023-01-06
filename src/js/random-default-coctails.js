@@ -15,7 +15,7 @@ const screenD = window.matchMedia('(min-width: 1280px)');
 const screenM = window.matchMedia('(max-width: 768px)');
 const screenT = window.matchMedia('(max-width: 1280px)');
 let quantityCard = 0;
-console.log(makeid());
+// console.log(makeid());
 fetchApi(url_by_first_letter, makeid())
   .then(obj => {
     createMarkup(obj.drinks);
