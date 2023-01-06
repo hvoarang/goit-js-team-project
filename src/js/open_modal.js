@@ -1,4 +1,3 @@
-console.log(2222);
 
 (() => {
   const menuBtnRef = document.querySelector(".js-open-menu");
