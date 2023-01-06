@@ -23,10 +23,8 @@ export function takeCoctails(e) {
   }
 }
 
-
-
 const select2 = new ItcCustomSelect('#select-2', {
-  name: 'letter', 
+  name: 'letter',
   targetValue: 'A',
   options: [
     ['A', 'A'],
@@ -65,7 +63,7 @@ const select2 = new ItcCustomSelect('#select-2', {
     ['8', '8'],
     ['9', '9'],
     ['0', '0'],
-  ], 
+  ],
 });
 
 const parentEl = document.querySelectorAll('.itc-select__options')[0];
