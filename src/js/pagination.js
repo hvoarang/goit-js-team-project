@@ -7,6 +7,7 @@ const mainEl = document.querySelector('.product__list');
 ListEl.addEventListener('click', takeArreyREsult);
 let count = 0;
 let cnt = 0;
+export let ArrFetch = [];
 export const paginator = document.querySelector('.paginator');
 
 const screenD = window.matchMedia('(min-width: 1280px)');
@@ -16,8 +17,9 @@ const screenT = window.matchMedia('(max-width: 1280px)');
 export function takeArreyREsult(e) {
   const target = e.target;
   if (e.target !== e.currentTarget) {
-    fetchApi(url_by_first_letter, target.textContent)
+    return fetchApi(url_by_first_letter, target.textContent)
       .then(({ drinks }) => {
+        ArrFetch.push(drinks);
         createMarkup(drinks);
         if (screenM.matches) {
           cnt = 3;
@@ -39,12 +41,13 @@ export function takeArreyREsult(e) {
           paginator.innerHTML = page;
 
           let div_num = document.querySelectorAll('.product__wraper');
-          //   console.log(div_num);
+
           for (let i = 0; i < div_num.length; i++) {
             if (i < cnt) {
               div_num[i].style.display = 'block';
             }
           }
+
           let main_page = document.getElementById('page1');
           main_page.classList.add('paginator_active');
 
@@ -52,9 +55,6 @@ export function takeArreyREsult(e) {
           pagEl.addEventListener('click', pagination);
 
           function pagination(event) {
-            //   console.log(mainEl);
-            //   mainEl.innerHTML = '';
-
             const e = event || window.event;
             const target = e.target;
             const id = target.id;
@@ -74,6 +74,7 @@ export function takeArreyREsult(e) {
             for (let i = data_page; i < div_num.length; i++) {
               if (j >= cnt) break;
               div_num[i].style.display = 'block';
+
               j++;
             }
           }
