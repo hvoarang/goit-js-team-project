@@ -1,14 +1,21 @@
 <!-- ---------------MODAL-WINDOW COCKTAIL--------------------- -->
-<div class="modal-cocktail__backdrop is-hidden overlay" data-cocktail-modal>
+<button
+  class="button__add-or-remove--modal"
+  type="button"
+  data-modal-cocktail-open
+>
+  Открыть модалку
+</button>
+<div class="modal-cocktail__backdrop is-hidden overlay" data-modal-cocktail>
   <div class="modal-cocktail">
-    <button class="modal__close-btn" type="button" data-cocktail-modal-close>
+    <button class="modal__close-btn" type="button" data-modal-cocktail-close>
       <svg class="modal__close-svg">
         <use href="./images/svg/icons.svg#menu-close"></use>
       </svg>
     </button>
-    <h3 class="modal-cocktail__title">Negroni</h3>
-    <div class="modal-wraper">
-      <div class="modal-cocktail__wrap-instructions">
+    <!-- <h3 class="modal-cocktail__title">Negroni</h3> -->
+    <!-- <div class="modal-wraper"> -->
+    <!-- <div class="modal-cocktail__wrap-instructions">
         <h4 class="modal-cocktail__subtitle">Instructions:</h4>
         <p class="modal-cocktail__instructions">
           Add the gin, Campari and sweet vermouth to a mixing glass filled with
@@ -22,42 +29,58 @@
         alt="Cocktail Photo"
         width="280"
         height="280"
-      />
-      <div class="modal-cocktail__wrap-ingredients">
-        <h4 class="modal-cocktail__ingredients">Ingredients</h4>
-        <p class="modal-cocktail__per">Per cocktail</p>
-        <ul class="modal-cocktail__list">
-          <li class="modal-cocktail__item">
-            <a class="modal-cocktail__link link" href="#" target="_blank"
+      /> -->
+    <!-- <div class="modal-cocktail__wrap-ingredients"> -->
+    <!-- <h4 class="modal-cocktail__ingredients">Ingredients</h4>
+        <p class="modal-cocktail__per">Per cocktail</p> -->
+    <!-- <ul class="modal-cocktail__list" data-modal-ingredient-open> -->
+    <!-- <li class="modal-cocktail__item">
+            <a
+              class="modal-cocktail__link link"
+              href="#"
+              data-modal-ingredient-open
               >Ice</a
             >
           </li>
           <li class="modal-cocktail__item">
-            <a class="modal-cocktail__link link" href="#" target="_blank"
+            <a
+              class="modal-cocktail__link link"
+              href="#"
+              data-modal-ingredient-open
               >1 ounce gin</a
             >
           </li>
           <li class="modal-cocktail__item">
-            <a class="modal-cocktail__link link" href="#" target="_blank"
+            <a
+              class="modal-cocktail__link link"
+              href="#"
+              data-modal-ingredient-open
               >1 ounce Campari</a
             >
           </li>
           <li class="modal-cocktail__item">
-            <a class="modal-cocktail__link link" href="#" target="_blank"
+            <a
+              class="modal-cocktail__link link"
+              href="#"
+              data-modal-ingredient-open
               >1 ounce sweet vermouth</a
             >
           </li>
           <li class="modal-cocktail__item">
-            <a class="modal-cocktail__link link" href="#" target="_blank"
+            <a
+              class="modal-cocktail__link link"
+              href="#"
+              data-modal-ingredient-open
               >Garnish: orange peel</a
             >
-          </li>
-        </ul>
-      </div>
-    </div>
-    <button type="button" class="button__add-or-remove--modal">
+          </li> -->
+    <!-- </ul>
+      </div> -->
+    <!-- </div> -->
+    <!-- <button type="button" class="button__add-or-remove--modal">
       Add to favorite
-    </button>
-    <!-- Как прописать кнопку Remove from favorite?-->
+    </button> -->
   </div>
 </div>
+
+<!-- Как прописать кнопку Remove from favorite? -->

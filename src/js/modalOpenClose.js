@@ -9,19 +9,24 @@ export function modalOpenClose() {
   refs.openModalBtn.addEventListener('click', toggleModal);
   refs.closeModalBtn.addEventListener('click', toggleModal);
 
-function toggleModal() {
+  function toggleModal() {
     refs.modal.classList.toggle('is-hidden');
   }
-
-  // refs.openModalBtn.addEventListener('click', remove);
-  // refs.closeModalBtn.addEventListener("click", add);
-
-  // function remove() {
-  //   refs.modal.classList.remove('is-hidden');
-  // }
-
-  // function add() {
-  //   refs.modal.classList.add('is-hidden');
-  // }
 }
 modalOpenClose();
+	
+	function modalOpenCloseIngredient() {
+	  const refs = {
+	    openModalBtn2: document.querySelector('[data-modal-ingredient-open]'),
+	    closeModalBtn2: document.querySelector('.modal-ingredient__backdrop'),
+	    modal2: document.querySelector('[data-modal-ingredient]'),
+	  };
+	
+	  refs.openModalBtn2.addEventListener('click', toggleModal);
+	  refs.closeModalBtn2.addEventListener('click', toggleModal);
+	
+	function toggleModal() {
+	    refs.modal2.classList.toggle('is-hidden');
+	  }
+}
+	modalOpenCloseIngredient();

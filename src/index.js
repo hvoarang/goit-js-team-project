@@ -1,4 +1,4 @@
-// import './js/fetch';
+import './js/fetch';
 // import './js/hero-select-m';
 // import './js/hero';
 // import './js/open_modal.js';
