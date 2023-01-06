@@ -2,18 +2,6 @@ const getEl = el => document.querySelector(el);
 import orangeHeart from '../images/svg/icons.svg';
 import obj from './localStorage';
 const { save, load } = obj;
-// let defoultStorageArr = [];
-// function defoultStorage() {
-//   console.log('зашло в defoultStorage');
-//   const cocktailObj = {
-//     id: 1,
-//     name: 'none',
-//     link: 'https',
-//   };
-//   defoultStorageArr.push(cocktailObj);
-//   save('cocktails', defoultStorageArr);
-// }
-// defoultStorage();
 
 export function createMarkup(obj) {
   // console.log('зашло в createMarkup');
