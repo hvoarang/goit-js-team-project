@@ -129,6 +129,7 @@ a {
 .imput__header {
     width: 100%;
     border: transparent;
+    background-color: transparent;
     border-color: var(--orange-text-color);
     color: var(--orange-text-color);
 
@@ -222,9 +223,7 @@ a {
     @media screen and (min-width: 1280px) {
         display: none;
     }
-    &.js-bg_colour{
-    background-color:var(--black-bg-color);
-}
+   
 }
 
 
