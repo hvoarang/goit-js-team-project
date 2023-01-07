@@ -1,9 +1,10 @@
-console.log(1);
 import { fetchApi } from './fetch';
 import { url_by_name } from './fetch';
 import { url_by_first_letter } from './fetch';
 import { createMarkup } from './cocktails';
 import { ArrFetch } from './pagination';
+import { paginatorBut } from './pagination';
+import { paginatorBut2 } from './pagination';
 
 const searchForm = document.querySelector('.search-container__form');
 const searchFormMob = document.querySelector('.search-container__form-mob');
@@ -45,6 +46,8 @@ function searchValueHeader(e) {
             (i + 1) +
             '</button>';
         }
+        paginatorBut.style.display = 'block';
+        paginatorBut2.style.display = 'block';
         paginator.innerHTML = page;
 
         let div_num = document.querySelectorAll('.product__wraper');
@@ -102,6 +105,8 @@ function searchValueHeader(e) {
             (i + 1) +
             '</button>';
         }
+        paginatorBut.style.display = 'block';
+        paginatorBut2.style.display = 'block';
         paginator.innerHTML = page;
 
         let div_num = document.querySelectorAll('.product__wraper');
@@ -160,6 +165,8 @@ function searchValueHeader(e) {
             (i + 1) +
             '</button>';
         }
+        paginatorBut.style.display = 'block';
+        paginatorBut2.style.display = 'block';
         paginator.innerHTML = page;
 
         let div_num = document.querySelectorAll('.product__wraper');
