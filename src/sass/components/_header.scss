@@ -381,8 +381,9 @@ background-color: transparent;
 
 /******************** Hide default HTML checkbox ***********************/
 /* The switch - the box around the slider */
-.checkbox {
+.checkbox_theme {
     display: flex;
+    
 
     @media screen and (max-width: 1280px) {
         display: none;
@@ -444,16 +445,19 @@ background-color: transparent;
     margin: auto 0;
     -webkit-transition: 0.4s;
     transition: 0.4s;
-    box-shadow: 0 0px 15px var(--black-bg-color);
+    box-shadow: 0 0px 15px var(--gray-text-color);
     background-repeat: no-repeat;
     background-position: center;
 }
 
 input:checked+.slider {
     background-color: var(--orange-text-color);
-
+border: solid 2px var(--white-bg-color);
 
 }
+input:checked + .checkbox__light{
+       color: var(--orange-text-color);
+   }
 
 input:focus+.slider {
     box-shadow: 0 0 1px var(--orange-text-color);
@@ -463,7 +467,7 @@ input:checked+.slider:before {
     -webkit-transform: translateX(24px);
     -ms-transform: translateX(24px);
     transform: translateX(24px);
-
+ background-color: var(--white-bg-color);
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -473,8 +477,10 @@ input:checked+.slider:before {
     border-radius: 34px;
     width: 40px;
     height: 20px;
+    background-color: var(--white-bg-color);
 }
 
 .slider.round:before {
+    background-color: var(--orange-text-color);
     border-radius: 50%;
 }
