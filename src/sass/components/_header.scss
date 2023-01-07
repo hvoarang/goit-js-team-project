@@ -2,7 +2,10 @@ a {
     text-decoration: none;
     color: var(--black-bg-color);
 }
-
+.body{
+     
+    background: var(--white-bg-color);
+}
 .header__wrap {
     display: flex;
     justify-content: space-between;
@@ -64,6 +67,7 @@ a {
     display: flex;
     gap: 60px;
     align-items: flex-end;
+    
 }
 
 .site-nav__link {
@@ -72,6 +76,16 @@ a {
     line-height: 133%;
     letter-spacing: 0.02em;
     color: var(--black-bg-color);
+  &:hover {
+    color: var(--orange-text-color);
+  }
+  &:focus {
+    text-shadow: 0.05em 0 var(--gray-text-color), -0.05em 0 var(--gray-text-color), 0 0.05em var(--gray-text-color),
+      0 -0.05em var(--gray-text-color);
+    color: var(--orange-text-color);
+    -webkit-text-stroke: 1px var(--gray-text-color);
+    text-shadow: 0px 4px 4px rgba(95, 103, 117, 0.25);
+  }
 }
 
 //   -----------------------------Инпут-----------------------------------------
@@ -115,6 +129,8 @@ a {
 .imput__header {
     width: 100%;
     border: transparent;
+    border-color: var(--orange-text-color);
+    color: var(--orange-text-color);
 
     &:focus {
         outline: none;
@@ -224,6 +240,7 @@ a {
 
 .checkbox__mob {
     display: flex;
+   
 }
 
 .mob-menu {
@@ -309,6 +326,16 @@ a {
     line-height: 133%;
     border: none;
     cursor: pointer;
+     &:hover {
+    color: var(--orange-text-color);
+  }
+  &:focus {
+    text-shadow: 0.05em 0 var(--gray-text-color), -0.05em 0 var(--gray-text-color), 0 0.05em var(--gray-text-color),
+      0 -0.05em var(--gray-text-color);
+    color: var(--orange-text-color);
+    -webkit-text-stroke: 1px var(--gray-text-color);
+    text-shadow: 0px 4px 4px rgba(95, 103, 117, 0.25);
+  }
 }
 
 .dropbtn-mob {
@@ -360,7 +387,7 @@ a {
     display: block;
 }
 .dropdown-content-mob{
-background-color: transparent;
+
     border: 2px solid var(--orange-text-color);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -368,19 +395,27 @@ background-color: transparent;
     margin-top: 10px;
 }
 .dropdown-content-desk {
-    background-color:var(--white-bg-color);
+    
     border: 2px solid var(--orange-text-color);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     width: 210px;
     margin-top: 10px;
     margin-left: 8px;
+    background-color: var(--white-bg-color);
+    
 }
 
 
 
 /******************** Hide default HTML checkbox ***********************/
 /* The switch - the box around the slider */
+.checkbox{
+    display: flex;
+    @media screen and (max-width: 1280px) {
+        display: none;
+    }
+}
 .checkbox_theme {
     display: flex;
     
