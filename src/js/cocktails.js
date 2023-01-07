@@ -1,12 +1,20 @@
 const getEl = el => document.querySelector(el);
 import orangeHeart from '../images/svg/icons.svg';
 import obj from './localStorage';
-
-import { addToLocalStorage } from './localStorage';
-
 import { modalOpenClose } from './modalOpenClose';
-
 const { save, load } = obj;
+// let defoultStorageArr = [];
+// function defoultStorage() {
+//   console.log('зашло в defoultStorage');
+//   const cocktailObj = {
+//     id: 1,
+//     name: 'none',
+//     link: 'https',
+//   };
+//   defoultStorageArr.push(cocktailObj);
+//   save('cocktails', defoultStorageArr);
+// }
+// defoultStorage();
 
 export function createMarkup(obj) {
   // console.log('зашло в createMarkup');
@@ -62,16 +70,12 @@ function emptyMarkUp() {
 
 export function createFullMarkup(obj) {
   // console.log('зашло в createFullMarkup');
-  if (obj) {
-    const cocktailFromFetch = obj.map(cocktails => cocktails);
-    addToLocalStorage(cocktailFromFetch);
-  }
-
   defoultMurkup();
   // console.log('после defoultMurkup');
   getEl('.product__list').innerHTML = '';
 
   let favoriteIdArr = favoritOrNotButton();
+  // console.log(favoriteIdArr);
 
   const markup = obj
     .map(
