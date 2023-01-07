@@ -1,7 +1,11 @@
 const getEl = el => document.querySelector(el);
 import orangeHeart from '../images/svg/icons.svg';
 import obj from './localStorage';
+
 import { addToLocalStorage } from './localStorage';
+
+import { modalOpenClose } from './modalOpenClose';
+
 const { save, load } = obj;
 
 export function createMarkup(obj) {
@@ -115,7 +119,7 @@ export function createFullMarkup(obj) {
             <div class="product__buttons">
               <button data-="${
                 cocktail.idDrink
-              }" class="button button__learn-more">Learn more</button>
+              }" class="button button__learn-more" data-modal-cocktail-open >Learn more</button>
               <button data-="${
                 cocktail.idDrink
               }" class="button button__add-or-remove">
@@ -146,8 +150,14 @@ export function createFullMarkup(obj) {
     )
     .join('');
   getEl('.product__list').insertAdjacentHTML('beforeEnd', markup);
+  const ButLearnMoreArr = document.querySelectorAll(
+    '.button.button__learn-more'
+  );
+  const ArrButCard = Array.from(ButLearnMoreArr);
+  ArrButCard.map(but => {
+    but.addEventListener('click', modalOpenClose);
+  });
 }
-
 function buttonTextF(favoriteIdArr, id) {
   // console.log(favoriteIdArr);
   let buttonText = '';
