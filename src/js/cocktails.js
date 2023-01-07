@@ -85,10 +85,10 @@ export function createFullMarkup(obj) {
   const markup = obj
     .map(
       (cocktail, index) => `
-      
+        
 
-      <li id="${cocktail.idDrink}" class="product__item">   
-        <div class="product__wraper" data-num="${index}">
+        <li id="${cocktail.idDrink}" class="product__item">   
+          <div class="product__wraper" data-num="${index}">
 
           <div class="product__image-part">
             <picture>
@@ -133,19 +133,25 @@ export function createFullMarkup(obj) {
                 cocktail.idDrink
               }" class="button button__add-or-remove">
               
-              ${buttonTextF(favoriteIdArr, cocktail.idDrink)}
+              ${
+                renderTextAndHeart('Add to', cocktail.idDrink)
+                  ? 'Remove'
+                  : 'Add to'
+              }
                 <div class="product__heart-wraper">
 
-                  <svg class="product__big-icon--${classOfSvgF(
-                    favoriteIdArr,
-                    cocktail.idDrink
-                  )}" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+                  <svg class="product__big-icon--${
+                    renderTextAndHeart('Add to', cocktail.idDrink)
+                      ? 'remove'
+                      : 'add'
+                  }" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
                     <use href="${orangeHeart}#bigHeart"></use>
                   </svg>
-                  <svg class="product__small-icon--${classOfSvgF(
-                    favoriteIdArr,
-                    cocktail.idDrink
-                  )}" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+                  <svg class="product__small-icon--${
+                    renderTextAndHeart('Add to', cocktail.idDrink)
+                      ? 'remove'
+                      : 'add'
+                  }" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
                     <use href="${orangeHeart}#smallHeart"></use>
                   </svg>
                 </div>
@@ -168,32 +174,6 @@ export function createFullMarkup(obj) {
   });
   addToLocalStorage(obj);
 }
-function buttonTextF(favoriteIdArr, id) {
-  let buttonText = '';
-  if (favoriteIdArr !== undefined) {
-    if (favoriteIdArr.find(idFromStorage => idFromStorage === id)) {
-      buttonText = 'Remove';
-
-      return buttonText;
-    }
-  }
-
-  buttonText = 'Add to';
-  return buttonText;
-}
-
-function classOfSvgF(favoriteIdArr, id) {
-  let classOfSvg = '';
-  if (favoriteIdArr !== undefined) {
-    if (favoriteIdArr.find(idFromStorage => idFromStorage === id)) {
-      classOfSvg = 'remove';
-      return classOfSvg;
-    }
-  }
-
-  classOfSvg = 'add';
-  return classOfSvg;
-}
 
 function defoultMurkup() {
   getEl('.product').innerHTML = '';
@@ -204,9 +184,17 @@ function defoultMurkup() {
   getEl('.product').insertAdjacentHTML('beforeEnd', defoultMurkup);
 }
 
+function renderTextAndHeart(text, idFromFetch) {
+  const idFromFavorite = load('cocktails')
+    .map(item => item.id)
+    .find(idFromStorage => idFromStorage === idFromFetch);
+  return idFromFavorite;
+}
+
 const productEl = document.querySelector('.container.product');
 
-if (productEl) {
+if (productEl === true) {
+  console.log('productEl');
   productEl.addEventListener('click', findCocktailData);
 }
 
@@ -214,10 +202,16 @@ let cocktailId = 0;
 
 function findCocktailData(event) {
   cocktailId = event.target.attributes[0].nodeValue;
-  takeDataFromCocktailMarkUp(cocktailId);
-  // функция изменяющая внутреннее содержание кнопки
-  addOrRemoveMurkup(event);
-  return cocktailId;
+  console.log(cocktailId);
+  const idFromFavorite = load('cocktails')
+    .map(item => item.id)
+    .find(idFromStorage => idFromStorage === cocktailId);
+  return idFromFavorite;
+
+  // takeDataFromCocktailMarkUp(cocktailId);
+  // // функция изменяющая внутреннее содержание кнопки
+  // addOrRemoveMurkup(event);
+  // return cocktailId;
 }
 
 function takeDataFromCocktailMarkUp(cocktailId) {
