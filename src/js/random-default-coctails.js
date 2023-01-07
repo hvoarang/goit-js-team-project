@@ -15,9 +15,10 @@ const screenD = window.matchMedia('(min-width: 1280px)');
 const screenM = window.matchMedia('(max-width: 768px)');
 const screenT = window.matchMedia('(max-width: 1280px)');
 let quantityCard = 0;
+
  export let defArreyCard =[];
 
-console.log(makeid());
+
 fetchApi(url_by_first_letter, makeid())
   .then(obj => {
     defArreyCard.push(obj.drinks);
