@@ -4,6 +4,7 @@ import { defArreyCard } from "./random-default-coctails";
 import {сreateСocktailModalCard} from './modal'
 // console.log(defArreyCard);
 export const backdropEl = document.querySelector('[data-modal-cocktail]');
+const cocktailModalCard = document.querySelector('.modal-cocktail');
 
 export let cardInfo = {};
 
@@ -20,7 +21,11 @@ export function modalOpenClose(e) {
     ArrFetch[0].find(obj => obj.idDrink === idCard);
 // console.log('cardInfo :>> ', cardInfo);
   сreateСocktailModalCard(cardInfo);
-  closeBtn.addEventListener('click', () => backdropEl.classList.add('is-hidden2'));
+  closeBtn.addEventListener('click', () => {
+    backdropEl.classList.add('is-hidden2');
+    cocktailModalCard.innerHTML = '';
+  });
+  
 }
 
   //   const refs = {

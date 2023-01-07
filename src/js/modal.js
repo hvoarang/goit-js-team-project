@@ -10,8 +10,6 @@ import { cardInfo } from "./modalOpenClose";
 const cocktailModalCard = document.querySelector('.modal-cocktail');
 // console.log(cocktailModalCard);
 function renderCocktailModalCard(element) {
-  // cocktailModalCard.innerHTML = '';
-  // затирает кнопку закрытия модалки, вставить ее в разметку динамическую
   cocktailModalCard.insertAdjacentHTML('afterbegin', element);
 }
 
@@ -44,7 +42,14 @@ export function сreateСocktailModalCard(cocktailObject) {
 
   // <span>* ${measureArray[1]}</span>
   
+  //     <button class="modal__close-btn" type="button" data-modal-cocktail-close>
+  //     <svg class="modal__close-svg">
+  //       <use href="./images/svg/icons.svg#menu-close"></use>
+  //     </svg>
+  // </button>
+  
   const cocktailModalCardMarkup = `
+
     <h3 class="modal-cocktail__title">${strDrink}</h3>
     <div class="modal-wraper">
       <div class="modal-cocktail__wrap-instructions">
@@ -107,7 +112,7 @@ function takeIngredients (event) {
   refs.closeModalIngred.classList.remove('is-hidden2');  
   fetchApi(url_ingredient_by_name, ingr)
       .then(obj => {
-        console.log(obj.ingredients[0]);
+        // console.log(obj.ingredients[0]);
         сreateIngredientModalCard(obj.ingredients[0]);
       })
       .catch(err => {

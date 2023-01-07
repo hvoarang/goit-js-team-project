@@ -25,6 +25,7 @@
   overflow: auto;
   display: flex;
   align-items: center;
+  z-index: 10000;
 }
 
 .modal-cocktail__backdrop.is-hidden2 {
@@ -48,7 +49,7 @@
   flex-direction: column;
   align-items: flex-start;
   min-width: 320px;
-  height: 100%;
+  // max-height: 598px;
   background-color: #ffffff;
   border-radius: 10px;
   /* transform: translate(-50%, -50%) scale(1) rotate(0);
@@ -57,13 +58,14 @@
   padding: 40px 20px;
   //   overflow: scroll;
   position: relative;
+  overflow-y: hidden;
 
   @media screen and (min-width: 768px) {
     // flex-direction: row;
     // flex-wrap: wrap;
     width: 100%;
     max-width: 720px;
-    min-height: 598px;
+    // min-height: 598px;
     padding: 40px 28px 28px;
   }
 }
@@ -102,7 +104,6 @@
   @media screen and (min-width: 768px) {
     margin-bottom: 28px;
     margin-left: 320px;
-    color: #000917;
   }
 }
 
@@ -121,7 +122,6 @@
   color: var(--black-bg-color);
   margin-bottom: 20px;
   @media screen and (min-width: 768px) {
-    color: #000917;
     margin-bottom: 24px;
   }
 }
@@ -160,7 +160,7 @@
   font-size: 16px;
   line-height: 1.5;
   text-transform: uppercase;
-  color: #000917;
+  color: var(--black-bg-color);
 
   @media screen and (min-width: 768px) {
     // display: flex;
@@ -182,7 +182,7 @@
 
 .modal-cocktail__list {
   margin-bottom: 32px;
-  color: #000917;
+  color: var(--black-bg-color);
   margin-left: 10px;
   @media screen and (min-width: 768px) {
     display: block;
@@ -206,7 +206,7 @@
 }
 
 li::marker {
-  color: #000917;
+  color: var(--black-bg-color);
   font-size: 16px;
   &:hover {
     color: var(--orange-text-color);
@@ -273,7 +273,7 @@ li::marker {
 //   font-size: 16px;
 //   line-height: 1.62;
 //   text-transform: uppercase;
-//   color: #000917;
+//   color: var(--)
 //   padding-left: 28px;
 //   margin-top: 28px;
 //   margin-bottom: 24px;
