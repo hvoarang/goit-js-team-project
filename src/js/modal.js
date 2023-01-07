@@ -1,12 +1,11 @@
-
-import { url_by_name } from "./fetch";
-import { fetchApi } from "./fetch";
-import { url_ingredient_by_name } from "./fetch";
+import { url_by_name } from './fetch';
+import { fetchApi } from './fetch';
+import { url_ingredient_by_name } from './fetch';
 
 // function createObject(name) {
 //  return  fetchApi(url_by_name, name)
 //     .then(obj => {
-      
+
 //       // console.log(obj.drinks[0]);
 //       сreateСocktailModalCard(obj.drinks[0]);
 //     })
@@ -73,21 +72,16 @@ export function сreateСocktailModalCard(cocktailObject) {
   renderCocktailModalCard(cocktailModalCardMarkup);
 }
 
+////////////////////////////////////////////
+// console.log(cocktailModalCardMarkup);
 
+// const ingredientModalCard = document.querySelector('.modal-cocktail');
 
-  ////////////////////////////////////////////
-  // console.log(cocktailModalCardMarkup);
+// const ingredientLinks = document.querySelectorAll('.modal-cocktail__link');
+// const ingr = ingredientLink.textContent;
+// console.log(ingredientLink);
 
-  // const ingredientModalCard = document.querySelector('.modal-cocktail');
-
-  // const ingredientLinks = document.querySelectorAll('.modal-cocktail__link');
-  // const ingr = ingredientLink.textContent;
-  // console.log(ingredientLink);
-
-
-
-
-  ////////////////////////////////////
+////////////////////////////////////
 //   if (ingredientLinks) {
 //   ingredientLinks.addEventListener('click', (event) => {
 //     const ingr = event.target.textContent;
@@ -102,10 +96,10 @@ export function сreateСocktailModalCard(cocktailObject) {
 //   });
 // }
 
-  //////////////////////////////////////////
-  
+//////////////////////////////////////////
+
 // console.log(ingredientLink.textContent);
-  //нажатие кнопки отправит карточку в FCocktail   
+//нажатие кнопки отправит карточку в FCocktail
 // }
 
 //   function сreateIngredientModalCard(ingredient) {
@@ -136,16 +130,16 @@ export function сreateСocktailModalCard(cocktailObject) {
 //     //     }
 //   };
 // };
-  
+
 // function createTest({strDescription}) {
 //   const test = `<span>${strDescription}</span>`;
 //     cocktailModalCard.innerHTML = '';
 //   renderCocktailModalCard(test);
 
-  //разметка на новую модалку
+//разметка на новую модалку
 // }
-    
-    // вставить туда где fetch перед функцией, которая рендерит
+
+// вставить туда где fetch перед функцией, которая рендерит
 
 // function ingredientModalCardCreate({ name, instructions, data}) {
 //     ingredientModalCard.innerHTML = '';
@@ -176,7 +170,7 @@ export function сreateСocktailModalCard(cocktailObject) {
 // addFavouriteCocktailBtn.addEventListener('click', addFavouriteCocktail);
 
 // function goToIngredient (name) {
-    
+
 // }
 
 // function addFavouriteCocktail (name) {

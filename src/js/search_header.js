@@ -1,4 +1,3 @@
-console.log(1);
 import { fetchApi } from "./fetch";
 import { url_by_name } from "./fetch";
 import { url_by_first_letter } from "./fetch";
@@ -219,4 +218,3 @@ function searchValueHeader(e) {
         console.log(err);
       });
   }
-

@@ -22,4 +22,4 @@
 // setTheme('theme-light');
 // document.getElementById('slider').checked = true;
 // }
-// })(); 
+// })();
