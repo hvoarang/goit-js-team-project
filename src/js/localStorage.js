@@ -22,7 +22,6 @@ export default {
 };
 export function addToLocalStorage(coctailsFromFetch) {
   if (coctailsFromFetch) {
-    console.log(coctailsFromFetch);
     let oneCoctailIngredient = coctailsFromFetch.map(cocktailEl => {
       const { idDrink, strDrink, strDrinkThumb, strInstructions } = cocktailEl;
       let OneCocktailData = {

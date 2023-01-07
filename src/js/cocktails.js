@@ -77,7 +77,7 @@ function emptyMarkUp() {
 
 export function createFullMarkup(obj) {
   defoultMurkup();
-  addToLocalStorage(obj);
+
   getEl('.product__list').innerHTML = '';
 
   let favoriteIdArr = favoritOrNotButton();
@@ -166,18 +166,18 @@ export function createFullMarkup(obj) {
   ArrButCard.map(but => {
     but.addEventListener('click', modalOpenClose);
   });
+  addToLocalStorage(obj);
 }
 function buttonTextF(favoriteIdArr, id) {
-  // console.log(favoriteIdArr);
   let buttonText = '';
   if (favoriteIdArr !== undefined) {
     if (favoriteIdArr.find(idFromStorage => idFromStorage === id)) {
       buttonText = 'Remove';
-      // console.log('зашло в buttonTextF - if');
+
       return buttonText;
     }
   }
-  // console.log('не зашло в buttonTextF - if');
+
   buttonText = 'Add to';
   return buttonText;
 }
@@ -186,18 +186,16 @@ function classOfSvgF(favoriteIdArr, id) {
   let classOfSvg = '';
   if (favoriteIdArr !== undefined) {
     if (favoriteIdArr.find(idFromStorage => idFromStorage === id)) {
-      // console.log('зашло в classOfSvgF');
       classOfSvg = 'remove';
       return classOfSvg;
     }
   }
-  // console.log('не зашло в classOfSvgF - if');
+
   classOfSvg = 'add';
   return classOfSvg;
 }
 
 function defoultMurkup() {
-  // console.log('зашло в defoultMurkup');
   getEl('.product').innerHTML = '';
   const defoultMurkup = `
   <h2 class="product__title">Cocktails</h2>
@@ -207,7 +205,7 @@ function defoultMurkup() {
 }
 
 const productEl = document.querySelector('.container.product');
-// console.dir(productEl);
+
 if (productEl) {
   productEl.addEventListener('click', findCocktailData);
 }
@@ -215,7 +213,6 @@ if (productEl) {
 let cocktailId = 0;
 
 function findCocktailData(event) {
-  // console.log('зашло в findCocktailData');
   cocktailId = event.target.attributes[0].nodeValue;
   takeDataFromCocktailMarkUp(cocktailId);
   // функция изменяющая внутреннее содержание кнопки
@@ -224,7 +221,6 @@ function findCocktailData(event) {
 }
 
 function takeDataFromCocktailMarkUp(cocktailId) {
-  // console.log('зашло в takeDataFromCocktailMarkUp');
   if (+cocktailId) {
     const cocktailFroClick = document.querySelector(`[id="${cocktailId}"]`);
     const cocktailName =
