@@ -100,6 +100,8 @@ export function takeArreyREsult(e) {
               (i + 1) +
               '</button>';
           }
+          paginatorBut.style.display = 'block';
+          paginatorBut2.style.display = 'block';
           paginator.innerHTML = page;
 
           let div_num = document.querySelectorAll('.product__wraper');
@@ -158,6 +160,8 @@ export function takeArreyREsult(e) {
               (i + 1) +
               '</button>';
           }
+          paginatorBut.style.display = 'block';
+          paginatorBut2.style.display = 'block';
           paginator.innerHTML = page;
 
           let div_num = document.querySelectorAll('.product__wraper');

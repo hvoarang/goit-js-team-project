@@ -1,8 +1,7 @@
 .paginator-sections {
-  
   display: flex;
   justify-content: center;
-  align-items: center;
+ align-items: flex-start;
   margin-left: auto;
   margin-right: auto;
   width: 286px;
@@ -27,7 +26,7 @@
   margin-bottom: 37px;
 
   @media screen and (min-width: 768px) {
-      margin-bottom: 60px;
+    margin-bottom: 60px;
   }
 }
 
@@ -72,15 +71,19 @@
   transition: 0.3s;
 }
 
-.pagination-buttton,.second-vector {
-    // margin-top: 45px;
+.pagination-buttton,
+.second-vector {
+  // margin-top: 45px;
   margin-bottom: 37px;
-   width: 32px;
+  width: 32px;
   height: 32px;
   display: none;
   background-color: transparent;
   border: none;
-
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .pagination-buttton__use.black {
