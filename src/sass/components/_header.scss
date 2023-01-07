@@ -222,8 +222,15 @@ a {
     @media screen and (min-width: 1280px) {
         display: none;
     }
+    &.js-bg_colour{
+    background-color:var(--black-bg-color);
+}
 }
 
+
+.js-bg_colour{
+    background-color:var(--black-bg-color);
+}
 .container__head {
     margin-top: 22px;
     margin-left: 20px;

@@ -25,6 +25,7 @@ const paginatorItem = document.querySelector('.paginator-item');
 const iconMenu = document.querySelector('.icon__menu');
 const favorTiteitle = document.querySelector('.favorite-title');
 const backdropMob = document.querySelector('.backdrop-mob');
+
 const dropdownContent = document.querySelector('.dropdown-content a');
 const dropdownContenti = document.querySelector('.dropdown-content_i');
 
@@ -49,7 +50,10 @@ function changeTheme() {
     paginatorItem.style.color = 'var(--white-bg-color)';
     iconMenu.style.color = 'var(--white-bg-color)';
     favorTiteitle.style.color = 'var(--black-bg-color)';
-    backdropMob.style.backgroundColor = 'var(--black-bg-color)';
+    backdropMob.classList.toggle('js-bg_colour');
+    if (backdropMob.classList.toggle('js-bg_colour')) {
+      backdropMob.style.backgroundColor = 'var(--black-bg-color)';
+    }
   } else {
     bodyMain.style.backgroundColor = 'var(--white-bg-color)';
     imputHeader.style.backgroundColor = 'var(--white-bg-color)';
@@ -68,6 +72,7 @@ function changeTheme() {
     paginatorItem.style.color = 'var(--black-bg-color)';
     iconMenu.style.color = 'var(--black-bg-color)';
     favorTiteitle.style.color = 'var(--white-bg-color)';
+    // backdropMob.style.backgroundColor = 'var(--white-bg-color)';
   }
 }
 
@@ -89,7 +94,9 @@ function changeThemeMain() {
     paginatorItem.style.color = 'var(--white-bg-color)';
     iconMenu.style.color = 'var(--white-bg-color)';
     favorTiteitle.style.color = 'var(--black-bg-color)';
-    backdropMob.style.backgroundColor = 'var(--black-bg-color)';
+    if (backdropMob.classList.toggle('js-bg_colour')) {
+      backdropMob.style.backgroundColor = 'var(--black-bg-color)';
+    }
   } else {
     bodyMain.style.backgroundColor = 'var(--white-bg-color)';
     imputHeader.style.backgroundColor = 'var(--white-bg-color)';
@@ -107,6 +114,6 @@ function changeThemeMain() {
     paginatorItem.style.color = 'var(--black-bg-color)';
     iconMenu.style.color = 'var(--black-bg-color)';
     favorTiteitle.style.color = 'var(--white-bg-color)';
-    backdropMob.style.backgroundColor = 'var(--white-bg-color)';
+    // backdropMob.style.backgroundColor = 'var(--white-bg-color)';
   }
 }
