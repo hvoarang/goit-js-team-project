@@ -14,7 +14,7 @@
 
 
 
-<body class="body">
+    <body class="body">
 <header class="header" id="hd">
     <div class="container">
         <div class="header__wrap">
@@ -128,29 +128,18 @@
             <!-- /////////////////////////////////////////////////////////////////////// -->
 
 
-            <div class="checkbox">
+            <div class="checkbox_theme">
+
                 <span class="checkbox__light" id="checkbox__lightt">Light</span>
                 <label id="switch" class="switch">
                     <input type="checkbox" onchange="toggleTheme()" id="slider">
                     <span class="slider round" id="slider_roundd"></span>
                 </label>
                 <span class="checkbox__dark" id="checkbox__darkk">Dark</span>
+                
             </div>
         </div>
     </div>
 
     </div>
 </header>
-
-<div class="container"></div>
-    <h1 class="favorite-title">Favorite ingredients</h1>
-    <div class="favorite-container">
-    </div>
-</div>
-
-<section class="footer__container"> 
-</section>
-
-    <script type="module" src="/src/index.js"></script>
-</body>
-</html>
