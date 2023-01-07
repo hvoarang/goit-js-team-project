@@ -2,6 +2,9 @@ const getEl = el => document.querySelector(el);
 import orangeHeart from '../images/svg/icons.svg';
 import obj from './localStorage';
 import { modalOpenClose } from './modalOpenClose';
+import { paginator } from './pagination';
+import { paginatorBut } from './pagination';
+import { paginatorBut2 } from './pagination';
 const { save, load } = obj;
 // let defoultStorageArr = [];
 // function defoultStorage() {
@@ -30,6 +33,9 @@ const urlMobile2x = require('../images/emptyStateM2x.png');
 
 function emptyMarkUp() {
   getEl('.product').innerHTML = '';
+  paginator.innerHTML= '';
+   paginatorBut.innerHTML= '';
+   paginatorBut2.innerHTML= '';
   const markup = `
   <p class="product__empty-state">
       Sorry, we didn't find any cocktail for you
@@ -69,14 +75,9 @@ function emptyMarkUp() {
 }
 
 export function createFullMarkup(obj) {
-  // console.log('зашло в createFullMarkup');
   defoultMurkup();
-  // console.log('после defoultMurkup');
   getEl('.product__list').innerHTML = '';
-
   let favoriteIdArr = favoritOrNotButton();
-  // console.log(favoriteIdArr);
- 
 
   const markup = obj
     .map(
