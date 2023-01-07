@@ -5,6 +5,7 @@ import { modalOpenClose } from './modalOpenClose';
 import { paginator } from './pagination';
 import { paginatorBut } from './pagination';
 import { paginatorBut2 } from './pagination';
+import { addToLocalStorage } from './localStorage';
 const { save, load } = obj;
 // let defoultStorageArr = [];
 // function defoultStorage() {
@@ -33,9 +34,9 @@ const urlMobile2x = require('../images/emptyStateM2x.png');
 
 function emptyMarkUp() {
   getEl('.product').innerHTML = '';
-  paginator.innerHTML= '';
-   paginatorBut.innerHTML= '';
-   paginatorBut2.innerHTML= '';
+  paginator.innerHTML = '';
+  paginatorBut.innerHTML = '';
+  paginatorBut2.innerHTML = '';
   const markup = `
   <p class="product__empty-state">
       Sorry, we didn't find any cocktail for you
@@ -76,7 +77,9 @@ function emptyMarkUp() {
 
 export function createFullMarkup(obj) {
   defoultMurkup();
+  addToLocalStorage(obj);
   getEl('.product__list').innerHTML = '';
+
   let favoriteIdArr = favoritOrNotButton();
 
   const markup = obj

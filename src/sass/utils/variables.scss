@@ -66,3 +66,8 @@ img {
 }
 
 /*# sourceMappingURL=variables.css.map */
+.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}

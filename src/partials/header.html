@@ -41,7 +41,7 @@
                         </svg>
                     </button>
                     <input class="imput__header" type="text" name="searchQuery" autocomplete="off"
-                        placeholder="Search" />
+                        placeholder=" Search |" />
                 </form>
 
                 <button type="button" class="js-open-menu button__menu  " aria-expanded="false"
@@ -54,7 +54,7 @@
 
                 <!-- ****************************Mob menu*************************************** -->
 
-                <div class="backdrop-mob js-menu-container" data-modal id="menu-container">
+                <div class="backdrop-mob js-menu-container " data-modal id="menu-container">
                     <div class="container__head">
                         <a class="logo logo__mob-menu" href="./index.html">
                             <p class="logo__title">COCKTAILS</p>
@@ -66,11 +66,12 @@
                             </div>
                         </a>
                         <div class="checkbox__mob">
-                            <span class="checkbox__light">Light</span>
+                            <span class="checkbox__light" id="checkbox__light">Light</span>
                             <label id="switch" class="switch">
                                 <input type="checkbox" onchange="toggleTheme()" id="slider">
-                                <span class="slider round"></span></label>
-                            <span class="checkbox__dark">Dark</span>
+                                <span class="slider round" id="slider_round"></span>
+                            </label>
+                            <span class="checkbox__dark" id="checkbox__dark">Dark</span>
                         </div>
                     </div>
 
@@ -83,7 +84,7 @@
                         </button>
 
                         <input class="imput__header" type="text" name="searchQuery" autocomplete="off"
-                            placeholder="Search " />
+                            placeholder=" Search |" />
                     </form>
                     <div class="mob-menu__nav">
                         <ul class="mob-menu__list">
@@ -111,11 +112,12 @@
             <!-- /////////////////////////////////////////////////////////////////////// -->
 
             <div class="checkbox">
-                <span class="checkbox__light">Light</span>
+                <span class="checkbox__light" id="checkbox__lightt">Light</span>
                 <label id="switch" class="switch">
                     <input type="checkbox" onchange="toggleTheme()" id="slider">
-                    <span class="slider round"></span>
-                    <span class="checkbox__dark">Dark</span>
+                    <span class="slider round" id="slider_roundd"></span>
+                </label>
+                <span class="checkbox__dark" id="checkbox__darkk">Dark</span>
             </div>
         </div>
     </div>
