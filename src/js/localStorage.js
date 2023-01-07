@@ -35,7 +35,7 @@ export function addToLocalStorage(coctailsFromFetch) {
       };
 
       function allIngridient(el, string) {
-        ingridientArr = [];
+        let ingridientArr = [];
         const objIngr = Object.entries(el);
         for (let i = 0; i < objIngr.length; i++) {
           if (objIngr[i][0].includes(string) && objIngr[i][1] !== null) {
