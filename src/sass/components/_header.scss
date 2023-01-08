@@ -361,13 +361,23 @@ a {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: var(--white-bg-color);
+    background-color:transparent;
     min-width: 160px;
     overflow: auto;
     z-index: 1;
 }
+.favorite-cocktails {
+      background-color:transparent;
+border: transparent;
+width: 100%;
+}
+.favorite-ingridients {
+        background-color:transparent;
+border: transparent;
+width: 100%;
 
-.dropdown-content a {
+}
+.dropdown-content button {
     color: var(--black-bg-color);
     padding: 12px;
     display: block;
@@ -375,6 +385,7 @@ a {
     font-size: 18px;
     line-height: 133%;
     letter-spacing: 0.02em;
+    text-align: start;
 
 
     &:focus,
