@@ -208,7 +208,8 @@ function findCocktailData(event) {
 }
 
 function deleteFromStorageMurkup(event, cocktailFromFetch, cocktailId) {
-  event.target.innerHTML = `Add to
+  if (event.target.innerText === 'Add to') {
+    event.target.innerHTML = `Add to
   <div class="product__heart-wraper">
     <svg class="product__big-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
       <use href="${orangeHeart}#bigHeart"></use>
@@ -217,10 +218,13 @@ function deleteFromStorageMurkup(event, cocktailFromFetch, cocktailId) {
       <use href="${orangeHeart}#smallHeart"></use>
     </svg>
   </div>`;
+  }
+  return;
 }
 
 function AddToStorageMurkup(event, cocktailFromFetch, cocktailId) {
-  event.target.innerHTML = `Remove
+  if (event.target.innerText === 'Add to') {
+    event.target.innerHTML = `Remove
     <div class="product__heart-wraper">
       <svg class="product__big-icon--remove" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
         <use href="${orangeHeart}#bigHeart"></use>
@@ -229,7 +233,9 @@ function AddToStorageMurkup(event, cocktailFromFetch, cocktailId) {
         <use href="${orangeHeart}#smallHeart"></use>
       </svg>
     </div>`;
-  addToFavoriteLocalStorage(KEYFAVORITE, cocktailFromFetch, cocktailId);
+    addToFavoriteLocalStorage(KEYFAVORITE, cocktailFromFetch, cocktailId);
+  }
+  return;
 }
 
 function addToFavoriteLocalStorage(key, cocktailFromFetch, cocktailId) {
