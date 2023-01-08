@@ -29,6 +29,8 @@ function searchValueHeader(e) {
     .then(({ drinks }) => {
       ArrFetch.push(drinks);
       createMarkup(drinks);
+      const listEl = document.querySelector('.product__list');
+
       if (screenM.matches) {
         cnt = 3;
         count = drinks.length;
@@ -113,7 +115,13 @@ function searchValueHeader(e) {
         //   console.log(div_num);
         for (let i = 0; i < div_num.length; i++) {
           if (i < cnt) {
-            div_num[i].style.display = 'block';
+            listEl.style.gap = '0';
+            // div_num[i].style.display = 'block';
+            div_num[i].style.cssText = `
+                 display:block;
+                 margin-right: 10px;
+                 margin-bottom: 20px;
+                  `;
           }
         }
         let main_page = document.getElementById('page1');
@@ -123,9 +131,6 @@ function searchValueHeader(e) {
         pagEl.addEventListener('click', pagination);
 
         function pagination(event) {
-          //   console.log(mainEl);
-          //   mainEl.innerHTML = '';
-
           const e = event || window.event;
           const target = e.target;
           const id = target.id;
@@ -144,7 +149,12 @@ function searchValueHeader(e) {
           }
           for (let i = data_page; i < div_num.length; i++) {
             if (j >= cnt) break;
-            div_num[i].style.display = 'block';
+            div_num[i].style.cssText = `
+                 display:block;
+                 margin-right: 10px;
+                 margin-bottom: 20px;
+                  `;
+
             j++;
           }
         }
@@ -173,7 +183,13 @@ function searchValueHeader(e) {
         //   console.log(div_num);
         for (let i = 0; i < div_num.length; i++) {
           if (i < cnt) {
-            div_num[i].style.display = 'block';
+            listEl.style.gap = '0';
+            // div_num[i].style.display = 'block';
+            div_num[i].style.cssText = `
+                 display:block;
+                 margin-right: 10px;
+                 margin-bottom: 20px;
+                  `;
           }
         }
         let main_page = document.getElementById('page1');
@@ -206,13 +222,17 @@ function searchValueHeader(e) {
           }
           for (let i = data_page; i < div_num.length; i++) {
             if (j >= cnt) break;
-            div_num[i].style.display = 'block';
+            div_num[i].style.cssText = `
+                 display:block;
+                 margin-right: 10px;
+                 margin-bottom: 20px;
+                  `;
             j++;
           }
         }
       }
     })
-
+    
     .catch(err => {
       console.log(err);
     });

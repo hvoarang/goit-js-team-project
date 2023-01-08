@@ -79,11 +79,10 @@ export function createFullMarkup(obj) {
 
   const markup = obj
     .map(
-      (cocktail, index) => `
-        
 
-        <li id="${cocktail.idDrink}" class="product__item">   
-          <div class="product__wraper" data-num="${index}">
+      (cocktail, index) => 
+      `<li id="${cocktail.idDrink}" class="product__item">   
+        <div class="product__wraper" data-num="${index}">
 
           <div class="product__image-part">
             <picture>
@@ -117,7 +116,6 @@ export function createFullMarkup(obj) {
               />
             </picture>
           </div>
-
           <div class="product__description-part">
             <h3 class="product__subtitle">${cocktail.strDrink}</h3>
             <div class="product__buttons">
@@ -154,9 +152,7 @@ export function createFullMarkup(obj) {
             </div>
           </div>
         </div>
-      </li>
-      
-  `
+      </li>`
     )
     .join('');
   getEl('.product__list').insertAdjacentHTML('beforeEnd', markup);
