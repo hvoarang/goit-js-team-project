@@ -19,15 +19,14 @@ const imputHeader = document.querySelector('.imput__header');
 const productTitle = document.querySelector('.product__title');
 const iconMenu = document.querySelector('.icon__menu');
 const backdropMob = document.querySelector('.backdrop-mob');
-const dropdownContent = document.querySelector('.dropdown-content a');
-const dropdownContenti = document.querySelector('.dropdown-content_i');
-const paginatorItem = document.querySelector('.paginator-item');
-const favorTiteitle = document.querySelector('.favorite-title');
-const btnOrRemove = document.querySelector('.button__add-or-remove');
-
+const dropdownContent = document.querySelector('.dropdown-content button');
+const favoriteI = document.querySelector('.favorite-ingridients');
 const mobMenuItem = document.querySelector('.mob-menu__link');
+
+// const paginatorItem = document.querySelector('.paginator-item');
+// const favorTiteitle = document.querySelector('.favorite-title');
+// const btnOrRemove = document.querySelector('.button__add-or-remove');
 // const blac = document.querySelector('.checkbox__dark');
-console.log(mobMenuItem);
 
 slider.addEventListener('click', changeTheme);
 sliderr.addEventListener('click', changeThemeMain);
@@ -42,7 +41,7 @@ function changeTheme() {
     dropBTNDesk.style.backgroundColor = 'transparent';
     dropBTNMob.style.backgroundColor = 'var(--white-bg-color)';
     dropdownContent.style.color = 'var(--white-bg-color)';
-    dropdownContenti.style.color = 'var(--white-bg-color)';
+    favoriteI.style.color = 'var(--white-bg-color)';
     dropBTNMob.style.borderSolid = 'var(--orange-text-color)';
     iconMenu.style.color = 'var(--white-bg-color)';
     backdropMob.style.background = 'var(--black-bg-color)';
@@ -64,7 +63,7 @@ function changeTheme() {
     dropBTNDesk.style.backgroundColor = 'var(--white-bg-color)';
     dropBTNMob.style.backgroundColor = 'var(--white-bg-color)';
     dropdownContent.style.color = 'var(--black-bg-color)';
-    dropdownContenti.style.color = 'var(--black-bg-color)';
+    favoriteI.style.color = 'var(--black-bg-color)';
     dropBTNMob.style.borderSolid = 'var(--white-bg-color)';
     backdropMob.style.background = 'var(--white-bg-color)';
     iconMenu.style.color = 'var(--black-bg-color)';
@@ -90,7 +89,7 @@ function changeThemeMain() {
     dropBTNDesk.style.backgroundColor = 'transparent';
     dropBTNMob.style.backgroundColor = 'var(--white-bg-color)';
     dropdownContent.style.color = 'var(--white-bg-color)';
-    dropdownContenti.style.color = 'var(--white-bg-color)';
+    favoriteI.style.color = 'var(--white-bg-color)';
     dropBTNMob.style.borderSolid = 'var(--orange-text-color)';
     iconMenu.style.color = 'var(--white-bg-color)';
     backdropMob.style.background = 'var(--black-bg-color)';
@@ -112,7 +111,7 @@ function changeThemeMain() {
     dropBTNDesk.style.backgroundColor = 'var(--white-bg-color)';
     dropBTNMob.style.backgroundColor = 'var(--white-bg-color)';
     dropdownContent.style.color = 'var(--black-bg-color)';
-    dropdownContenti.style.color = 'var(--black-bg-color)';
+    favoriteI.style.color = 'var(--black-bg-color)';
     dropBTNMob.style.borderSolid = 'var(--white-bg-color)';
     iconMenu.style.color = 'var(--black-bg-color)';
     backdropMob.style.background = 'var(--white-bg-color)';
