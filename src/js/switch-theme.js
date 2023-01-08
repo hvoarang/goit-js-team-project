@@ -24,7 +24,7 @@ const favoriteI = document.querySelector('.favorite-ingridients');
 const mobMenuItem = document.querySelector('.mob-menu__link');
 
 // const paginatorItem = document.querySelector('.paginator-item');
-// const favorTiteitle = document.querySelector('.favorite-title');
+const productTiteitle = document.querySelector('.product__title');
 // const btnOrRemove = document.querySelector('.button__add-or-remove');
 // const blac = document.querySelector('.checkbox__dark');
 
@@ -48,7 +48,7 @@ function changeTheme() {
     // btnOrRemove.style.background = 'var(--black-bg-color)';
     // productTitle.style.color = 'var(--white-bg-color)';
     // paginatorItem.style.color = 'var(--white-bg-color)';
-    // favorTiteitle.style.color = 'var(--black-bg-color)';
+    productTiteitle.style.color = 'var(--white-bg-color)';
     // ligh.style.color = 'var(--white-bg-color)';
     // blac.style.color = 'var(--orange-text-color)';
     lightt.style.color = 'var(--white-bg-color)';
@@ -67,7 +67,7 @@ function changeTheme() {
     dropBTNMob.style.borderSolid = 'var(--white-bg-color)';
     backdropMob.style.background = 'var(--white-bg-color)';
     iconMenu.style.color = 'var(--black-bg-color)';
-    // productTitle.style.color = 'var(--black-bg-color)';
+    productTiteitle.style.color = 'var(--black-bg-color)';
     // btnOrRemove.style.background = 'var(--white-bg-color)';
     // paginatorItem.style.color = 'var(--black-bg-color)';
     // favorTiteitle.style.color = 'var(--white-bg-color)';
@@ -93,7 +93,7 @@ function changeThemeMain() {
     dropBTNMob.style.borderSolid = 'var(--orange-text-color)';
     iconMenu.style.color = 'var(--white-bg-color)';
     backdropMob.style.background = 'var(--black-bg-color)';
-    // productTitle.style.color = 'var(--white-bg-color)';
+    productTiteitle.style.color = 'var(--white-bg-color)';
     // btnOrRemove.style.background = 'var(--black-bg-color)';
     // paginatorItem.style.color = 'var(--white-bg-color)';
     // favorTiteitle.style.color = 'var(--black-bg-color)';
@@ -115,7 +115,7 @@ function changeThemeMain() {
     dropBTNMob.style.borderSolid = 'var(--white-bg-color)';
     iconMenu.style.color = 'var(--black-bg-color)';
     backdropMob.style.background = 'var(--white-bg-color)';
-    // productTitle.style.color = 'var(--black-bg-color)';
+    productTiteitle.style.color = 'var(--black-bg-color)';
     // btnOrRemove.style.background = 'var(--white-bg-color)';
     // favorTiteitle.style.color = 'var(--white-bg-color)';
     // paginatorItem.style.color = 'var(--black-bg-color)';
