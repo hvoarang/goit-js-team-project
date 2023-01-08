@@ -7,21 +7,18 @@ import { paginatorBut } from './pagination';
 import { paginatorBut2 } from './pagination';
 import { addToLocalStorage } from './localStorage';
 const { save, load } = obj;
-// let defoultStorageArr = [];
-// function defoultStorage() {
-//   console.log('зашло в defoultStorage');
-//   const cocktailObj = {
-//     id: 1,
-//     name: 'none',
-//     link: 'https',
-//   };
-//   defoultStorageArr.push(cocktailObj);
-//   save('cocktails', defoultStorageArr);
-// }
-// defoultStorage();
+export const favoriteArr = [];
+
+const KEYFETCH = 'cocktailsFromFetch';
+const KEYFAVORITE = 'cocktails';
+
+if (load('cocktails') && load('cocktails').length > 0) {
+  favoriteArr.push(...load('cocktails'));
+}
+
+console.log('favoriteArr 12str', favoriteArr);
 
 export function createMarkup(obj) {
-  // console.log('зашло в createMarkup');
   if (!obj) {
     emptyMarkUp();
     return;
@@ -79,8 +76,6 @@ export function createFullMarkup(obj) {
   defoultMurkup();
 
   getEl('.product__list').innerHTML = '';
-
-  let favoriteIdArr = favoritOrNotButton();
 
   const markup = obj
     .map(
@@ -172,7 +167,7 @@ export function createFullMarkup(obj) {
   ArrButCard.map(but => {
     but.addEventListener('click', modalOpenClose);
   });
-  addToLocalStorage(obj);
+  addToLocalStorage(KEYFETCH, obj);
 }
 
 function defoultMurkup() {
@@ -185,16 +180,18 @@ function defoultMurkup() {
 }
 
 function renderTextAndHeart(text, idFromFetch) {
-  const idFromFavorite = load('cocktails')
-    .map(item => item.id)
+  if (load(KEYFAVORITE) == undefined) {
+    return false;
+  }
+  const idFromFavorite = load(KEYFAVORITE)
+    .map(item => item.idDrink)
     .find(idFromStorage => idFromStorage === idFromFetch);
   return idFromFavorite;
 }
 
 const productEl = document.querySelector('.container.product');
 
-if (productEl === true) {
-  console.log('productEl');
+if (productEl) {
   productEl.addEventListener('click', findCocktailData);
 }
 
@@ -202,66 +199,28 @@ let cocktailId = 0;
 
 function findCocktailData(event) {
   cocktailId = event.target.attributes[0].nodeValue;
-  console.log(cocktailId);
-  const idFromFavorite = load('cocktails')
-    .map(item => item.id)
-    .find(idFromStorage => idFromStorage === cocktailId);
-  return idFromFavorite;
-
-  // takeDataFromCocktailMarkUp(cocktailId);
-  // // функция изменяющая внутреннее содержание кнопки
-  // addOrRemoveMurkup(event);
-  // return cocktailId;
+  let cocktailFromFetch = load('cocktailsFromFetch');
+  favoriteArr
+    .map(item => item.idDrink)
+    .find(idFromStorage => idFromStorage === cocktailId)
+    ? deleteFromStorageMurkup(event)
+    : AddToStorageMurkup(event, cocktailFromFetch, cocktailId);
 }
 
-function takeDataFromCocktailMarkUp(cocktailId) {
-  if (+cocktailId) {
-    const cocktailFroClick = document.querySelector(`[id="${cocktailId}"]`);
-    const cocktailName =
-      cocktailFroClick.children[0].childNodes[3].childNodes[1].innerText;
-    const cocktailLink =
-      cocktailFroClick.children[0].childNodes[1].childNodes[1].childNodes[7]
-        .currentSrc;
-    createObj(cocktailName, cocktailLink);
-  }
+function deleteFromStorageMurkup(event, cocktailFromFetch, cocktailId) {
+  event.target.innerHTML = `Add to
+  <div class="product__heart-wraper">
+    <svg class="product__big-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+      <use href="${orangeHeart}#bigHeart"></use>
+    </svg>
+    <svg class="product__small-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+      <use href="${orangeHeart}#smallHeart"></use>
+    </svg>
+  </div>`;
 }
 
-const favoriteArr = [];
-
-if (load('cocktails') && load('cocktails').length > 0) {
-  favoriteArr.push(...load('cocktails'));
-}
-
-function createObj(cocktailName, cocktailLink) {
-  let arrFromStorage = load('cocktails');
-
-  const cocktailObj = {
-    id: cocktailId,
-    name: cocktailName,
-    link: cocktailLink,
-  };
-  favoriteArr.push(cocktailObj);
-  // console.log(favoriteArr);
-  save('cocktails', favoriteArr);
-}
-
-function favoritOrNotButton() {
-  // console.log('зашло в favoritOrNotButton');
-  let cocktailsInStorage = load('cocktails');
-  // console.log(cocktailsInStorage);
-  if (cocktailsInStorage && cocktailsInStorage.length > 0) {
-    // console.log(cocktailsInStorage);
-    const findFavoritsCocktailArr = cocktailsInStorage.map(
-      cocktail => cocktail.id
-    );
-    return findFavoritsCocktailArr;
-  }
-}
-
-function addOrRemoveMurkup(event) {
-  // console.log('зашло в addOrRemoveMurkup');
-  if (event.target.innerText === 'Add to') {
-    event.target.innerHTML = `Remove
+function AddToStorageMurkup(event, cocktailFromFetch, cocktailId) {
+  event.target.innerHTML = `Remove
     <div class="product__heart-wraper">
       <svg class="product__big-icon--remove" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
         <use href="${orangeHeart}#bigHeart"></use>
@@ -270,15 +229,16 @@ function addOrRemoveMurkup(event) {
         <use href="${orangeHeart}#smallHeart"></use>
       </svg>
     </div>`;
-  } else if (event.target.innerText === 'Remove') {
-    event.target.innerHTML = `Add to
-    <div class="product__heart-wraper">
-      <svg class="product__big-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
-        <use href="${orangeHeart}#bigHeart"></use>
-      </svg>
-      <svg class="product__small-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
-        <use href="${orangeHeart}#smallHeart"></use>
-      </svg>
-    </div>`;
-  }
+  addToFavoriteLocalStorage(KEYFAVORITE, cocktailFromFetch, cocktailId);
+}
+
+function addToFavoriteLocalStorage(key, cocktailFromFetch, cocktailId) {
+  let rightCocktail = [];
+  const cocktailInf = cocktailFromFetch.map(item => {
+    if (item.idDrink === cocktailId) {
+      rightCocktail.push(item);
+    }
+  });
+  favoriteArr.push(...rightCocktail);
+  save(KEYFAVORITE, favoriteArr);
 }
