@@ -36,7 +36,7 @@
   }
   @media screen and (min-width: 1280px) {
     min-width: 1280px;
-    padding-top: 52.5px;
+    // padding-top: 52.5px;
   }
   &__title {
     font-family: "Poppins";
@@ -59,7 +59,7 @@
   &__list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    // gap: 20px;
   }
   &__wraper {
     border: 1px solid var(--orange-text-color);
