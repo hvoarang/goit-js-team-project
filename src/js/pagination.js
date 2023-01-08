@@ -9,7 +9,10 @@ let count = 0;
 let cnt = 0;
 export let ArrFetch = [];
 export const paginator = document.querySelector('.paginator');
-
+export const paginatorBut = document.querySelector('.pagination-buttton');
+export const paginatorBut2 = document.querySelector(
+  '.second-vector'
+);
 const screenD = window.matchMedia('(min-width: 1280px)');
 const screenM = window.matchMedia('(max-width: 768px)');
 const screenT = window.matchMedia('(max-width: 1280px)');
@@ -38,6 +41,8 @@ export function takeArreyREsult(e) {
               (i + 1) +
               '</button>';
           }
+          paginatorBut.style.display='block';
+          paginatorBut2.style.display = 'block';
           paginator.innerHTML = page;
 
           let div_num = document.querySelectorAll('.product__wraper');
@@ -95,6 +100,8 @@ export function takeArreyREsult(e) {
               (i + 1) +
               '</button>';
           }
+          paginatorBut.style.display = 'block';
+          paginatorBut2.style.display = 'block';
           paginator.innerHTML = page;
 
           let div_num = document.querySelectorAll('.product__wraper');
@@ -153,6 +160,8 @@ export function takeArreyREsult(e) {
               (i + 1) +
               '</button>';
           }
+          paginatorBut.style.display = 'block';
+          paginatorBut2.style.display = 'block';
           paginator.innerHTML = page;
 
           let div_num = document.querySelectorAll('.product__wraper');

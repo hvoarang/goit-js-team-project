@@ -1,4 +1,5 @@
 // import { сreateСocktailModalCard } from "./modal";
+
 import { ArrFetch } from "./pagination";
 import { defArreyCard } from "./random-default-coctails";
 import {сreateСocktailModalCard} from './modal'
@@ -28,6 +29,7 @@ export function modalOpenClose(e) {
   
 }
 
+
   //   const refs = {
   //     // openModalBtn: document.querySelector('[data-modal-cocktail-open]'),
   //     closeModalBtn: document.querySelector('[data-modal-cocktail-close]'),
@@ -44,17 +46,17 @@ export function modalOpenClose(e) {
   //   }
 // }
 // modalOpenClose();
-	
+
 // 	function modalOpenCloseIngredient() {
 // 	  const refs = {
 // 	    openModalBtn2: document.querySelector('[data-modal-ingredient-open]'),
 // 	    closeModalBtn2: document.querySelector('.modal-ingredient__backdrop'),
 // 	    modal2: document.querySelector('[data-modal-ingredient]'),
 // 	  };
-	
+
 // 	  refs.openModalBtn2.addEventListener('click', toggleModal);
 // 	  refs.closeModalBtn2.addEventListener('click', toggleModal);
-	
+
 // 	function toggleModal() {
 // 	    refs.modal2.classList.toggle('is-hidden');
 // 	  }

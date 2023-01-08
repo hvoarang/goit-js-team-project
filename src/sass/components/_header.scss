@@ -2,7 +2,10 @@ a {
     text-decoration: none;
     color: var(--black-bg-color);
 }
-
+.body{
+     
+    background: var(--white-bg-color);
+}
 .header__wrap {
     display: flex;
     justify-content: space-between;
@@ -64,6 +67,7 @@ a {
     display: flex;
     gap: 60px;
     align-items: flex-end;
+    
 }
 
 .site-nav__link {
@@ -72,6 +76,16 @@ a {
     line-height: 133%;
     letter-spacing: 0.02em;
     color: var(--black-bg-color);
+  &:hover {
+    color: var(--orange-text-color);
+  }
+  &:focus {
+    text-shadow: 0.05em 0 var(--gray-text-color), -0.05em 0 var(--gray-text-color), 0 0.05em var(--gray-text-color),
+      0 -0.05em var(--gray-text-color);
+    color: var(--orange-text-color);
+    -webkit-text-stroke: 1px var(--gray-text-color);
+    text-shadow: 0px 4px 4px rgba(95, 103, 117, 0.25);
+  }
 }
 
 //   -----------------------------Инпут-----------------------------------------
@@ -115,6 +129,9 @@ a {
 .imput__header {
     width: 100%;
     border: transparent;
+    background-color: transparent;
+    border-color: var(--orange-text-color);
+    color: var(--orange-text-color);
 
     &:focus {
         outline: none;
@@ -206,8 +223,13 @@ a {
     @media screen and (min-width: 1280px) {
         display: none;
     }
+   
 }
 
+
+.js-bg_colour{
+    background-color:var(--black-bg-color);
+}
 .container__head {
     margin-top: 22px;
     margin-left: 20px;
@@ -224,6 +246,7 @@ a {
 
 .checkbox__mob {
     display: flex;
+   
 }
 
 .mob-menu {
@@ -309,6 +332,16 @@ a {
     line-height: 133%;
     border: none;
     cursor: pointer;
+     &:hover {
+    color: var(--orange-text-color);
+  }
+  &:focus {
+    text-shadow: 0.05em 0 var(--gray-text-color), -0.05em 0 var(--gray-text-color), 0 0.05em var(--gray-text-color),
+      0 -0.05em var(--gray-text-color);
+    color: var(--orange-text-color);
+    -webkit-text-stroke: 1px var(--gray-text-color);
+    text-shadow: 0px 4px 4px rgba(95, 103, 117, 0.25);
+  }
 }
 
 .dropbtn-mob {
@@ -360,7 +393,7 @@ a {
     display: block;
 }
 .dropdown-content-mob{
-background-color: transparent;
+
     border: 2px solid var(--orange-text-color);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -368,22 +401,30 @@ background-color: transparent;
     margin-top: 10px;
 }
 .dropdown-content-desk {
-    background-color: transparent;
+    
     border: 2px solid var(--orange-text-color);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     width: 210px;
     margin-top: 10px;
-    margin-left: 10px;
+    margin-left: 8px;
+    background-color: var(--white-bg-color);
+    
 }
 
 
 
 /******************** Hide default HTML checkbox ***********************/
 /* The switch - the box around the slider */
-.checkbox {
+.checkbox{
     display: flex;
-    align-items: flex-end;
+    @media screen and (max-width: 1280px) {
+        display: none;
+    }
+}
+.checkbox_theme {
+    display: flex;
+    
 
     @media screen and (max-width: 1280px) {
         display: none;
@@ -445,16 +486,19 @@ background-color: transparent;
     margin: auto 0;
     -webkit-transition: 0.4s;
     transition: 0.4s;
-    box-shadow: 0 0px 15px var(--black-bg-color);
+    box-shadow: 0 0px 15px var(--gray-text-color);
     background-repeat: no-repeat;
     background-position: center;
 }
 
 input:checked+.slider {
     background-color: var(--orange-text-color);
-
+border: solid 2px var(--white-bg-color);
 
 }
+input:checked + .checkbox__light{
+       color: var(--orange-text-color);
+   }
 
 input:focus+.slider {
     box-shadow: 0 0 1px var(--orange-text-color);
@@ -464,7 +508,7 @@ input:checked+.slider:before {
     -webkit-transform: translateX(24px);
     -ms-transform: translateX(24px);
     transform: translateX(24px);
-
+ background-color: var(--white-bg-color);
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -474,8 +518,10 @@ input:checked+.slider:before {
     border-radius: 34px;
     width: 40px;
     height: 20px;
+    background-color: var(--white-bg-color);
 }
 
 .slider.round:before {
+    background-color: var(--orange-text-color);
     border-radius: 50%;
 }

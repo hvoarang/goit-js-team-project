@@ -1,9 +1,9 @@
-
 import { url_by_name } from "./fetch";
 import { fetchApi } from "./fetch";
 import { url_ingredient_by_name } from "./fetch";
 import { backdropEl } from "./modalOpenClose";
 import { cardInfo } from "./modalOpenClose";
+
 
 
 
@@ -81,18 +81,6 @@ export function сreateСocktailModalCard(cocktailObject) {
   });
 }
 
-// function modalOpenCloseIngredient(e) {
-  
-//   // сreateIngredientModalCard(cardInfo);
-
-// 	  // refs.openModalIngred.addEventListener('click', toggleModal);
-// 	  // refs.closeModalIngred.addEventListener('click', toggleModal);
-	
-//     // function toggleModal() {
-//     //   refs.modalIngred.classList.toggle('is-hidden2');
-//     // }
-// }
-
 const refs = {
   openModalIngred: document.querySelector('[data-modal-ingredient-open]'),
   closeModalIngred: document.querySelector('.modal-ingredient__backdrop'),
@@ -147,12 +135,7 @@ function сreateIngredientModalCard({strIngredient, strType, strDescription, str
       </button>`;
   renderIngredientModalCard(ingredientModalCardMarkup);
 
-// refs.addFavoriteBtn.addEventListener('click', addFavorite);
-//   function addFavorite(e) {
-//   console.log(e.target);
-// };
-  // addFavoriteBtn = document.querySelector('.button__add-or-remove--modal'),
-  // addFavoriteBtn.addEventListener('click', (e) => console.log(e.target));
+
   
 
   // refs.closeModalIngred.classList.add('is-hidden2');
@@ -168,17 +151,6 @@ function renderIngredientModalCard(string) {
   ingredientModal.insertAdjacentHTML('afterbegin', string);
 };
 
-// fetchApi(url_ingredient_by_name, 'gin')
-//       .then(obj => {
-//         console.log(obj.ingredients[0]);
-//         сreateIngredientModalCard(obj.ingredients[0]);
-//       })
-//       .catch(err => {
-//         console.log(err);
-//       });
-
-// const ingrList = document.querySelector('.modal-cocktail__list');
-// ingrList.addEventListener('click', (event) => {
 //     const ingr = event.target.textContent;
 //     fetchApi(url_ingredient_by_name, ingr)
 //       .then(obj => {
@@ -197,11 +169,12 @@ function renderIngredientModalCard(string) {
 //     ingredientsArray.push(ingredients[key]);
 // }
 
-  //////////////////////////////////////////
-  
+//////////////////////////////////////////
+
 // console.log(ingredientLink.textContent);
-  //нажатие кнопки отправит карточку в FCocktail   
+//нажатие кнопки отправит карточку в FCocktail
 // }
+
 
   // function createTest({strDescription}) {
 //   const test = `<span>${strDescription}</span>`;
@@ -209,12 +182,69 @@ function renderIngredientModalCard(string) {
 //   renderCocktailModalCard(test);
 // }
 
+//   function сreateIngredientModalCard(ingredient) {
+//     const ingredientModalCardMarkup = `<h3 class="modal-ingredient__title">Campari</h3>
+//     <h4 class="modal-ingredient__subtitle">Liqueur</h4>
+//     <hr class="modal-ingredient__line" />
+//     <p class="modal-ingredient__description">
+//       <span class="modal-ingredient__name-span">Campari</span> is an Italian
+//       alcoholic liqueur, considered an apéritif (20.5%, 21%, 24%, 25%, or 28.5%
+//       ABV, depending on the country in which it is sold), obtained from the
+//       infusion of herbs and fruit (including chinotto and cascarilla) in alcohol
+//       and water. It is a bitters, characterised by its dark red colour.
+//     </p>
+//     <ul class="modal-ingredient__list list">
+//       <li class="modal-ingredient__item">Type: Bitters</li>
+//       <li class="modal-ingredient__item">Country of origin: Italy</li>
+//       <li class="modal-ingredient__item">Alcohol by volume: 20.5–28.5%</li>
+//       <li class="modal-ingredient__item">Flavour: Bitter, spicy and sweet</li>
+//     </ul>
+//     <div class="modal-ingredient__button">
+//       <button type="button" class="button__add-or-remove--modal">
+//         Add to favorite
+//       </button>
+// `;
+//     renderCocktailModalCard(ingredientModalCardMarkup);
+//     // function showIngredientModalCard(ingredientMarkup) {
+//     //         ingredientModalCard.insertAdjacentHTML('afterbegin', ingredientMarkup);
+//     //     }
+//   };
+// };
+
+// function createTest({strDescription}) {
+//   const test = `<span>${strDescription}</span>`;
+//     cocktailModalCard.innerHTML = '';
+//   renderCocktailModalCard(test);
+
+//разметка на новую модалку
+// }
+
+// вставить туда где fetch перед функцией, которая рендерит
+
+// function ingredientModalCardCreate({ name, instructions, data}) {
+//     ingredientModalCard.innerHTML = '';
+//     // const ingredientsArray = [];
+//     // for (const ingredient in ingredients) {
+//     //     ingredientsArray.push(ingredients[key]);
+//     // }
+//         <li class="modal-cocktail__item"><span>* ${measure} </span>
+//           <a class="modal-cocktail__link link" href="#" target="_blank">${ingredient}</a>
+
+//     showIngredientModalCard(ingredientModalCardMarkup);
+//     }
+
+// // function ingredientModalCardCreate(name) {
+// //         showIngredientModalCard(ingredientModalCard);
+// //     }
+
 // const addFavouriteBtn = document.querySelector('.button__add-or-remove--modal');
 
 // linkGoToIngredient.addEventListener('click', goToIngredient);
 // addFavouriteCocktailBtn.addEventListener('click', addFavouriteCocktail);
 
-// function goToIngredient (name) {    
+
+// function goToIngredient (name) {
+
 // }
 
 // function addFavouriteCocktail (name) {
