@@ -100,6 +100,7 @@ const refs = {
   modalIngred: document.querySelector('[data-modal-ingredient]'),
     };
 
+
 function takeIngredients (event) {
    const ingr = event.target.textContent;
   // console.log('event.target.textContent :>> ', event.target.textContent);
@@ -145,6 +146,15 @@ function сreateIngredientModalCard({strIngredient, strType, strDescription, str
         Add to favorite
       </button>`;
   renderIngredientModalCard(ingredientModalCardMarkup);
+
+// refs.addFavoriteBtn.addEventListener('click', addFavorite);
+//   function addFavorite(e) {
+//   console.log(e.target);
+// };
+  // addFavoriteBtn = document.querySelector('.button__add-or-remove--modal'),
+  // addFavoriteBtn.addEventListener('click', (e) => console.log(e.target));
+  
+
   // refs.closeModalIngred.classList.add('is-hidden2');
   // closeModalIngred.addEventListener('click', () => refs.closeModalIngred.classList.add('is-hidden2'));
   refs.closeModalIngred.addEventListener('click', () => refs.closeModalIngred.classList.add('is-hidden2'));
