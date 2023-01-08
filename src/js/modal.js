@@ -1,22 +1,31 @@
-import { url_by_name } from './fetch';
-import { fetchApi } from './fetch';
-import { url_ingredient_by_name } from './fetch';
-import { backdropEl } from './modalOpenClose';
-import { cardInfo } from './modalOpenClose';
+import { url_by_name } from "./fetch";
+import { fetchApi } from "./fetch";
+import { url_ingredient_by_name } from "./fetch";
+import { backdropEl } from "./modalOpenClose";
+import { cardInfo } from "./modalOpenClose";
+import closeBtnSvg from '../images/svg/icons.svg';
+
 // import { addIngridientToStorage } from './localStorage';
 import obj from './localStorage';
 const { save, load } = obj;
 const INGR = 'ingridient';
+
 
 const cocktailModalCard = document.querySelector('.modal-cocktail');
 // console.log(cocktailModalCard);
 function renderCocktailModalCard(element) {
   cocktailModalCard.insertAdjacentHTML('afterbegin', element);
 }
+export function createCocktailModalCard(cocktailObject) {
+ 
+  let {
+    strDrink,
+    strDrinkThumb,
+    strInstructions,
+    strGlass,
+    strCategory,
+  } = cocktailObject;
 
-export function сreateСocktailModalCard(cocktailObject) {
-  let { strDrink, strDrinkThumb, strInstructions, strGlass, strCategory } =
-    cocktailObject;
   //  console.log(cocktailObject);
   let ingredientArray = [];
   let measureArray = [];
@@ -30,21 +39,17 @@ export function сreateСocktailModalCard(cocktailObject) {
   const ingredientArrayMarkup = ingredientArray
     .map(item => {
       return `
-        <li class="modal-cocktail__item"><a class="modal-cocktail__link link" href="#" data-modal-ingredient-open>${item}</a>
+        <li class="modal-cocktail__item"><span class="modal-cocktail__measure">${measureArray[1]}</span><a class="modal-cocktail__link link" href="#" data-modal-ingredient-open>${item}</a>
         </li>`;
     })
     .join('');
 
-  // <span>* ${measureArray[1]}</span>
-
-  //     <button class="modal__close-btn" type="button" data-modal-cocktail-close>
-  //     <svg class="modal__close-svg">
-  //       <use href="./images/svg/icons.svg#menu-close"></use>
-  //     </svg>
-  // </button>
-
   const cocktailModalCardMarkup = `
-
+    <button class="modal__close-btn" type="button" data-modal-cocktail-close>
+      <svg class="modal__close-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <use href="${closeBtnSvg}#menu-close"></use>
+      </svg>
+    </button>
     <h3 class="modal-cocktail__title">${strDrink}</h3>
     <div class="modal-wraper">
       <div class="modal-cocktail__wrap-instructions">
@@ -63,8 +68,11 @@ export function сreateСocktailModalCard(cocktailObject) {
       </div>
     </div>
     <button type="button" class="button__add-or-remove--modal">Add to favorite</button>`;
-
+  // cocktailModalCard.innerHTML = cocktailModalCardMarkup;
+  // console.log('closeBtn :>> ', closeBtn);
   renderCocktailModalCard(cocktailModalCardMarkup);
+
+  /////// IngredientCard //////////////////////////////////////////
 
   // const IngrLink = document.querySelector('[data-modal-ingredient-open]');
   // IngrLink.addEventListener('click', сreateIngredientModalCard);
@@ -79,55 +87,57 @@ export function сreateСocktailModalCard(cocktailObject) {
 const refs = {
   openModalIngred: document.querySelector('[data-modal-ingredient-open]'),
   closeModalIngred: document.querySelector('.modal-ingredient__backdrop'),
-  closeModalBtnIngred: document.querySelector('[data-modal-ingredient-close]'),
   modalIngred: document.querySelector('[data-modal-ingredient]'),
-};
+
+  };
+
 
 function takeIngredients(event) {
   const ingr = event.target.textContent;
   // console.log('event.target.textContent :>> ', event.target.textContent);
-  // backdropEl.classList.add('is-hidden2');
 
-  // console.log('refs.openModalIngred :>> ', refs.openModalIngred);
-  // console.log('refs.closeModalIngred :>> ', refs.closeModalIngred);
-  // console.log('refs.modalIngred :>> ', refs.modalIngred);
+  // refs.closeModalIngred.classList.remove('is-hidden2');
 
-  refs.closeModalIngred.classList.remove('is-hidden2');
   fetchApi(url_ingredient_by_name, ingr)
     .then(obj => {
-      // console.log(obj.ingredients[0]);
-      сreateIngredientModalCard(obj.ingredients[0]);
-      save(INGR, obj.ingredients[0]);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+      console.log('(obj.ingredients[0]); :>> ', (obj.ingredients[0]));
+      refs.closeModalIngred.classList.remove('is-hidden2');
+      // refs.modalIngred.innerHTML = '';
+      createIngredientModalCard(obj.ingredients[0]);
+save(INGR, obj.ingredients[0]);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
 }
 
 // const ingrList = document.querySelector('.modal-cocktail__list');
 // ingrList.addEventListener('click', (event) => {
 //   });
 
-function сreateIngredientModalCard({
-  strIngredient,
-  strType,
-  strDescription,
-  strABV,
-}) {
-  // const { } = ingrObj;
-  // ingredientModal.innerHTML = '';
-  // console.log('cardInfo :>> ', cardInfo);
-  const ingredientModalCardMarkup = `<h3 class="modal-ingredient__title">${strIngredient}</h3>
+
+function createIngredientModalCard(ingrObj) {
+  const { strIngredient, strType, strDescription, strABV, strAlcohol } = ingrObj;
+  
+  // refs.modalIngred.innerHTML = '';
+    // console.log('ingrObj :>> ', ingrObj);
+ 
+  const ingredientModalCardMarkup = `
+    <button class="modal__close-btn" type="button" data-modal-ingredient-close>
+      <svg class="modal__close-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <use href="${closeBtnSvg}#menu-close"></use>
+      </svg>
+    </button>
+    <h3 class="modal-ingredient__title">${strIngredient}</h3>
+
     <h4 class="modal-ingredient__subtitle">${strType}</h4>
     <hr class="modal-ingredient__line" />
     <p class="modal-ingredient__description">
-      <span class="modal-ingredient__name-span">${strIngredient}</span> ${strDescription}
-    </p>
+      <span class="modal-ingredient__name-span">${strIngredient}</span> ${strDescription||''}</p>
     <ul class="modal-ingredient__list list">
       <li class="modal-ingredient__item">Type: ${strType}</li>
-      <li class="modal-ingredient__item"></li>
-      <li class="modal-ingredient__item">Alcohol by volume: ${strABV}%</li>
-      <li class="modal-ingredient__item">Flavour: </li>
+      <li class="modal-ingredient__item">Alcohol: ${strAlcohol}, ${'by volume %' && strABV ||'No alcohol'}</li>
     </ul>
     <div class="modal-ingredient__button">
       <button type="button" class="button__add-or-remove--modal">
@@ -135,51 +145,28 @@ function сreateIngredientModalCard({
       </button>`;
   renderIngredientModalCard(ingredientModalCardMarkup);
 
+// refs.addFavoriteBtn.addEventListener('click', addFavorite);
+//   function addFavorite(e) {
+//   console.log(e.target);
+// };
+  // addFavoriteBtn = document.querySelector('.button__add-or-remove--modal'),
+  // addFavoriteBtn.addEventListener('click', (e) => console.log(e.target));
+  
+  closeModalBtnIngred = document.querySelector('[data-modal-ingredient-close]'),
   // refs.closeModalIngred.classList.add('is-hidden2');
   // closeModalIngred.addEventListener('click', () => refs.closeModalIngred.classList.add('is-hidden2'));
-  refs.closeModalIngred.addEventListener('click', () =>
-    refs.closeModalIngred.classList.add('is-hidden2')
-  );
-  refs.closeModalBtnIngred.addEventListener('click', () =>
-    refs.closeModalIngred.classList.add('is-hidden2')
-  );
-}
+  refs.closeModalIngred.addEventListener('click', () => refs.closeModalIngred.classList.add('is-hidden2'));
+  closeModalBtnIngred.addEventListener('click', () => refs.closeModalIngred.classList.add('is-hidden2'));
+
+};
+
 
 function renderIngredientModalCard(string) {
   const ingredientModal = document.querySelector('.modal-ingredient');
   // console.log('ingredientModal :>> ', ingredientModal);
   ingredientModal.insertAdjacentHTML('afterbegin', string);
-}
 
-//     const ingr = event.target.textContent;
-//     fetchApi(url_ingredient_by_name, ingr)
-//       .then(obj => {
-//         console.log(obj.ingredients[0]);
-//         сreateIngredientModalCard(obj.ingredients[0]);
-//       })
-//       .catch(err => {
-//         console.log(err);
-//       });
-//   });
-
-//
-
-// const ingredientsArray = [];
-// for (const ingredient in ingredients) {
-//     ingredientsArray.push(ingredients[key]);
-// }
-
-//////////////////////////////////////////
-
-// console.log(ingredientLink.textContent);
-//нажатие кнопки отправит карточку в FCocktail
-// }
-
-// function createTest({strDescription}) {
-//   const test = `<span>${strDescription}</span>`;
-//     cocktailModalCard.innerHTML = '';
-//   renderCocktailModalCard(test);
-// }
+};
 
 //   function сreateIngredientModalCard(ingredient) {
 //     const ingredientModalCardMarkup = `<h3 class="modal-ingredient__title">Campari</h3>
@@ -262,20 +249,6 @@ function renderIngredientModalCard(string) {
 // открываем модалку
 // чистим экран
 // добавляем в дом разметку
+
 // закрываем модалку
 
-// function createObject(name) {
-//  return  fetchApi(url_by_name, name)
-//     .then(obj => {
-
-//       // console.log(obj.drinks[0]);
-//       сreateСocktailModalCard(obj.drinks[0]);
-//     })
-//     .catch(err => {
-//       console.log(err);
-//     });
-// };
-//   //  console.log(ArrFetch);
-
-// createObject('marg');
-// событие и кнопка у Ярослава, export, как из Амаретто выбрать конкретный?
