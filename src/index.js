@@ -1,6 +1,7 @@
 import './js/open_modal';
 import './js/favorite-menu';
 import './js/search_header';
+import './js/favorit-coctails';
 import './js/switch-theme';
 import './js/fetch';
 import './js/random-default-coctails';

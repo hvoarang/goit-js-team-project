@@ -37,9 +37,10 @@
   }
   @media screen and (min-width: 1280px) {
     min-width: 1280px;
-    padding-top: 52.5px;
+    // padding-top: 52.5px;
   }
   &__title {
+    // max-width: 287px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
@@ -92,10 +93,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 48px 21px 24px;
+    padding: 5px 21px 24px;
     gap: 16px;
   }
   &__subtitle {
+    display: flex;
+    align-items: flex-end;
+    min-height: 85px;
+    max-width: 287px;
     font-family: 'Roboto';
     font-weight: 900;
     font-size: 26px;

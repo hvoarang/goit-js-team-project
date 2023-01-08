@@ -34,6 +34,7 @@ export function modalOpenClose(e) {
   // clearModal(cocktailModalCard);
 }
 
+
 function backdropElToggle() {
   backdropEl.classList.toggle('is-hidden2');
 };
@@ -57,4 +58,4 @@ function clearModal(modalCard) {
   //     refs.modal.classList.toggle('is-hidden');
   //   }
 // }
-// modalOpenClose();
+

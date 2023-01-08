@@ -1,4 +1,5 @@
 <header class="header" id="hd">
+    <!-- <button class="qweqwe">click me</button> -->
     <div class="container">
         <div class="header__wrap">
             <div class="div-container__left">
@@ -22,10 +23,11 @@
                             <div class="dropdown" id="dropdowndesk">
                                 <button  class="dropbtn">Favorite</button>
                                 <div id="myDropdown" class="dropdown-content dropdown-content-desk">
-                                    <a href="./partials/favorite-cocktails.html">Favorite cocktails</a>
-                                    <a href="./partials/favorite-ingridients.html">Favorite ingredients</a>
+                                    <button class=" qweqwe favorite-cocktails">Favorite cocktails</button>
+                                    <button class=" qweqwe123 favorite-ingridients">Favorite ingridients</button>
+                                </div>
                             </div>
-                            </a>
+                            
                         </li>
                     </ul>
                 </div>
@@ -40,7 +42,7 @@
                         </svg>
                     </button>
                     <input class="imput__header" type="text" name="searchQuery" autocomplete="off"
-                        placeholder="Search" />
+                        placeholder=" Search |" />
                 </form>
 
                 <button type="button" class="js-open-menu button__menu  " aria-expanded="false"
@@ -53,7 +55,7 @@
 
                 <!-- ****************************Mob menu*************************************** -->
 
-                <div class="backdrop-mob js-menu-container" data-modal id="menu-container">
+                <div class="backdrop-mob js-menu-container " data-modal id="menu-container">
                     <div class="container__head">
                         <a class="logo logo__mob-menu" href="./index.html">
                             <p class="logo__title">COCKTAILS</p>
@@ -65,11 +67,12 @@
                             </div>
                         </a>
                         <div class="checkbox__mob">
-                            <span class="checkbox__light">Light</span>
+                            <span class="checkbox__light" id="checkbox__light">Light</span>
                             <label id="switch" class="switch">
                                 <input type="checkbox" onchange="toggleTheme()" id="slider">
-                                <span class="slider round"></span></label>
-                            <span class="checkbox__dark">Dark</span>
+                                <span class="slider round" id="slider_round"></span>
+                            </label>
+                            <span class="checkbox__dark" id="checkbox__dark">Dark</span>
                         </div>
                     </div>
 
@@ -82,7 +85,7 @@
                         </button>
 
                         <input class="imput__header" type="text" name="searchQuery" autocomplete="off"
-                            placeholder="Search " />
+                            placeholder=" Search |" />
                     </form>
                     <div class="mob-menu__nav">
                         <ul class="mob-menu__list">
@@ -97,8 +100,8 @@
                                         </svg>
                                     </button>
                                     <div id="myDropdownn" class="dropdown-content-mob dropdown-content">
-                                        <a href="./partials/favorite-cocktails.html">Favorite cocktails</a>
-                                        <a href="./partials/favorite-ingridients.html" >Favorite ingredients</a>
+                                        <button class=" qweqwe favorite-cocktails">Favorite coctails</button>
+                                        <button class=" qweqwe123 favorite-ingridients">Favorite ingridients</button>
                                     </div> 
                                 </div>
                             </li>
@@ -110,11 +113,12 @@
             <!-- /////////////////////////////////////////////////////////////////////// -->
 
             <div class="checkbox">
-                <span class="checkbox__light">Light</span>
+                <span class="checkbox__light" id="checkbox__lightt">Light</span>
                 <label id="switch" class="switch">
                     <input type="checkbox" onchange="toggleTheme()" id="slider">
-                    <span class="slider round"></span>
-                    <span class="checkbox__dark">Dark</span>
+                    <span class="slider round" id="slider_roundd"></span>
+                </label>
+                <span class="checkbox__dark" id="checkbox__darkk">Dark</span>
             </div>
         </div>
     </div>
