@@ -20,18 +20,19 @@ export default {
   save,
   load,
 };
-export function addToLocalStorage(coctailsFromFetch) {
-  if (coctailsFromFetch) {
-    console.log(coctailsFromFetch);
-    let oneCoctailIngredient = coctailsFromFetch.map(cocktailEl => {
+
+export function addToLocalStorage(KEY, obj) {
+  if (obj) {
+    // console.log('addToLocalStorage');
+    let oneCoctailIngredient = obj.map(cocktailEl => {
       const { idDrink, strDrink, strDrinkThumb, strInstructions } = cocktailEl;
       let OneCocktailData = {
-        cocktailId: idDrink,
-        cocktailName: strDrink,
-        cocktailImage: strDrinkThumb,
+        idDrink: idDrink,
+        strDrink: strDrink,
+        strDrinkThumb: strDrinkThumb,
         cocktailIngr: allIngridient(cocktailEl, 'strIngredient'),
         cocktailMeasure: allIngridient(cocktailEl, 'strMeasure'),
-        cocktailInstruction: strInstructions,
+        strInstructions: strInstructions,
       };
 
       function allIngridient(el, string) {
@@ -48,6 +49,7 @@ export function addToLocalStorage(coctailsFromFetch) {
       return OneCocktailData;
     });
     // console.log(oneCoctailIngredient);
-    save('cocktailsFromFetch', oneCoctailIngredient);
+    save(KEY, oneCoctailIngredient);
+    // console.log('KEYFETCH', oneCoctailIngredient);
   }
 }
