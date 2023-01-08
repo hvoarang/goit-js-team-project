@@ -6,8 +6,9 @@ import { paginator } from './pagination';
 import { paginatorBut } from './pagination';
 import { paginatorBut2 } from './pagination';
 import { addToLocalStorage } from './localStorage';
-const { save, load } = obj;
+const { save, load, remove } = obj;
 export const favoriteArr = [];
+const rightCocktail = [];
 
 const KEYFETCH = 'cocktailsFromFetch';
 const KEYFAVORITE = 'cocktails';
@@ -179,7 +180,7 @@ function defoultMurkup() {
   getEl('.product').insertAdjacentHTML('beforeEnd', defoultMurkup);
 }
 
-function renderTextAndHeart(text, idFromFetch) {
+export function renderTextAndHeart(text, idFromFetch) {
   if (load(KEYFAVORITE) == undefined) {
     return false;
   }
@@ -203,12 +204,14 @@ function findCocktailData(event) {
   favoriteArr
     .map(item => item.idDrink)
     .find(idFromStorage => idFromStorage === cocktailId)
-    ? deleteFromStorageMurkup(event)
+    ? deleteFromStorageMurkup(event, cocktailId)
     : AddToStorageMurkup(event, cocktailFromFetch, cocktailId);
+  console.log(favoriteArr);
 }
 
-function deleteFromStorageMurkup(event, cocktailFromFetch, cocktailId) {
-  if (event.target.innerText === 'Add to') {
+function deleteFromStorageMurkup(event, cocktailId) {
+  if (event.target.innerText === 'Remove') {
+    // console.log(event.target.innerText);
     event.target.innerHTML = `Add to
   <div class="product__heart-wraper">
     <svg class="product__big-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
@@ -219,7 +222,17 @@ function deleteFromStorageMurkup(event, cocktailFromFetch, cocktailId) {
     </svg>
   </div>`;
   }
-  return;
+  remove(KEYFAVORITE, cocktailId);
+  // for (let i = 0; i < rightCocktail.length; i++) {
+  //   console.log(favoriteArr[i].idDrink);
+  //   console.log(cocktailId);
+  //   console.log(favoriteArr[i].idDrink === cocktailId);
+
+  //   if (favoriteArr[i].idDrink === cocktailId) {
+  //     return favoriteArr.slice(i);
+  //   }
+  // }
+  // return;
 }
 
 function AddToStorageMurkup(event, cocktailFromFetch, cocktailId) {
@@ -239,7 +252,6 @@ function AddToStorageMurkup(event, cocktailFromFetch, cocktailId) {
 }
 
 function addToFavoriteLocalStorage(key, cocktailFromFetch, cocktailId) {
-  let rightCocktail = [];
   const cocktailInf = cocktailFromFetch.map(item => {
     if (item.idDrink === cocktailId) {
       rightCocktail.push(item);
