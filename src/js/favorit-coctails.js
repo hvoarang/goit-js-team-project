@@ -10,9 +10,9 @@ const heroEl = document.querySelector('.hero');
 const cocSec = document.querySelector('.section-cocktails');
 const pagSec = document.querySelector('.paginator-sections');
 const butOpCocArr = Array.from(butQwe);
- butOpCocArr.map(but => {
-   but.addEventListener('click', showFavorite);
- });
+butOpCocArr.map(but => {
+  but.addEventListener('click', showFavorite);
+});
 // addEventListener('click', showFavorite);
 
 function showFavorite() {
@@ -35,17 +35,16 @@ function showFavorite() {
 
    `
   );
- const favCont = document.querySelector('.favorite-container');
+  const favCont = document.querySelector('.favorite-container');
 
-//   console.log(el);
-favCont.insertAdjacentHTML('afterbegin', createFullMarkup(objFromFav));
-
+  //   console.log(el);
+  favCont.insertAdjacentHTML('afterbegin', createFullMarkup(objFromFav));
 }
 function createFullMarkup(obj) {
-return obj
-  .map(
-    cocktail =>
-      ` <li id="${cocktail.id}" class="product__item1">   
+  return obj
+    .map(
+      cocktail =>
+        ` <li id="${cocktail.id}" class="product__item1">   
         <div class="product__wraper1">
 
           <div class="product__image-part">
@@ -85,6 +84,6 @@ return obj
       </li>
       
   `
-  )
-  .join('');
+    )
+    .join('');
 }
