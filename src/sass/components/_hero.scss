@@ -15,7 +15,7 @@
   }
 
   @media screen and (min-width: 1280px) {
-    width: 1200px;
+    width: 1280px;
     margin: 0;
     margin-left: auto;
     margin-right: auto;
@@ -103,7 +103,7 @@
 .hero-list__item {
   cursor: pointer;
 
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -114,7 +114,8 @@
     color: var(--orange-text-color);
   }
   &:focus {
-    text-shadow: 0.05em 0 var(--gray-text-color), -0.05em 0 var(--gray-text-color), 0 0.05em var(--gray-text-color),
+    text-shadow: 0.05em 0 var(--gray-text-color),
+      -0.05em 0 var(--gray-text-color), 0 0.05em var(--gray-text-color),
       0 -0.05em var(--gray-text-color);
     color: var(--orange-text-color);
     -webkit-text-stroke: 1px var(--gray-text-color);

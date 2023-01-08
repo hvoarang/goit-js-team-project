@@ -6,28 +6,25 @@ import orangeHeart from '../images/svg/icons.svg';
 const { save, load } = obj;
 const objFromFav = load('cocktails');
 
-const butQwe = document.querySelectorAll('.qweqwe');
-// console.log()
+const butQwe = document.querySelectorAll('.qweqwe123');
 const heroEl = document.querySelector('.hero');
-const cocSec = document.querySelector('.section-cocktails');
-const pagSec = document.querySelector('.paginator-sections');
+const cocktailsSec = document.querySelector('.section-cocktails');
+const paginatorSec = document.querySelector('.paginator-sections');
 const butOpCocArr = Array.from(butQwe);
 butOpCocArr.map(but => {
-  but.addEventListener('click', showFavorite);
+  but.addEventListener('click', showFavoriteIngridient);
 });
-// addEventListener('click', showFavorite);
-
-function showFavorite() {
-  cocSec.style.display = 'none';
-  pagSec.style.display = 'none';
+function showFavoriteIngridient() {
+  cocktailsSec.style.display = 'none';
+  paginatorSec.style.display = 'none';
   heroEl.innerHTML = '';
   heroEl.insertAdjacentHTML(
     'afterbegin',
     `
 <body>
-    <div class="container favorite"></div>
-        <h1 class="favorite__title">Favorite cocktails</h1>
-        <ul class="favorite__list">
+    <div class="container"></div>
+        <h1 class="favorite-title">Favorite ingredients</h1>
+        <ul class="favorite-container">
         
         </ul>
     </div>
@@ -37,22 +34,16 @@ function showFavorite() {
 
    `
   );
-
-  const favCont = document.querySelector('.favorite__list');
-
-  console.log(objFromFav);
-
+  const favCont = document.querySelector('.favorite-container');
   favCont.insertAdjacentHTML('afterbegin', createFullMarkup(objFromFav));
 }
 function createFullMarkup(obj) {
   return obj
     .map(
       cocktail =>
-
         `
         <li id="${cocktail.idDrink}" class="favorite__item">   
           <div class="favorite__wraper">
-
 
           <div class="favorite__image-part">
             <picture>

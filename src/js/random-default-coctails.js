@@ -4,7 +4,7 @@ import { createMarkup } from './cocktails';
 
 function makeid() {
   let text = '';
-  let possible = 'ADGIJKLNPV';
+  let possible = 'ADGIJKLNSPV';
 
   for (let i = 0; i < 1; i++)
     text += possible.charAt(Math.floor(Math.random() * possible.length));

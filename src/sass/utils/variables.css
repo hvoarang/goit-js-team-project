@@ -6,6 +6,9 @@
   --orange-auxiliry-color: #fe7031;
   --black-color: #000000;
   --number-color: #1e1e1e;
+  --gray-for-buttons: #f5f5f5;
+  --white-title-color: #ffffff;
+  --orange-dark: #ff8650;
 }
 
 body {
@@ -65,4 +68,9 @@ img {
   display: block;
 }
 
-/*# sourceMappingURL=variables.css.map *//*# sourceMappingURL=variables.css.map */
+/*# sourceMappingURL=variables.css.map */
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}/*# sourceMappingURL=variables.css.map */
