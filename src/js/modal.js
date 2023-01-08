@@ -4,8 +4,7 @@ import { fetchApi } from "./fetch";
 import { url_ingredient_by_name } from "./fetch";
 import { backdropEl } from "./modalOpenClose";
 import { cardInfo } from "./modalOpenClose";
-
-
+import closeBtnSvg from '../images/svg/icons.svg';
 
 const cocktailModalCard = document.querySelector('.modal-cocktail');
 // console.log(cocktailModalCard);
@@ -42,14 +41,12 @@ export function сreateСocktailModalCard(cocktailObject) {
 
   // <span>* ${measureArray[1]}</span>
   
-  //     <button class="modal__close-btn" type="button" data-modal-cocktail-close>
-  //     <svg class="modal__close-svg">
-  //       <use href="./images/svg/icons.svg#menu-close"></use>
-  //     </svg>
-  // </button>
-  
   const cocktailModalCardMarkup = `
-
+    <button class="modal__close-btn" type="button" data-modal-cocktail-close>
+      <svg class="modal__close-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <use href="${closeBtnSvg}#menu-close"></use>
+      </svg>
+    </button>
     <h3 class="modal-cocktail__title">${strDrink}</h3>
     <div class="modal-wraper">
       <div class="modal-cocktail__wrap-instructions">
@@ -104,16 +101,10 @@ const refs = {
 function takeIngredients (event) {
    const ingr = event.target.textContent;
   // console.log('event.target.textContent :>> ', event.target.textContent);
-  // backdropEl.classList.add('is-hidden2');
   
-  // console.log('refs.openModalIngred :>> ', refs.openModalIngred);
-  // console.log('refs.closeModalIngred :>> ', refs.closeModalIngred);
-  // console.log('refs.modalIngred :>> ', refs.modalIngred);
-
   refs.closeModalIngred.classList.remove('is-hidden2');  
   fetchApi(url_ingredient_by_name, ingr)
       .then(obj => {
-        // console.log(obj.ingredients[0]);
         сreateIngredientModalCard(obj.ingredients[0]);
       })
       .catch(err => {
@@ -129,7 +120,12 @@ function сreateIngredientModalCard({strIngredient, strType, strDescription, str
     // const { } = ingrObj;
     // ingredientModal.innerHTML = '';
     // console.log('cardInfo :>> ', cardInfo);
-    const ingredientModalCardMarkup = `<h3 class="modal-ingredient__title">${strIngredient}</h3>
+  const ingredientModalCardMarkup = `
+    <button class="modal__close-btn" type="button" data-modal-cocktail-close>
+      <svg class="modal__close-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <use href="${closeBtnSvg}#menu-close"></use>
+      </svg>
+    </button><h3 class="modal-ingredient__title">${strIngredient}</h3>
     <h4 class="modal-ingredient__subtitle">${strType}</h4>
     <hr class="modal-ingredient__line" />
     <p class="modal-ingredient__description">

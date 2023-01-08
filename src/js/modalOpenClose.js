@@ -21,10 +21,12 @@ export function modalOpenClose(e) {
     ArrFetch[0].find(obj => obj.idDrink === idCard);
 // console.log('cardInfo :>> ', cardInfo);
   сreateСocktailModalCard(cardInfo);
-  closeBtn.addEventListener('click', () => {
-    backdropEl.classList.add('is-hidden2');
-    cocktailModalCard.innerHTML = '';
-  });
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      backdropEl.classList.add('is-hidden2');
+      cocktailModalCard.innerHTML = '';
+    });
+  };
   
 }
 
