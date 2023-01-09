@@ -51,7 +51,7 @@
   min-width: 320px;
   // max-height: 598px;
   background-color: #ffffff;
-  border-radius: 10px;
+  // border-radius: 10px;
   /* transform: translate(-50%, -50%) scale(1) rotate(0);
   transition: transform 300ms linear; */
   margin: auto;
@@ -64,7 +64,7 @@
     // flex-direction: row;
     // flex-wrap: wrap;
     width: 100%;
-    max-width: 720px;
+    max-width: 715px;
     // min-height: 598px;
     padding: 40px 28px 28px;
   }
@@ -224,13 +224,25 @@ li::marker {
   }
 }
 
+.modal-cocktail__measure {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-text-color);
+  margin-left: 10px;
+  &:hover {
+    color: var(--orange-text-color);
+  }
+}
+
 // /* прописать ховер */
 
 // .modal-cocktail__wrap-ingredients {
 
 // }
 
-.button__add-or-remove--modal {
+.button__add-or-remove--modal,
+.button__add-or-remove--modal-ingr {
   display: flex;
   align-items: center;
   justify-content: center;

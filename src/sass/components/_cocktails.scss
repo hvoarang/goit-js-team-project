@@ -25,22 +25,15 @@
   }
 
   &__item {
-    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 0.3em;
     &:hover {
       transform: translateY(0);
-    }
-    &:hover,
-    &:focus {
-      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
-        0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
     }
   }
   @media screen and (min-width: 1280px) {
     min-width: 1280px;
-    // padding-top: 52.5px;
   }
   &__title {
-    // max-width: 287px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
@@ -68,12 +61,12 @@
     border-radius: 4px;
 
     display: none;
-
-    &:hover .product__subtitle {
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 0.3em;
+    &:hover {
+      box-shadow: 0 1px 1px #0000001f, 0 4px 4px #0000000f, 1px 4px 6px #00000029;
     }
-    &:focus .product__subtitle {
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    &:focus {
+      box-shadow: 0 1px 1px #0000001f, 0 4px 4px #0000000f, 1px 4px 6px #00000029;
     }
   }
   &__image {
@@ -119,12 +112,6 @@
     line-height: 1.71;
     text-align: center;
     letter-spacing: 0.02em;
-    // &:active .product__small-icon--add {
-    //   fill: #fd5103;
-    // }
-    // &:active .product__small-icon--remove {
-    //   fill: #fcfcfc;
-    // }
   }
   &__heart-wraper {
     margin-left: 8px;
