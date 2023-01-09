@@ -3,7 +3,7 @@ import { defArreyCard } from './random-default-coctails';
 import obj from './localStorage';
 import { renderTextAndHeart } from './cocktails';
 import orangeHeart from '../images/svg/icons.svg';
-const { save, load } = obj;
+const { save, load, remove} = obj;
 const objFromFav = load('cocktails');
 
 const butQwe = document.querySelectorAll('.qweqwe');
@@ -123,4 +123,51 @@ function createFullMarkup(obj) {
 //       ArrButCard.map(but => {
 //         but.addEventListener('click', modalOpenClose);
 //       });
+}
+const favBody = document.querySelector('body');
+
+favBody.addEventListener('click', deleteFromFavoriteSec);
+
+function deleteFromFavoriteSec(event) {
+  if (document.querySelector('.favorite__list')) {
+    const button = document.querySelector('.favorite__list');
+    button.addEventListener('click', addOrRemove);
+
+    function addOrRemove(event) {
+      // console.dir(event.target);
+      if (event.target.innerText == 'Remove') {
+        const idToRemove = event.target.attributes[0].nodeValue;
+        // console.log(idToRemove);
+
+        event.target.innerHTML = `Add to
+          <div class="product__heart-wraper">
+            <svg class="product__big-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+              <use href="${orangeHeart}#bigHeart"></use>
+            </svg>
+            <svg class="product__small-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+              <use href="${orangeHeart}#smallHeart"></use>
+            </svg>
+          </div>`;
+        remove('cocktails', idToRemove);
+      }
+      if (event.target.innerText == 'Remove') {
+        const idToRemove = event.target.attributes[0].nodeValue;
+        // console.log(idToRemove);
+
+        event.target.innerHTML = `Remove
+        <div class="product__heart-wraper">
+          <svg class="product__big-icon--remove" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+            <use href="${orangeHeart}#bigHeart"></use>
+          </svg>
+          <svg class="product__small-icon--remove" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+            <use href="${orangeHeart}#smallHeart"></use>
+          </svg>
+        </div>`;
+        addToFavoriteLocalStorage(KEYFAVORITE, cocktailFromFetch, idToRemove);
+      }
+      if (event.target.innerText == 'Learn more') {
+        modalOpenClose(event);
+      }
+    }
+  }
 }
