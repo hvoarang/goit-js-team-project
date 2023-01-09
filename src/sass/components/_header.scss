@@ -2,10 +2,10 @@ a {
     text-decoration: none;
     color: var(--black-bg-color);
 }
-.body{
-     
+.body {
     background: var(--white-bg-color);
 }
+
 .header__wrap {
     display: flex;
     justify-content: space-between;
@@ -19,16 +19,15 @@ a {
 .div-container__right {
     display: flex;
     align-items: center;
-
 }
 // ******************************************logo****************************
 .logo {
     position: relative;
     color: var(--orange-text-color);
     font-weight: 400;
-        font-size: 28px;
-        line-height:86%;
-        letter-spacing: 0.02em;
+    font-size: 28px;
+    line-height: 86%;
+    letter-spacing: 0.02em;
 }
 
 .logo__title {
@@ -51,8 +50,6 @@ a {
     z-index: 2;
 }
 
-
-
 // **********************nav-site*********************
 .site-nav {
     @media screen and (max-width: 1280px) {
@@ -67,7 +64,6 @@ a {
     display: flex;
     gap: 60px;
     align-items: flex-end;
-    
 }
 
 .site-nav__link {
@@ -76,16 +72,16 @@ a {
     line-height: 133%;
     letter-spacing: 0.02em;
     color: var(--black-bg-color);
-  &:hover {
-    color: var(--orange-text-color);
-  }
-  &:focus {
-    text-shadow: 0.05em 0 var(--gray-text-color), -0.05em 0 var(--gray-text-color), 0 0.05em var(--gray-text-color),
-      0 -0.05em var(--gray-text-color);
-    color: var(--orange-text-color);
-    -webkit-text-stroke: 1px var(--gray-text-color);
-    text-shadow: 0px 4px 4px rgba(95, 103, 117, 0.25);
-  }
+    &:hover {
+        color: var(--orange-text-color);
+    }
+    &:focus {
+        text-shadow: 0.05em 0 var(--gray-text-color), -0.05em 0 var(--gray-text-color), 0 0.05em var(--gray-text-color),
+            0 -0.05em var(--gray-text-color);
+        color: var(--orange-text-color);
+        -webkit-text-stroke: 1px var(--gray-text-color);
+        text-shadow: 0px 4px 4px rgba(95, 103, 117, 0.25);
+    }
 }
 
 //   -----------------------------Инпут-----------------------------------------
@@ -168,8 +164,8 @@ a {
         top: 20px;
         fill: var(--black-bg-color);
         @media screen and (min-width: 768px) {
-                right: 50px;
-            }
+            right: 50px;
+        }
         .icon-cross {
             display: block;
         }
@@ -185,7 +181,6 @@ a {
         display: none;
     }
 }
-
 
 // ***************************************************mob menu*************
 
@@ -223,12 +218,10 @@ a {
     @media screen and (min-width: 1280px) {
         display: none;
     }
-   
 }
 
-
-.js-bg_colour{
-    background-color:var(--black-bg-color);
+.js-bg_colour {
+    background-color: var(--black-bg-color);
 }
 .container__head {
     margin-top: 22px;
@@ -241,12 +234,10 @@ a {
         align-items: flex-end;
         gap: 164px;
     }
-
 }
 
 .checkbox__mob {
     display: flex;
-   
 }
 
 .mob-menu {
@@ -305,7 +296,6 @@ a {
 
 .mob-menu__link {
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
 }
 
 .js-close-menu {
@@ -332,16 +322,16 @@ a {
     line-height: 133%;
     border: none;
     cursor: pointer;
-     &:hover {
-    color: var(--orange-text-color);
-  }
-  &:focus {
-    text-shadow: 0.05em 0 var(--gray-text-color), -0.05em 0 var(--gray-text-color), 0 0.05em var(--gray-text-color),
-      0 -0.05em var(--gray-text-color);
-    color: var(--orange-text-color);
-    -webkit-text-stroke: 1px var(--gray-text-color);
-    text-shadow: 0px 4px 4px rgba(95, 103, 117, 0.25);
-  }
+    &:hover {
+        color: var(--orange-text-color);
+    }
+    &:focus {
+        text-shadow: 0.05em 0 var(--gray-text-color), -0.05em 0 var(--gray-text-color), 0 0.05em var(--gray-text-color),
+            0 -0.05em var(--gray-text-color);
+        color: var(--orange-text-color);
+        -webkit-text-stroke: 1px var(--gray-text-color);
+        text-shadow: 0px 4px 4px rgba(95, 103, 117, 0.25);
+    }
 }
 
 .dropbtn-mob {
@@ -361,21 +351,20 @@ a {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color:transparent;
+    background-color: transparent;
     min-width: 160px;
     overflow: auto;
     z-index: 1;
 }
 .favorite-cocktails {
-      background-color:transparent;
-border: transparent;
-width: 100%;
+    background-color: transparent;
+    border: transparent;
+    width: 100%;
 }
 .favorite-ingridients {
-        background-color:transparent;
-border: transparent;
-width: 100%;
-
+    background-color: transparent;
+    border: transparent;
+    width: 100%;
 }
 .dropdown-content button {
     color: var(--black-bg-color);
@@ -386,7 +375,6 @@ width: 100%;
     line-height: 133%;
     letter-spacing: 0.02em;
     text-align: start;
-
 
     &:focus,
     :hover {
@@ -403,8 +391,7 @@ width: 100%;
 .show {
     display: block;
 }
-.dropdown-content-mob{
-
+.dropdown-content-mob {
     border: 2px solid var(--orange-text-color);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -412,7 +399,6 @@ width: 100%;
     margin-top: 10px;
 }
 .dropdown-content-desk {
-    
     border: 2px solid var(--orange-text-color);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -420,14 +406,11 @@ width: 100%;
     margin-top: 10px;
     margin-left: 8px;
     background-color: var(--white-bg-color);
-    
 }
-
-
 
 /******************** Hide default HTML checkbox ***********************/
 /* The switch - the box around the slider */
-.checkbox{
+.checkbox {
     display: flex;
     @media screen and (max-width: 1280px) {
         display: none;
@@ -435,7 +418,6 @@ width: 100%;
 }
 .checkbox_theme {
     display: flex;
-    
 
     @media screen and (max-width: 1280px) {
         display: none;
@@ -502,24 +484,23 @@ width: 100%;
     background-position: center;
 }
 
-input:checked+.slider {
+input:checked + .slider {
     background-color: var(--orange-text-color);
-border: solid 2px var(--white-bg-color);
-
+    border: solid 2px var(--white-bg-color);
 }
-input:checked + .checkbox__light{
-       color: var(--orange-text-color);
-   }
+input:checked + .checkbox__light {
+    color: var(--orange-text-color);
+}
 
-input:focus+.slider {
+input:focus + .slider {
     box-shadow: 0 0 1px var(--orange-text-color);
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
     -webkit-transform: translateX(24px);
     -ms-transform: translateX(24px);
     transform: translateX(24px);
- background-color: var(--white-bg-color);
+    background-color: var(--white-bg-color);
     background-repeat: no-repeat;
     background-position: center;
 }
