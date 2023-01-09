@@ -70,6 +70,18 @@ export function addToLocalStorage(KEY, obj) {
     // console.log('KEYFETCH', oneCoctailIngredient);
   }
 }
+const favIgridientFromStorage = [];
+favIgridientFromStorage.push(load('ingridient'));
+
+console.log(favIgridientFromStorage);
+
+export function favIngridientToLocalStorage(KEY, obj) {
+  console.log(obj);
+
+  console.log(favIgridientFromStorage);
+  ;
+  save(KEY, favIgridientFromStorage.push(obj));
+}
 
 export function addIngridientToStorage(KEY, obj) {
   console.log(obj);
@@ -82,16 +94,7 @@ export function addIngridientToStorage(KEY, obj) {
       strIngredient,
       strType,
     } = obj;
-    // console.log('addToLocalStorage');
-    // let oneIngridientData = obj.map(ingridient => {
-    //   const {
-    //     idIngredient,
-    //     strABV,
-    //     strAlcohol,
-    //     strDescription,
-    //     strIngredient,
-    //     strType,
-    //   } = ingridient;
+
     let OneIgridient = {
       idIngredient: idIngredient,
       strABV: strABV,
