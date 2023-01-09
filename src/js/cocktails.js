@@ -8,7 +8,7 @@ import { paginatorBut2 } from './pagination';
 import { addToLocalStorage } from './localStorage';
 const { save, load, remove } = obj;
 export const favoriteArr = [];
-const rightCocktail = [];
+
 
 const KEYFETCH = 'cocktailsFromFetch';
 const KEYFAVORITE = 'cocktails';
@@ -248,6 +248,7 @@ function AddToStorageMurkup(event, cocktailFromFetch, cocktailId) {
 }
 
 function addToFavoriteLocalStorage(key, cocktailFromFetch, cocktailId) {
+  const rightCocktail = [];
   const cocktailInf = cocktailFromFetch.map(item => {
     if (item.idDrink === cocktailId) {
       rightCocktail.push(item);
