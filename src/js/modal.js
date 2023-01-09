@@ -153,9 +153,9 @@ function сreateIngredientModalCard(obj) {
   refs.closeModalIngred.addEventListener('click', () =>
     refs.closeModalIngred.classList.add('is-hidden2')
   );
-  refs.closeModalBtnIngred.addEventListener('click', () =>
-    refs.closeModalIngred.classList.add('is-hidden2')
-  );
+  // refs.closeModalBtnIngred.addEventListener('click', () =>
+  //   refs.closeModalIngred.classList.add('is-hidden2')
+  // );
 }
 
 function renderIngredientModalCard(string) {
@@ -164,86 +164,5 @@ function renderIngredientModalCard(string) {
   ingredientModal.insertAdjacentHTML('afterbegin', string);
 }
 
-//   function сreateIngredientModalCard(ingredient) {
-//     const ingredientModalCardMarkup = `<h3 class="modal-ingredient__title">Campari</h3>
-//     <h4 class="modal-ingredient__subtitle">Liqueur</h4>
-//     <hr class="modal-ingredient__line" />
-//     <p class="modal-ingredient__description">
-//       <span class="modal-ingredient__name-span">Campari</span> is an Italian
-//       alcoholic liqueur, considered an apéritif (20.5%, 21%, 24%, 25%, or 28.5%
-//       ABV, depending on the country in which it is sold), obtained from the
-//       infusion of herbs and fruit (including chinotto and cascarilla) in alcohol
-//       and water. It is a bitters, characterised by its dark red colour.
-//     </p>
-//     <ul class="modal-ingredient__list list">
-//       <li class="modal-ingredient__item">Type: Bitters</li>
-//       <li class="modal-ingredient__item">Country of origin: Italy</li>
-//       <li class="modal-ingredient__item">Alcohol by volume: 20.5–28.5%</li>
-//       <li class="modal-ingredient__item">Flavour: Bitter, spicy and sweet</li>
-//     </ul>
-//     <div class="modal-ingredient__button">
-//       <button type="button" class="button__add-or-remove--modal">
-//         Add to favorite
-//       </button>
-// `;
-//     renderCocktailModalCard(ingredientModalCardMarkup);
-//     // function showIngredientModalCard(ingredientMarkup) {
-//     //         ingredientModalCard.insertAdjacentHTML('afterbegin', ingredientMarkup);
-//     //     }
-//   };
-// };
 
-// function createTest({strDescription}) {
-//   const test = `<span>${strDescription}</span>`;
-//     cocktailModalCard.innerHTML = '';
-//   renderCocktailModalCard(test);
 
-//разметка на новую модалку
-// }
-
-// вставить туда где fetch перед функцией, которая рендерит
-
-// function ingredientModalCardCreate({ name, instructions, data}) {
-//     ingredientModalCard.innerHTML = '';
-//     // const ingredientsArray = [];
-//     // for (const ingredient in ingredients) {
-//     //     ingredientsArray.push(ingredients[key]);
-//     // }
-//         <li class="modal-cocktail__item"><span>* ${measure} </span>
-//           <a class="modal-cocktail__link link" href="#" target="_blank">${ingredient}</a>
-
-//     showIngredientModalCard(ingredientModalCardMarkup);
-//     }
-
-// // function ingredientModalCardCreate(name) {
-// //         showIngredientModalCard(ingredientModalCard);
-// //     }
-
-// const addFavouriteBtn = document.querySelector('.button__add-or-remove--modal');
-
-// linkGoToIngredient.addEventListener('click', goToIngredient);
-// addFavouriteCocktailBtn.addEventListener('click', addFavouriteCocktail);
-
-// function goToIngredient (name) {
-
-// }
-
-// function addFavouriteCocktail (name) {
-//     // localStorage.setItem(name, JSON.stringify('${name}'));
-// }
-
-//План:
-// 1. импорт
-// 2. ссылки на DOM, обработчики (на бэкдропе, на модалке)
-// 3. по нажатию кнопки Learn more:
-//   забираем id коктейля,
-//   делаем запрос на сервер,
-//   получаем объект, парсим его,
-//   достаем данные для создания разметки,
-//   запускаем функцию создания карточки коктейля и функцию рендеринга на экране:
-// 4. функция создания и рендеринга карточки:
-// открываем модалку
-// чистим экран
-// добавляем в дом разметку
-
-// закрываем модалку

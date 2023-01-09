@@ -38,7 +38,7 @@ function showFavorite() {
 
    `
   ); 
- 
+ heroEl.style.marginBottom ='40px'
   const favCont = document.querySelector('.favorite__list');
   favCont.insertAdjacentHTML('afterbegin', createFullMarkup(objFromFav));
 }
@@ -117,4 +117,10 @@ function createFullMarkup(obj) {
   `
     )
     .join('');
+    let  ButLearnMoreArrFav = document.querySelectorAll('.favorite__item');
+      console.log(ButLearnMoreArrFav);
+//       const ArrButCard = Array.from(ButLearnMoreArrFav);
+//       ArrButCard.map(but => {
+//         but.addEventListener('click', modalOpenClose);
+//       });
 }

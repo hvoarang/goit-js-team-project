@@ -9,6 +9,7 @@ import { addToLocalStorage } from './localStorage';
 const { save, load, remove } = obj;
 export const favoriteArr = [];
 
+
 const KEYFETCH = 'cocktailsFromFetch';
 const KEYFAVORITE = 'cocktails';
 
