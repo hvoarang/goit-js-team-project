@@ -3,6 +3,7 @@ import { defArreyCard } from './random-default-coctails';
 import obj from './localStorage';
 import { renderTextAndHeart } from './cocktails';
 import orangeHeart from '../images/svg/icons.svg';
+import { INGR } from './modal';
 const { save, load } = obj;
 const objFromFav = load('cocktails');
 
@@ -15,6 +16,8 @@ butOpCocArr.map(but => {
   but.addEventListener('click', showFavoriteIngridient);
 });
 function showFavoriteIngridient() {
+  const backdropEl = document.querySelector('.backdrop-mob.js-menu-container');
+  backdropEl.classList.remove('is-open')
   cocktailsSec.style.display = 'none';
   paginatorSec.style.display = 'none';
   heroEl.innerHTML = '';
@@ -22,11 +25,11 @@ function showFavoriteIngridient() {
     'afterbegin',
     `
 <body>
-    <div class="container"></div>
-        <h1 class="favorite-title">Favorite ingredients</h1>
-        <ul class="favorite-container">
-        
+    <div class="container favorite"></div>
+        <h1 class="favorite__title">Favorite ingredients</h1>
+         <ul class="favorite__list">
         </ul>
+        <p class="default-text">You haven't added any favorite cocktails yet</p>
     </div>
 
     <script type="module" src="/src/index.js"></script>
@@ -34,8 +37,8 @@ function showFavoriteIngridient() {
 
    `
   );
-  const favCont = document.querySelector('.favorite-container');
-  favCont.insertAdjacentHTML('afterbegin', createFullMarkup(objFromFav));
+  const favCont = document.querySelector('.favorite__list');
+  // favCont.insertAdjacentHTML('afterbegin', createFullMarkup(objFromFav));
 }
 function createFullMarkup(obj) {
   return obj

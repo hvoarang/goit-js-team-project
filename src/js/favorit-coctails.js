@@ -7,7 +7,6 @@ const { save, load } = obj;
 const objFromFav = load('cocktails');
 
 const butQwe = document.querySelectorAll('.qweqwe');
-// console.log()
 const heroEl = document.querySelector('.hero');
 const cocSec = document.querySelector('.section-cocktails');
 const pagSec = document.querySelector('.paginator-sections');
@@ -18,6 +17,8 @@ butOpCocArr.map(but => {
 // addEventListener('click', showFavorite);
 
 function showFavorite() {
+  const backdropEl = document.querySelector('.backdrop-mob.js-menu-container');
+  backdropEl.classList.remove('is-open');
   cocSec.style.display = 'none';
   pagSec.style.display = 'none';
   heroEl.innerHTML = '';
@@ -28,25 +29,25 @@ function showFavorite() {
     <div class="container favorite"></div>
         <h1 class="favorite__title">Favorite cocktails</h1>
         <ul class="favorite__list">
-        
         </ul>
+        <p class="default-text">You haven't added any favorite cocktails yet</p>
     </div>
 
     <script type="module" src="/src/index.js"></script>
 </body>
 
    `
-  );
-
+  ); 
+ 
   const favCont = document.querySelector('.favorite__list');
-
-  console.log(objFromFav);
-
   favCont.insertAdjacentHTML('afterbegin', createFullMarkup(objFromFav));
 }
 function createFullMarkup(obj) {
-  return obj
-    .map(
+  if(obj){
+ const textEl = document.querySelector('.default-text');
+ textEl.style.display = 'none';
+  }
+  return obj.map(
       cocktail =>
 
         `

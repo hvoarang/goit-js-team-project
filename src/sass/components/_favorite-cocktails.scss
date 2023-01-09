@@ -8,7 +8,7 @@
   align-items: center;
   gap: 60px;
   flex-wrap: wrap;
-  width: 320px;
+  // width: 320px;
 
   @media screen and (min-width: 768px) {
     width: 768px;
@@ -222,5 +222,28 @@
   @media screen and (min-width: 1280px) {
     padding-top: 60px;
     padding-bottom: 60px;
+  }
+}
+.default-text {
+  margin-bottom: 122px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 239px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 60px;
+  text-align: center;
+  color: var(--black-bg-color);
+  @media screen and (min-width: 768px) {
+    width: 296px;
+    margin-bottom: 523px;
+    font-size: 24px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 385px;
+    margin-bottom: 472px;
+    font-size: 32px;
+    line-height: 72px;
   }
 }

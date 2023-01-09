@@ -35,7 +35,7 @@
   flex-direction: column;
   align-items: flex-start;
   min-width: 320px;
-  // max-height: 600px;
+  height: 557px;
   background-color: #ffffff;
   border-radius: 10px;
   /* transform: translate(-50%, -50%) scale(1) rotate(0);
@@ -116,6 +116,8 @@
 }
 
 .modal-ingredient__description {
+ max-height: 170px;
+  overflow-y:scroll;
   width: 100%;
   font-weight: 400;
   font-size: 16px;
