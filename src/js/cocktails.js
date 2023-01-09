@@ -80,9 +80,8 @@ export function createFullMarkup(obj) {
 
   const markup = obj
     .map(
-
-      (cocktail, index) => 
-      `<li id="${cocktail.idDrink}" class="product__item">   
+      (cocktail, index) =>
+        `<li id="${cocktail.idDrink}" class="product__item">   
         <div class="product__wraper" data-num="${index}">
 
           <div class="product__image-part">
