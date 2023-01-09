@@ -1,4 +1,3 @@
-
 import { url_by_name } from './fetch';
 import { fetchApi } from './fetch';
 import { url_ingredient_by_name } from './fetch';
@@ -8,13 +7,11 @@ import { favIngridientToLocalStorage } from './localStorage';
 
 import closeBtnSvg from '../images/svg/icons.svg';
 
-
 // import { addIngridientToStorage } from './localStorage';
 import obj from './localStorage';
 const { save, load } = obj;
 export const INGR = 'ingridient';
 let ingridientArr = [];
-
 
 const cocktailModalCard = document.querySelector('.modal-cocktail');
 
@@ -23,17 +20,10 @@ function renderCocktailModalCard(element) {
   cocktailModalCard.insertAdjacentHTML('afterbegin', element);
 }
 export function createCocktailModalCard(cocktailObject) {
- 
-  let {
-    strDrink,
-    strDrinkThumb,
-    strInstructions,
-    strGlass,
-    strCategory,
-  } = cocktailObject;
+  let { strDrink, strDrinkThumb, strInstructions, strGlass, strCategory } =
+    cocktailObject;
 
   //  console.log(cocktailObject);
-  let ingredientArray = [];
 
   let measureArray = [];
   let ingredientArray = [];
@@ -83,7 +73,6 @@ export function createCocktailModalCard(cocktailObject) {
   // console.log('closeBtn :>> ', closeBtn);
   renderCocktailModalCard(cocktailModalCardMarkup);
 
-
   /////// IngredientCard //////////////////////////////////////////
 
   // const IngrLink = document.querySelector('[data-modal-ingredient-open]');
@@ -103,9 +92,7 @@ const refs = {
   openModalIngred: document.querySelector('[data-modal-ingredient-open]'),
   closeModalIngred: document.querySelector('.modal-ingredient__backdrop'),
   modalIngred: document.querySelector('[data-modal-ingredient]'),
-
-  };
-
+};
 
 function takeIngredients(event) {
   const ingr = event.target.textContent;
@@ -113,27 +100,24 @@ function takeIngredients(event) {
   refs.closeModalIngred.classList.remove('is-hidden2');
   fetchApi(url_ingredient_by_name, ingr)
     .then(obj => {
-        
       сreateIngredientModalCard(obj.ingredients[0]);
-   
+
       save(INGR, obj.ingredients[0]);
-      })
+    })
     .catch(err => {
       console.log(err);
     });
-
 }
 
 // const ingrList = document.querySelector('.modal-cocktail__list');
 // ingrList.addEventListener('click', (event) => {
 //   });
 
-
 function сreateIngredientModalCard(obj) {
-   if (document.querySelector('.ingridient-wrapper')) {
-     document.querySelector('.ingridient-wrapper').innerHTML = '';
-   }
- const ingredientModalCardMarkup = `
+  if (document.querySelector('.ingridient-wrapper')) {
+    document.querySelector('.ingridient-wrapper').innerHTML = '';
+  }
+  const ingredientModalCardMarkup = `
  <div class="ingridient-wrapper">
   <h3 class="modal-ingredient__title">${obj.strIngredient}</h3>
     <h4 class="modal-ingredient__subtitle">${obj.strType}</h4>
@@ -155,12 +139,16 @@ function сreateIngredientModalCard(obj) {
  </div>
 `;
   renderIngredientModalCard(ingredientModalCardMarkup);
-const butAddFavoriteIngr = document.querySelector('.button__add-or-remove--modal-ingr');
-butAddFavoriteIngr.style.boxShadow= "0 1px 1px #0000001f, 0 4px 4px #0000000f, 1px 4px 6px #00000029";
-butAddFavoriteIngr.addEventListener('click',favIngridientToLocalStorage(INGR,obj)
-);
-// console.log(ingridientArr);
-
+  const butAddFavoriteIngr = document.querySelector(
+    '.button__add-or-remove--modal-ingr'
+  );
+  butAddFavoriteIngr.style.boxShadow =
+    '0 1px 1px #0000001f, 0 4px 4px #0000000f, 1px 4px 6px #00000029';
+  butAddFavoriteIngr.addEventListener(
+    'click',
+    favIngridientToLocalStorage(INGR, obj)
+  );
+  // console.log(ingridientArr);
 
   refs.closeModalIngred.addEventListener('click', () =>
     refs.closeModalIngred.classList.add('is-hidden2')
@@ -170,14 +158,11 @@ butAddFavoriteIngr.addEventListener('click',favIngridientToLocalStorage(INGR,obj
   );
 }
 
-
-
 function renderIngredientModalCard(string) {
   const ingredientModal = document.querySelector('.modal-ingredient');
   // console.log('ingredientModal :>> ', ingredientModal);
   ingredientModal.insertAdjacentHTML('afterbegin', string);
-
-};
+}
 
 //   function сreateIngredientModalCard(ingredient) {
 //     const ingredientModalCardMarkup = `<h3 class="modal-ingredient__title">Campari</h3>
@@ -262,4 +247,3 @@ function renderIngredientModalCard(string) {
 // добавляем в дом разметку
 
 // закрываем модалку
-
