@@ -20,18 +20,25 @@ function renderCocktailModalCard(element) {
   cocktailModalCard.insertAdjacentHTML('afterbegin', element);
 }
 export function createCocktailModalCard(cocktailObject) {
+   console.log(cocktailObject);
   let { strDrink, strDrinkThumb, strInstructions, strGlass, strCategory } =
     cocktailObject;
-
-  //  console.log(cocktailObject);
-
   let measureArray = [];
   let ingredientArray = [];
   for (let i = 1; i < 15; i += 1) {
-    if (!cocktailObject[`strIngredient${i}`]) continue;
+    if(cocktailObject.strIngredient1){ 
+       if (!cocktailObject[`strIngredient${i}`]) continue;
     ingredientArray.push(cocktailObject[`strIngredient${i}`]);
-    measureArray.push(cocktailObject[`strMeasure${i}`]);
+    measureArray.push(cocktailObject[`strMeasure${i}`])
+    } else {
+      console.log(...cocktailObject.cocktailIngr);
+        // if (!cocktailObject[`cocktailIngr${i}`]) continue;
+    // ingredientArray.push(cocktailObject[`cocktailIngr${i}`]);
+    // measureArray.push(cocktailObject[`cocktailMeasure${i}`]);
+    }
+   
   }
+  
   const ingredientArrayMarkup = ingredientArray
     .map(item => {
       return `
@@ -120,15 +127,15 @@ function сreateIngredientModalCard(obj) {
   const ingredientModalCardMarkup = `
  <div class="ingridient-wrapper">
   <h3 class="modal-ingredient__title">${obj.strIngredient}</h3>
-    <h4 class="modal-ingredient__subtitle">${obj.strType}</h4>
+    <h4 class="modal-ingredient__subtitle">${obj.strType === 'drink'}</h4>
     <hr class="modal-ingredient__line" />
     <p class="modal-ingredient__description">
-      <span class="modal-ingredient__name-span">${obj.strIngredient}</span> ${
-    obj.strDescription = 'drink'
-  }
+      <span class="modal-ingredient__name-span">${
+        obj.strIngredient
+      }</span> ${(obj.strDescription = 'drink')}
     </p>
     <ul class="modal-ingredient__list list">
-      <li class="modal-ingredient__item">Type: ${obj.strType}</li>
+      <li class="modal-ingredient__item">Type: ${(obj.strType = 'Alcohol')}</li>
       <li class="modal-ingredient__item">Alcohol by volume: ${(obj.strABV =
         0 / 5)}%</li>
       <li class="modal-ingredient__item">Flavour: fantastic </li>

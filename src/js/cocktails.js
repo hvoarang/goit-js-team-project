@@ -144,7 +144,7 @@ export function createFullMarkup(obj) {
                     renderTextAndHeart('Add to', cocktail.idDrink)
                       ? 'remove'
                       : 'add'
-                  }" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+                  }" viewBox="0 0 22 26" xmlns="http://www.w3.org/2000/svg">
                     <use href="${orangeHeart}#smallHeart"></use>
                   </svg>
                 </div>

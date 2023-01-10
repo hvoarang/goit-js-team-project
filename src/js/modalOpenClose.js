@@ -18,7 +18,7 @@ export function modalOpenClose(e) {
     ArrFetch[0].find(obj => obj.idDrink === idCard);
     createCocktailModalCard(cardInfo);
     const closeBtn = document.querySelector('[data-modal-cocktail-close]');
-  closeBtn.addEventListener('click', backdropElToggle);
+   closeBtn.addEventListener('click', backdropElToggle);
   ;
 }
 
