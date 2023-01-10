@@ -101,7 +101,7 @@ function takeIngredients(event) {
   fetchApi(url_ingredient_by_name, ingr)
     .then(obj => {
       сreateIngredientModalCard(obj.ingredients[0]);
-
+ console.log(obj);
       save(INGR, obj.ingredients[0]);
     })
     .catch(err => {

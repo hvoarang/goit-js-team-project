@@ -1,8 +1,9 @@
 import { defArreyCard } from './random-default-coctails';
-// import { createFullMarkup } from './cocktails';
+import { ArrFetch } from './pagination';
 import obj from './localStorage';
 import { renderTextAndHeart } from './cocktails';
 import orangeHeart from '../images/svg/icons.svg';
+import { modalOpenClose } from './modalOpenClose';
 const { save, load, remove} = obj;
 const objFromFav = load('cocktails');
 
@@ -22,6 +23,7 @@ function showFavorite() {
   cocSec.style.display = 'none';
   pagSec.style.display = 'none';
   heroEl.innerHTML = '';
+
   heroEl.insertAdjacentHTML(
     'afterbegin',
     `
@@ -37,10 +39,16 @@ function showFavorite() {
 </body>
 
    `
-  ); 
- heroEl.style.marginBottom ='40px'
-  const favCont = document.querySelector('.favorite__list');
-  favCont.insertAdjacentHTML('afterbegin', createFullMarkup(objFromFav));
+  );
+  if (document.querySelector('.default-text')) {
+      heroEl.style.marginBottom = '40px';
+      const favCont = document.querySelector('.favorite__list');
+      favCont.insertAdjacentHTML('afterbegin', createFullMarkup(objFromFav));
+  } else {
+    const textEl = document.querySelector('.default-text');
+    textEl.style.display = 'block';
+  }
+
 }
 function createFullMarkup(obj) {
   if(obj){
@@ -149,10 +157,10 @@ function deleteFromFavoriteSec(event) {
             </svg>
           </div>`;
         remove('cocktails', idToRemove);
-      }
-      if (event.target.innerText == 'Remove') {
+      } else 
+      if (event.target.innerText == 'Add to') {
         const idToRemove = event.target.attributes[0].nodeValue;
-        // console.log(idToRemove);
+       
 
         event.target.innerHTML = `Remove
         <div class="product__heart-wraper">
@@ -164,9 +172,13 @@ function deleteFromFavoriteSec(event) {
           </svg>
         </div>`;
         addToFavoriteLocalStorage(KEYFAVORITE, cocktailFromFetch, idToRemove);
-      }
-      if (event.target.innerText == 'Learn more') {
-        modalOpenClose(event);
+      }else
+      if (event.target.innerText === 'Learn more') {
+      console.log(
+        JSON.parse(localStorage
+          .getItem('cocktails')
+        )
+      );
       }
     }
   }

@@ -22,6 +22,10 @@ const screenM = window.matchMedia('(max-width: 768px)');
 const screenT = window.matchMedia('(max-width: 1280px)');
 
 function searchValueHeader(e) {
+  const mobBacdropEl = document.querySelector('.backdrop-mob');
+  const crossBytEl = document.querySelector('.js-open-menu');
+  crossBytEl.classList.remove('is-open');
+   mobBacdropEl.classList.remove('is-open')
   e.preventDefault();
   valueInput = e.currentTarget.elements.searchQuery.value;
 
