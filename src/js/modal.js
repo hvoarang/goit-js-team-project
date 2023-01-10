@@ -101,7 +101,7 @@ function takeIngredients(event) {
   fetchApi(url_ingredient_by_name, ingr)
     .then(obj => {
       сreateIngredientModalCard(obj.ingredients[0]);
-
+ console.log(obj);
       save(INGR, obj.ingredients[0]);
     })
     .catch(err => {
@@ -123,13 +123,15 @@ function сreateIngredientModalCard(obj) {
     <h4 class="modal-ingredient__subtitle">${obj.strType}</h4>
     <hr class="modal-ingredient__line" />
     <p class="modal-ingredient__description">
-      <span class="modal-ingredient__name-span">${obj.strIngredient}</span> ${obj.strDescription}
+      <span class="modal-ingredient__name-span">${obj.strIngredient}</span> ${
+    obj.strDescription = 'drink'
+  }
     </p>
     <ul class="modal-ingredient__list list">
       <li class="modal-ingredient__item">Type: ${obj.strType}</li>
-      <li class="modal-ingredient__item"></li>
-      <li class="modal-ingredient__item">Alcohol by volume: ${obj.strABV}%</li>
-      <li class="modal-ingredient__item">Flavour: </li>
+      <li class="modal-ingredient__item">Alcohol by volume: ${(obj.strABV =
+        0 / 5)}%</li>
+      <li class="modal-ingredient__item">Flavour: fantastic </li>
 
     </ul>
     <div class="modal-ingredient__button">
