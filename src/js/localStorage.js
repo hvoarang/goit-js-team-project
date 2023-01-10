@@ -73,18 +73,18 @@ export function addToLocalStorage(KEY, obj) {
 const favIgridientFromStorage = [];
 favIgridientFromStorage.push(load('ingridient'));
 
-console.log(favIgridientFromStorage);
+// console.log(favIgridientFromStorage);
 
 export function favIngridientToLocalStorage(KEY, obj) {
-  console.log(obj);
+  // console.log(obj);
 
-  console.log(favIgridientFromStorage);
+  // console.log(favIgridientFromStorage);
   ;
   save(KEY, favIgridientFromStorage.push(obj));
 }
 
 export function addIngridientToStorage(KEY, obj) {
-  console.log(obj);
+  // console.log(obj);
   if (obj) {
     const {
       idIngredient,
@@ -103,7 +103,7 @@ export function addIngridientToStorage(KEY, obj) {
       strIngredient: strIngredient,
       strType: strType,
     };
-    console.log(OneIgridient);
+    // console.log(OneIgridient);
     // return OneIgridient;
     // });
 
