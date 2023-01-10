@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orange Cocktails</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;500;600;700;900&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./sass/utils/normalize.scss" />
+    <link rel="stylesheet" href="./sass/main.scss" />
+  </head>
+  <body class="body">
+    <!-- ❗️❗️❗️ include (подключение) html / scss ❗️❗️❗️ -->
+
+    <include src="./partials/header.html"></include>
+    <include src="./partials/hero.html"></include>
+    <include src="./partials/cocktails.html"></include>
+    <include src="./partials/pagination.html"></include>
+    <include src="./partials/footer.html"></include>
+    <include src="./partials/modal/description-cocktails.html"></include>
+    <include src="./partials/modal/description-ingridients.html"></include>
+
+    <link rel="stylesheet" href="./sass/utils/variables.scss" />
+    <!-- подключение скриптов -->
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

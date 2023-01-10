@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorite ingredients </title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;500;600;700;900&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/src/sass/main.scss" />
+    <link rel="stylesheet" href="/src/sass/utils/normalize.scss" /> 
+    <link rel="stylesheet" href="/src/sass/utils/variables.scss" />
+
+
+
+    <body class="body">
+<header class="header" id="hd">
+    <div class="container">
+        <div class="header__wrap">
+            <div class="div-container__left">
+                <a class="logo" href="/src/index.html">
+                    <p class="logo__title">COCKTAILS</p>
+                    <div class="logo__cocktails">
+                        <img class="logo__gradient" src="/src/images/svg/gradient.png" alt="" />
+                        <svg class="logo__svg" width="35" height="30">
+                            <use href="/src/images/svg/icons.svg#cocktail"></use>
+                        </svg>
+                    </div>
+
+                </a>
+
+                <div class="site-nav">
+                    <ul class="site-nav__list">
+                        <li class="site-nav__item">
+                            <a href="/src/index.html" class="site-nav__link">Home</a>
+                        </li>
+                        <li class="site-nav__item">
+                            <div class="dropdown" id="dropdowndesk">
+                                <button class="dropbtn">Favorite</button>
+                                <div id="myDropdown" class="dropdown-content dropdown-content-desk">
+                                    <a href="/src/partials/favorite-cocktails.html">Favorite cocktails</a>
+                                    <a href="/src/partials/favorite-ingridients.html">Favorite ingredients</a>
+                                </div>
+                                </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="div-container__right">
+                <form class="search-container__form" id="search-form">
+                    <button class="search-btn material-symbols-outlined" type="submit" name="submitBtn">
+                        <svg class="button__svg" width="24" height="25" fill="#FD5103">
+                            <use href="/src/images/svg/icons.svg#search"></use>
+                        </svg>
+                    </button>
+                    <input class="imput__header" type="text" name="searchQuery" autocomplete="off"
+                        placeholder="Search" />
+                </form>
+
+                <button type="button" class="js-open-menu button__menu  " aria-expanded="false"
+                    aria-controls="menu-container" fill="#202025" data-menu-button>
+                    <svg class="icon__menu" width="42" height="32">
+                        <use class="icon-cross js-close-menu" href="/src/images/svg/icons.svg#menu-close"></use>
+                        <use class="icon-menu " href="/src/images/svg/icons.svg#menu-btn"></use>
+                    </svg>
+                </button>
+
+                <!-- ****************************Mob menu*************************************** -->
+
+                <div class="backdrop-mob js-menu-container" data-modal id="menu-container">
+                    <div class="container__head">
+                        <a class="logo logo__mob-menu" href="/src/index.html">
+                            <p class="logo__title">COCKTAILS</p>
+                            <div class="logo__cocktails">
+                                <img class="logo__gradient" src="/src/images/svg/gradient.png" alt="" />
+                                <svg class="logo__svg" width="35" height="30">
+                                    <use href="/src/images/svg/icons.svg#cocktail"></use>
+                                </svg>
+                            </div>
+                        </a>
+                        <div class="checkbox__mob">
+                            <span class="checkbox__light" id="checkbox__light">Light</span>
+                            <label id="switch" class="switch">
+                                <input type="checkbox" onchange="toggleTheme()" id="slide">
+                                <span class="slider round" id="slider_round"></span>
+                            </label>
+                            <span class="checkbox__dark" id="checkbox__dark">Dark</span>
+                        </div>
+                    </div>
+
+
+                    <form class="search-container__form-mob" id="search-form">
+                        <button class="search-btn material-symbols-outlined" type="submit" name="submitBtn">
+                            <svg class="button__svg" width="24" height="25" fill="#FD5103">
+                                <use href="/src/images/svg/icons.svg#search"></use>
+                            </svg>
+                        </button>
+
+                        <input class="imput__header" type="text" name="searchQuery" autocomplete="off"
+                            placeholder="Search " />
+                    </form>
+                    <div class="mob-menu__nav">
+                        <ul class="mob-menu__list">
+                            <li class="mob-menu__item">
+                                <a href="/src/index.html" class="mob-menu__link" data-scroll="hd">Home</a>
+                            </li>
+                            <li class="mob-menu__item">
+                                <div class="dropdown" id="dropdownmob">
+                                    <button class="dropbtn dropbtn-mob ">Favorite
+                                        <svg class="button__svg" width="18" height="11" fill="black">
+                                            <use href="/src/images/svg/icons.svg#arrow-down "></use>
+                                        </svg>
+                                    </button>
+                                    <div id="myDropdownn" class="dropdown-content-mob dropdown-content">
+                                        <a href="/src/partials/favorite-cocktails.html">Favorite cocktails</a>
+                                        <a href="/src/partials/favorite-ingridients.html">Favorite ingredients</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /////////////////////////////////////////////////////////////////////// -->
+
+
+            <div class="checkbox_theme">
+
+                <span class="checkbox__light" id="checkbox__lightt">Light</span>
+                <label id="switch" class="switch">
+                    <input type="checkbox" onchange="toggleTheme()" id="slider">
+                    <span class="slider round" id="slider_roundd"></span>
+                </label>
+                <span class="checkbox__dark" id="checkbox__darkk">Dark</span>
+                
+            </div>
+        </div>
+    </div>
+
+    </div>
+</header>
