@@ -3,7 +3,7 @@ import { defArreyCard } from "./random-default-coctails";
 import {createCocktailModalCard} from './modal'
 // console.log(defArreyCard);
 export const backdropEl = document.querySelector('[data-modal-cocktail]');
-const cocktailModalCard = document.querySelector('.modal-cocktail');
+export const cocktailModalCard = document.querySelector('.modal-cocktail');
 
 
 export let cardInfo = {};
@@ -23,11 +23,11 @@ export function modalOpenClose(e) {
 }
 
 
-function backdropElToggle() {
+export function backdropElToggle() {
   backdropEl.classList.toggle('is-hidden2');
 };
 
-function clearModal(modalCard) {
+export function clearModal(modalCard) {
     modalCard.innerHTML = '';
 };
 

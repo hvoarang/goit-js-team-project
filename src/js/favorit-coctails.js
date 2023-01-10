@@ -3,10 +3,14 @@ import { ArrFetch } from './pagination';
 import obj from './localStorage';
 import { renderTextAndHeart } from './cocktails';
 import orangeHeart from '../images/svg/icons.svg';
-import { modalOpenClose } from './modalOpenClose';
+import { createCocktailModalCard } from './modal';
+import { clearModal } from './modalOpenClose';
+
+import { backdropElToggle } from './modalOpenClose';
+import { cocktailModalCard } from './modalOpenClose';
 const { save, load, remove} = obj;
 const objFromFav = load('cocktails');
-
+const backdropEl = document.querySelector('[data-modal-cocktail]');
 const butQwe = document.querySelectorAll('.qweqwe');
 const heroEl = document.querySelector('.hero');
 const cocSec = document.querySelector('.section-cocktails');
@@ -174,11 +178,16 @@ function deleteFromFavoriteSec(event) {
         addToFavoriteLocalStorage(KEYFAVORITE, cocktailFromFetch, idToRemove);
       }else
       if (event.target.innerText === 'Learn more') {
-      console.log(
-        JSON.parse(localStorage
-          .getItem('cocktails')
-        )
-      );
+         backdropEl.classList.toggle('is-hidden2');
+         clearModal(cocktailModalCard);
+        const arrFromLS = JSON.parse(localStorage.getItem('cocktails'));
+        idCard = event.target.attributes[0].value;
+       
+        const el = arrFromLS.find(obj => obj.idDrink === idCard);
+        
+            createCocktailModalCard(el);
+        const closeBtn = document.querySelector('[data-modal-cocktail-close]');
+        closeBtn.addEventListener('click', backdropElToggle);
       }
     }
   }
