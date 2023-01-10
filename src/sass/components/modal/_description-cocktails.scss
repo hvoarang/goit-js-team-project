@@ -55,6 +55,12 @@
     // min-height: 598px;
     padding: 40px 28px 28px;
   }
+
+  &__wrap-ingredients {
+    @media screen and (min-width: 768px) {
+      min-height: 240px;
+    }
+  }
 }
 
 .modal__close-btn {
@@ -123,6 +129,9 @@
   @media screen and (min-width: 768px) {
     max-width: 615px;
     margin-bottom: 40px;
+    max-height: 84px;
+    min-height: 84px;
+    overflow-y: scroll;
   }
 }
 
