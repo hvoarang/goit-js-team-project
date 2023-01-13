@@ -101,7 +101,7 @@ function takeIngredients(event) {
   fetchApi(url_ingredient_by_name, ingr)
     .then(obj => {
       сreateIngredientModalCard(obj.ingredients[0]);
- console.log(obj);
+      //  console.log(obj);
       save(INGR, obj.ingredients[0]);
     })
     .catch(err => {
@@ -123,9 +123,9 @@ function сreateIngredientModalCard(obj) {
     <h4 class="modal-ingredient__subtitle">${obj.strType}</h4>
     <hr class="modal-ingredient__line" />
     <p class="modal-ingredient__description">
-      <span class="modal-ingredient__name-span">${obj.strIngredient}</span> ${
-    obj.strDescription = 'drink'
-  }
+      <span class="modal-ingredient__name-span">${
+        obj.strIngredient
+      }</span> ${(obj.strDescription = 'drink')}
     </p>
     <ul class="modal-ingredient__list list">
       <li class="modal-ingredient__item">Type: ${obj.strType}</li>
@@ -165,6 +165,3 @@ function renderIngredientModalCard(string) {
   // console.log('ingredientModal :>> ', ingredientModal);
   ingredientModal.insertAdjacentHTML('afterbegin', string);
 }
-
-
-

@@ -9,7 +9,6 @@ import { addToLocalStorage } from './localStorage';
 const { save, load, remove } = obj;
 export const favoriteArr = [];
 
-
 const KEYFETCH = 'cocktailsFromFetch';
 const KEYFAVORITE = 'cocktails';
 
@@ -17,7 +16,7 @@ if (load('cocktails') && load('cocktails').length > 0) {
   favoriteArr.push(...load('cocktails'));
 }
 
-console.log('favoriteArr 12str', favoriteArr);
+// console.log('favoriteArr 12str', favoriteArr);
 
 export function createMarkup(obj) {
   if (!obj) {
@@ -144,7 +143,7 @@ export function createFullMarkup(obj) {
                     renderTextAndHeart('Add to', cocktail.idDrink)
                       ? 'remove'
                       : 'add'
-                  }" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+                  }" viewBox="0 0 22 26" xmlns="http://www.w3.org/2000/svg">
                     <use href="${orangeHeart}#smallHeart"></use>
                   </svg>
                 </div>
@@ -201,7 +200,7 @@ function findCocktailData(event) {
     .find(idFromStorage => idFromStorage === cocktailId)
     ? deleteFromStorageMurkup(event, cocktailId)
     : AddToStorageMurkup(event, cocktailFromFetch, cocktailId);
-  console.log(favoriteArr);
+  // console.log(favoriteArr);
 }
 
 function deleteFromStorageMurkup(event, cocktailId) {
@@ -212,7 +211,7 @@ function deleteFromStorageMurkup(event, cocktailId) {
     <svg class="product__big-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
       <use href="${orangeHeart}#bigHeart"></use>
     </svg>
-    <svg class="product__small-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+    <svg class="product__small-icon--add" viewBox="0 0 22 26" xmlns="http://www.w3.org/2000/svg">
       <use href="${orangeHeart}#smallHeart"></use>
     </svg>
   </div>`;
