@@ -8,7 +8,7 @@ import { clearModal } from './modalOpenClose';
 
 import { backdropElToggle } from './modalOpenClose';
 import { cocktailModalCard } from './modalOpenClose';
-const { save, load, remove} = obj;
+const { save, load, remove } = obj;
 const objFromFav = load('cocktails');
 const backdropEl = document.querySelector('[data-modal-cocktail]');
 const butQwe = document.querySelectorAll('.qweqwe');
@@ -45,23 +45,22 @@ function showFavorite() {
    `
   );
   if (document.querySelector('.default-text')) {
-      heroEl.style.marginBottom = '40px';
-      const favCont = document.querySelector('.favorite__list');
-      favCont.insertAdjacentHTML('afterbegin', createFullMarkup(objFromFav));
+    heroEl.style.marginBottom = '40px';
+    const favCont = document.querySelector('.favorite__list');
+    favCont.insertAdjacentHTML('afterbegin', createFullMarkup(objFromFav));
   } else {
     const textEl = document.querySelector('.default-text');
     textEl.style.display = 'block';
   }
-
 }
 function createFullMarkup(obj) {
-  if(obj){
- const textEl = document.querySelector('.default-text');
- textEl.style.display = 'none';
+  if (obj) {
+    const textEl = document.querySelector('.default-text');
+    textEl.style.display = 'none';
   }
-  return obj.map(
+  return obj
+    .map(
       cocktail =>
-
         `
         <li id="${cocktail.idDrink}" class="favorite__item">   
           <div class="favorite__wraper">
@@ -129,12 +128,12 @@ function createFullMarkup(obj) {
   `
     )
     .join('');
-    let  ButLearnMoreArrFav = document.querySelectorAll('.favorite__item');
-      console.log(ButLearnMoreArrFav);
-//       const ArrButCard = Array.from(ButLearnMoreArrFav);
-//       ArrButCard.map(but => {
-//         but.addEventListener('click', modalOpenClose);
-//       });
+  let ButLearnMoreArrFav = document.querySelectorAll('.favorite__item');
+  console.log(ButLearnMoreArrFav);
+  //       const ArrButCard = Array.from(ButLearnMoreArrFav);
+  //       ArrButCard.map(but => {
+  //         but.addEventListener('click', modalOpenClose);
+  //       });
 }
 const favBody = document.querySelector('body');
 
@@ -156,15 +155,13 @@ function deleteFromFavoriteSec(event) {
             <svg class="product__big-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
               <use href="${orangeHeart}#bigHeart"></use>
             </svg>
-            <svg class="product__small-icon--add" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+            <svg class="product__small-icon--add" viewBox="0 0 22 26" xmlns="http://www.w3.org/2000/svg">
               <use href="${orangeHeart}#smallHeart"></use>
             </svg>
           </div>`;
         remove('cocktails', idToRemove);
-      } else 
-      if (event.target.innerText == 'Add to') {
+      } else if (event.target.innerText == 'Add to') {
         const idToRemove = event.target.attributes[0].nodeValue;
-       
 
         event.target.innerHTML = `Remove
         <div class="product__heart-wraper">
@@ -176,16 +173,15 @@ function deleteFromFavoriteSec(event) {
           </svg>
         </div>`;
         addToFavoriteLocalStorage(KEYFAVORITE, cocktailFromFetch, idToRemove);
-      }else
-      if (event.target.innerText === 'Learn more') {
-         backdropEl.classList.toggle('is-hidden2');
-         clearModal(cocktailModalCard);
+      } else if (event.target.innerText === 'Learn more') {
+        backdropEl.classList.toggle('is-hidden2');
+        clearModal(cocktailModalCard);
         const arrFromLS = JSON.parse(localStorage.getItem('cocktails'));
         idCard = event.target.attributes[0].value;
-       
+
         const el = arrFromLS.find(obj => obj.idDrink === idCard);
-        
-            createCocktailModalCard(el);
+
+        createCocktailModalCard(el);
         const closeBtn = document.querySelector('[data-modal-cocktail-close]');
         closeBtn.addEventListener('click', backdropElToggle);
       }
